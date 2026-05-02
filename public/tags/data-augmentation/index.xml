@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Augmentation on Ruchita Vehale</title>
+    <link>http://localhost:1313/tags/data-augmentation/</link>
+    <description>Recent content in Data Augmentation on Ruchita Vehale</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <atom:link href="http://localhost:1313/tags/data-augmentation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CIFAR-10 Deep Learning Classifier</title>
+      <link>http://localhost:1313/projects/cifar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/cifar/</guid>
+      <description>CNN-based image classification pipeline on CIFAR-10 with visual analysis dashboard. Data augmentation, batch norm, dropout.</description>
+    </item>
+  </channel>
+</rss>

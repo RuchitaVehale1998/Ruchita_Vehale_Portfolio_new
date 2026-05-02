@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Publications on Ruchita Vehale</title>
+    <link>http://localhost:1313/publications/</link>
+    <description>Recent content in Publications on Ruchita Vehale</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <atom:link href="http://localhost:1313/publications/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Binder Jet 3D Printed Ceramic Substrate for 5G Patch Antenna</title>
+      <link>http://localhost:1313/publications/p1-5g-antenna/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publications/p1-5g-antenna/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Comparative Analysis of Conventional and Deep Learning Algorithms for Apple Detection</title>
+      <link>http://localhost:1313/publications/p2-apple-detection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publications/p2-apple-detection/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Preparation of Phase-Pure MgTiO₃ Microwave Dielectric Ceramics for GPS Antenna Application</title>
+      <link>http://localhost:1313/publications/p3-mgtio3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publications/p3-mgtio3/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Correction: Preparation of Phase-Pure MgTiO₃ Microwave Dielectric Ceramics for GPS Antenna Application</title>
+      <link>http://localhost:1313/publications/p4-mgtio3-correction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publications/p4-mgtio3-correction/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ABS-ZnO Dielectric Nanocomposite Filament and 3D Printed Microstrip Patch Antenna GPS Module</title>
+      <link>http://localhost:1313/publications/p5-abs-zno/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publications/p5-abs-zno/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hierarchical Quantum-Accelerated Federated Learning for Scalable, Auditable Cross-Enterprise AI Governance</title>
+      <link>http://localhost:1313/publications/p6-federated-ai/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/publications/p6-federated-ai/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Ruchita Vehale</title>
+    <link>http://localhost:1313/tags/python/</link>
+    <description>Recent content in Python on Ruchita Vehale</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 01 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Associate Software Engineer (R&amp;D)</title>
+      <link>http://localhost:1313/experience/degould/</link>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/experience/degould/</guid>
+      <description>&lt;p&gt;Designed and deployed &lt;strong&gt;image segmentation pipelines&lt;/strong&gt; to precisely isolate defect regions across complex vehicle surfaces, improving detection accuracy and repeatability in production.&lt;/p&gt;&#xA;&lt;p&gt;Built a &lt;strong&gt;Blender plugin&lt;/strong&gt; automating 3D model processing workflows. A 2-day manual task compressed to under 1 hour (16× improvement), deployed in live inspection pipelines.&lt;/p&gt;&#xA;&lt;p&gt;Implemented &lt;strong&gt;3D model + 2D image hybrid fusion&lt;/strong&gt; for pose estimation, significantly reducing reliance on expensive LiDAR hardware while maintaining accuracy across inspection stations.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Dynamic Visual SLAM with YOLOv8 &#43; DeepSORT &#43; MiDaS</title>
+      <link>http://localhost:1313/projects/dynamic-slam/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/dynamic-slam/</guid>
+      <description>Real-time SLAM that filters dynamic objects to prevent map corruption, enabling reliable localisation in real-world environments with people and vehicles.</description>
+    </item>
+    <item>
+      <title>Jr. Drone System Engineer</title>
+      <link>http://localhost:1313/experience/hvn-engineer/</link>
+      <pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/experience/hvn-engineer/</guid>
+      <description>&lt;p&gt;Designed and implemented a &lt;strong&gt;reverse landing system&lt;/strong&gt; using GPS + Raspberry Pi camera fusion, enabling precise autonomous landings in dynamic conditions.&lt;/p&gt;&#xA;&lt;p&gt;Developed &lt;strong&gt;stereo camera-based depth estimation&lt;/strong&gt; to replace monocular approaches, providing sub-metre altitude control for low-altitude navigation.&lt;/p&gt;&#xA;&lt;p&gt;Built &lt;strong&gt;LiDAR + camera sensor fusion&lt;/strong&gt; pipeline for robust drone detection and accurate landing zone identification in cluttered environments.&lt;/p&gt;&#xA;&lt;p&gt;Integrated &lt;strong&gt;MAVLink protocol and Wi-Fi communication&lt;/strong&gt; for seamless ground-to-drone control and real-time telemetry transmission.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Autonomous Drone Landing via Multi-Sensor Fusion</title>
+      <link>http://localhost:1313/projects/drone-landing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/drone-landing/</guid>
+      <description>Precision landing system fusing GPS, Raspberry Pi camera, LiDAR and stereo depth, deployed at HVN Labs. Handles environments where GPS alone is insufficient.</description>
+    </item>
+    <item>
+      <title>Hybrid Apple Detection: YOLOv8 vs Traditional CV</title>
+      <link>http://localhost:1313/projects/apple-detection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/apple-detection/</guid>
+      <description>Deep learning benchmark study: YOLOv8 trained for 1,500 epochs against traditional CV methods. Published in SSRN Electronic Journal.</description>
+    </item>
+    <item>
+      <title>AI Dungeon Maze: Supervised &#43; Unsupervised &#43; RL</title>
+      <link>http://localhost:1313/projects/ai-maze/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/ai-maze/</guid>
+      <description>All three ML paradigms integrated on a single D&amp;amp;D maze dataset, deployed as a playable Pygame environment.</description>
+    </item>
+    <item>
+      <title>CIFAR-10 Deep Learning Classifier</title>
+      <link>http://localhost:1313/projects/cifar/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/cifar/</guid>
+      <description>CNN-based image classification pipeline on CIFAR-10 with visual analysis dashboard. Data augmentation, batch norm, dropout.</description>
+    </item>
+  </channel>
+</rss>

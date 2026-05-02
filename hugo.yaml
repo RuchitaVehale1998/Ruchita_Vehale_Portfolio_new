@@ -1,0 +1,155 @@
+baseURL: "https://ruchitavehale.netlify.app/"
+languageCode: "en-gb"
+title: "Ruchita Vehale"
+theme: "rkv"
+
+params:
+  name: "Ruchita Kailas Vehale"
+  shortname: "Ruchita Vehale"
+  initials: "RV"
+  role: "Robotics & Computer Vision Engineer"
+  location: "Bristol, UK"
+  email: "ruchita.uob.2024@gmail.com"
+  phone: "+44 7818 970209"
+  linkedin: "https://www.linkedin.com/in/ruchita-vehale"
+  github: ""
+  resumeFile: "/files/Ruchita_Vehale_Resume.pdf"
+  openToWork: true
+  openToWorkLabel: "Available · Bristol, UK"
+
+  # Hero
+  headline1: "Ruchita Vehale"
+  headline2: ""
+  heroDesc: "Robotics & Computer Vision Engineer specialising in SLAM, machine learning, computer vision, and AI. MSc Robotics, University of Bristol."
+
+  # Hero stat strip
+  stats:
+    - value: "6+"
+      label: "Publications"
+    - value: "9.43"
+      label: "MTech GPA"
+    - value: "8+"
+      label: "Systems Built"
+    - value: "DRDO"
+      label: "Defence Research"
+
+  # About
+  aboutP1: "I'm a robotics engineer working at the intersection of machine learning, computer vision, and autonomous systems - across the full stack, from sensor calibration and SLAM pipelines to training and deploying ML models in real environments."
+  aboutP2: "My MSc dissertation at Bristol built a dynamic visual SLAM system integrating YOLOv8, DeepSORT, and MiDaS with ORB-SLAM, achieving robust localisation and 3D mapping in environments with moving objects. I also hold six peer-reviewed publications (Wiley, RSC, SSRN) across antenna design, deep learning, and federated AI governance."
+  aboutP3: "Previously Associate Software Engineer at DeGould, Jr. Drone Systems Engineer at HVN Labs, Research Fellow at CMET, and Research Intern at HEMRL, DRDO - India's defence research organisation."
+
+  # Impact — 6 metrics, 3-column grid
+  impact:
+    - num: "16×"
+      label: "Faster"
+      context: "Blender pipeline at DeGould — 2 days compressed to under 1 hour"
+    - num: "98.87%"
+      label: "Detection accuracy"
+      context: "YOLOv8 hybrid apple detection, 1500 epochs — published research"
+    - num: "97.93%"
+      label: "Error reduction"
+      context: "Sensor fusion, leader-follower robot — published results"
+    - num: "6"
+      label: "Publications"
+      context: "Wiley, RSC, SSRN — antenna ceramics to federated AI"
+    - num: "20+"
+      label: "Datasets validated"
+      context: "DRDO velocity estimation via projective geometry"
+    - num: "Dynamic"
+      label: "SLAM deployed"
+      context: "ORB-SLAM + YOLOv8 + DeepSORT in real environments"
+
+  # Expertise — text glyphs, no emoji, no bars
+  expertise:
+    - glyph: "ML"
+      title: "Machine Learning"
+      desc: "YOLOv8, CNNs, Reinforcement Learning, Federated Learning. Training to inference in production."
+    - glyph: "AI"
+      title: "Artificial Intelligence"
+      desc: "Deep learning pipelines, real-time inference, AI governance architecture and auditing."
+    - glyph: "CV"
+      title: "Computer Vision"
+      desc: "Object detection, multi-object tracking, depth estimation, stereo vision, image segmentation."
+    - glyph: "SL"
+      title: "SLAM & Navigation"
+      desc: "ORB-SLAM with dynamic object filtering, Open3D point cloud processing, autonomous path planning."
+    - glyph: "AS"
+      title: "Autonomous Systems"
+      desc: "GPS + LiDAR + camera fusion, MAVLink integration, coaxial drone R&D, autonomous landing."
+    - glyph: "SF"
+      title: "Sensor Fusion"
+      desc: "Multi-modal perception: LiDAR, RGB-D, GPS, IMU, stereo cameras for robust real-world operation."
+
+  education:
+    - degree: "MSc Robotics"
+      school: "University of Bristol"
+      date: "2024 – 2025"
+      note: ""
+      logo: "/images/logo-bristol.png"
+    - degree: "MTech Electronics & Electrical"
+      school: "Savitribai Phule Pune University"
+      date: "2020 – 2022"
+      note: "Gold Medal · GPA 9.43/10"
+      logo: "/images/logo-sppu.png"
+    - degree: "BE Electronics Engineering"
+      school: "AISSMS College of Engineering"
+      date: "2016 – 2020"
+      note: "GPA 8.31/10"
+      logo: "/images/logo-aissms.png"
+
+  # Skills — chips only, no percentages
+  skills:
+    programming:
+      - "Python"
+      - "MATLAB"
+      - "C / C++"
+      - "Embedded C"
+      - "Verilog / FPGA"
+    ml_ai:
+      - "YOLOv8"
+      - "Keras / TensorFlow"
+      - "Scikit-learn"
+      - "PyTorch"
+      - "Reinforcement Learning"
+      - "Federated Learning"
+    cv_slam:
+      - "OpenCV"
+      - "DeepSORT"
+      - "ORB-SLAM"
+      - "MiDaS"
+      - "Open3D"
+      - "Stereo Vision"
+    tools:
+      - "ROS"
+      - "MAVLink"
+      - "Raspberry Pi"
+      - "Blender API"
+      - "AWS"
+      - "Git"
+      - "SolidWorks"
+      - "AutoCAD"
+      - "CST Studio"
+      - "NumPy / SciPy"
+      - "Pygame"
+
+  achievements:
+    - title: "NCC Cadet Sergeant"
+      org: "3 Mah Air Squadron"
+      detail: "Led 500 cadets · B & C Certificates · Best Cadet award"
+    - title: "Gold Medal, Rifle Shooting"
+      org: "NCC National Camp"
+      detail: "0.22 Rifle, precision marksmanship"
+    - title: "Robotics Competitions"
+      org: "Robotics & Drone Club"
+      detail: "Inter-college and national level"
+    - title: "Harvard ML Course"
+      org: "Harvard University"
+      detail: "Machine Learning & AI, ongoing"
+    - title: "Multilingual"
+      org: "Languages"
+      detail: "English · Hindi · Marathi · Japanese N4/N5"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

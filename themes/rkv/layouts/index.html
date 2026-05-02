@@ -1,0 +1,435 @@
+{{ define "main" }}
+{{ $p := .Site.Params }}
+
+{{/* ══════════════════ HERO ══════════════════ */}}
+<section id="hero" class="z1">
+
+  <div class="hero-content">
+    {{ if $p.openToWork }}
+    <div class="avail">
+      <span class="avail-dot"></span>
+      {{ $p.openToWorkLabel }}
+    </div>
+    {{ end }}
+
+    <h1 class="hero-h">
+      {{ $p.headline1 }}{{ with $p.headline2 }}<br><em>{{ . }}</em>{{ end }}
+    </h1>
+
+    <div class="hero-role">{{ $p.role }}</div>
+
+    <p class="hero-desc">{{ $p.heroDesc }}</p>
+
+    <!-- Key stats strip -->
+    <div class="hero-stats">
+      {{ range $p.stats }}
+      <div class="hs-item">
+        <div class="hs-val">{{ .value }}</div>
+        <div class="hs-lbl">{{ .label }}</div>
+      </div>
+      {{ end }}
+    </div>
+
+    <div class="hero-ctas">
+      <a href="#projects" class="btn btn-a"
+         onclick="event.preventDefault();document.getElementById('projects').scrollIntoView({behavior:'smooth'})">
+        View work
+      </a>
+      {{ with $p.resumeFile }}
+      <a href="{{ . }}" download class="btn btn-c">↓ Download CV</a>
+      {{ end }}
+      <a href="#contact" class="btn btn-b"
+         onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        Contact
+      </a>
+    </div>
+  </div>
+
+  <!-- Bottom meta strip -->
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <div class="hmi-key">Current Role</div>
+      <div class="hmi-val">Associate Software Engineer · DeGould Ltd</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hmi-key">Education</div>
+      <div class="hmi-val">MSc Robotics · University of Bristol</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hmi-key">Location</div>
+      <div class="hmi-val">Bristol, United Kingdom</div>
+    </div>
+    <div class="hero-meta-item">
+      <div class="hmi-key">Focus</div>
+      <div class="hmi-val">SLAM · CV · ML · Sensor Fusion</div>
+    </div>
+  </div>
+</section>
+
+{{/* ══════════════════ ABOUT ══════════════════ */}}
+<section id="about" class="z1 alt pad">
+  <div class="w">
+    <div class="label rv">About</div>
+    <div class="about-grid">
+      <div class="about-text rv">
+        <p>{{ $p.aboutP1 }}</p>
+        <p>{{ $p.aboutP2 }}</p>
+        <p>{{ $p.aboutP3 }}</p>
+        <div class="about-tags">
+          <span class="atag">Visual SLAM</span>
+          <span class="atag">Deep Learning</span>
+          <span class="atag">Object Detection</span>
+          <span class="atag">Sensor Fusion</span>
+          <span class="atag">Autonomous Navigation</span>
+          <span class="atag">3D Vision</span>
+          <span class="atag">ROS</span>
+          <span class="atag">MAVLink</span>
+        </div>
+      </div>
+      <div class="rv d1">
+        <div class="label" style="margin-bottom:24px;">Education</div>
+        <div class="edu-stack">
+          {{ range $p.education }}
+          <div class="edu-item">
+            <div class="edu-header">
+              {{ with .logo }}<img src="{{ . }}" alt="University logo" class="edu-logo">{{ end }}
+              <div class="edu-info">
+                <div class="edu-deg">{{ .degree }}</div>
+                <div class="edu-sch">{{ .school }}</div>
+                <div class="edu-date">{{ .date }}</div>
+                {{ with .note }}<div class="edu-note">{{ . }}</div>{{ end }}
+              </div>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ══════════════════ EXPERTISE ══════════════════ */}}
+<section id="expertise" class="z1 alt pad">
+  <div class="w">
+    <div class="label rv">Expertise</div>
+    <h2 class="display rv">Domains I've built<br><em>depth in.</em></h2>
+    <div class="exp-grid">
+      {{ range $p.expertise }}
+      <div class="ex-card rv">
+        <div class="ex-glyph">{{ .glyph }}</div>
+        <div class="ex-title">{{ .title }}</div>
+        <div class="ex-desc">{{ .desc }}</div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* ══════════════════ EXPERIENCE ══════════════════ */}}
+<section id="experience" class="z1 pad">
+  <div class="w">
+    <div class="label rv">Engineering experience</div>
+    <h2 class="display rv">Work that<br><em>shipped.</em></h2>
+
+    {{ $jobs := where .Site.RegularPages "Section" "experience" }}
+    {{ $jobs  = sort $jobs "Params.weight" }}
+
+    {{/* Collect unique company slugs in sorted order */}}
+    {{ $slugOrder := slice }}
+    {{ range $jobs }}
+      {{ if not (in $slugOrder .Params.companySlug) }}
+        {{ $slugOrder = $slugOrder | append .Params.companySlug }}
+      {{ end }}
+    {{ end }}
+
+    <div class="exp-timeline rv">
+      {{ range $slugOrder }}
+        {{ $slug := . }}
+
+        {{/* Gather all jobs for this company */}}
+        {{ $coJobs := slice }}
+        {{ range $jobs }}
+          {{ if eq .Params.companySlug $slug }}
+            {{ $coJobs = $coJobs | append . }}
+          {{ end }}
+        {{ end }}
+
+        {{ $first := index $coJobs 0 }}
+        {{ $last  := index $coJobs (sub (len $coJobs) 1) }}
+
+        <div class="exp-company">
+
+          <!-- Company header: logo + name + date span -->
+          <div class="exp-co-header">
+            {{ with $first.Params.logourl }}
+            <img src="{{ . }}" alt="{{ $first.Params.company }}" class="exp-co-logo" loading="lazy">
+            {{ end }}
+            <div class="exp-co-info">
+              <div class="exp-co-name">{{ $first.Params.company }}</div>
+              <div class="exp-co-meta">
+                {{ $first.Params.location }}
+                &nbsp;·&nbsp;
+                {{ dateFormat "Jan 2006" $last.Date }} – {{ $first.Params.enddate }}
+              </div>
+            </div>
+            {{ if gt (len $coJobs) 1 }}
+            <div class="exp-co-badge">{{ len $coJobs }} roles</div>
+            {{ end }}
+          </div>
+
+          <!-- Roles -->
+          <div class="exp-roles">
+            {{ range $coJobs }}
+            <div class="exp-role">
+              <div class="exp-role-grid">
+
+                <!-- Left: role title, dates, problem, bullets -->
+                <div>
+                  <div class="ep-role">{{ .Title }}</div>
+                  <div class="ep-meta">{{ dateFormat "Jan 2006" .Date }} – {{ .Params.enddate }}</div>
+                  {{ with .Params.problem }}
+                  <div class="ep-prob">
+                    <div class="ep-prob-lbl">Problem solved</div>
+                    <p>{{ . }}</p>
+                  </div>
+                  {{ end }}
+                  <div class="ep-body">{{ .Content }}</div>
+                </div>
+
+                <!-- Right: impact numbers + stack -->
+                <div>
+                  {{ with .Params.impact }}
+                  <div class="ep-imp">
+                    {{ range . }}
+                    <div class="eib">
+                      <div class="eib-v">{{ .value }}</div>
+                      <div class="eib-k">{{ .label }}</div>
+                    </div>
+                    {{ end }}
+                  </div>
+                  {{ end }}
+                  {{ with .Params.tags }}
+                  <div class="ep-stk-lbl">Stack</div>
+                  <div class="ep-tags">
+                    {{ range . }}<span class="etag">{{ . }}</span>{{ end }}
+                  </div>
+                  {{ end }}
+                </div>
+
+              </div>
+            </div>
+            {{ end }}
+          </div>
+
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* ══════════════════ PROJECTS ══════════════════ */}}
+<section id="projects" class="z1 alt pad">
+  <div class="w">
+    <div class="label rv">Applied work</div>
+    <h2 class="display rv">Systems I've<br><em>built.</em></h2>
+
+    <div class="proj-filter rv">
+      <button class="pf on" onclick="filterProj('all',this)">All</button>
+      <button class="pf" onclick="filterProj('ml',this)">Machine Learning</button>
+      <button class="pf" onclick="filterProj('cv',this)">Computer Vision</button>
+      <button class="pf" onclick="filterProj('slam',this)">SLAM</button>
+      <button class="pf" onclick="filterProj('drone',this)">Drones</button>
+      <button class="pf" onclick="filterProj('robot',this)">Robotics</button>
+    </div>
+
+    {{ $projs := where .Site.RegularPages "Section" "projects" }}
+    {{ $projs  = sort $projs "Params.weight" }}
+
+    <div class="proj-grid rv">
+      {{ range $i,$proj := $projs }}
+      {{ $filterStr := delimit $proj.Params.filter "," }}
+      {{ $impJson   := $proj.Params.impact | jsonify }}
+      {{ $tagsStr   := delimit $proj.Params.tags "," }}
+      {{ $feat := and (isset $proj.Params "featured") $proj.Params.featured }}
+
+      <div class="proj-card"
+           data-filter="{{ $filterStr }}"
+           data-category="{{ $proj.Params.category }}"
+           data-title="{{ $proj.Title }}"
+           data-problem="{{ $proj.Params.problem | htmlEscape }}"
+           data-approach="{{ $proj.Params.approach | htmlEscape }}"
+           data-result="{{ $proj.Params.result }}"
+           data-impact='{{ $impJson }}'
+           data-tags="{{ $tagsStr }}"
+           onclick="openModal(this)">
+
+        <div class="proj-idx">
+          <span>{{ $proj.Params.category }} · {{ printf "%02d" (add $i 1) }}</span>
+          <span class="proj-idx-arrow">↗</span>
+        </div>
+
+        <div class="proj-cat">{{ $proj.Params.category }}</div>
+        <div class="proj-title">{{ $proj.Title }}</div>
+        <div class="proj-sum">{{ $proj.Params.summary }}</div>
+        <div class="proj-result">↳ {{ $proj.Params.result }}</div>
+        <div class="proj-stags">
+          {{ range first 4 $proj.Params.tags }}
+          <span class="proj-stag">{{ . }}</span>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* MODAL */}}
+<div class="mo" id="mo" onclick="closeModalBg(event)">
+  <div class="mo-wrap">
+    <button class="mo-close" onclick="closeModalBtn()">&#215;</button>
+    <div class="mo-pipe" id="mo-pipe"></div>
+    <div class="mo-body">
+      <div class="mo-cat" id="mo-cat"></div>
+      <div class="mo-title" id="mo-title"></div>
+      <div class="mo-cols">
+        <div>
+          <div class="mo-lbl">Problem</div>
+          <div class="mo-txt" id="mo-prob"></div>
+        </div>
+        <div>
+          <div class="mo-lbl">System design &amp; approach</div>
+          <div class="mo-txt" id="mo-app"></div>
+        </div>
+      </div>
+      <div class="mo-lbl">Engineering impact</div>
+      <div class="mo-imp" id="mo-imp"></div>
+      <div class="mo-res" id="mo-res"></div>
+      <div class="mo-lbl">Tech stack</div>
+      <div class="mo-tags" id="mo-tags"></div>
+    </div>
+  </div>
+</div>
+
+{{/* ══════════════════ PUBLICATIONS ══════════════════ */}}
+<section id="publications" class="z1 pad">
+  <div class="w">
+    <div class="label rv">Research</div>
+    <h2 class="display rv">Published<br><em>work.</em></h2>
+
+    {{ $pubs := where .Site.RegularPages "Section" "publications" }}
+    {{ $pubs  = sort $pubs "Params.weight" }}
+
+    <div class="pub-list rv">
+      {{ range $i,$pub := $pubs }}
+      <a class="pub-card" href="{{ $pub.Params.paperurl }}" target="_blank" rel="noopener">
+        <div class="pub-n">{{ printf "%02d" (add $i 1) }}</div>
+        <div style="flex:1">
+          <div class="pub-t">{{ $pub.Title }}</div>
+          <div class="pub-m">
+            <span class="pub-j">{{ $pub.Params.journal }}</span>
+            <span class="pub-b {{ $pub.Params.type }}">{{ $pub.Params.type }}</span>
+          </div>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* ══════════════════ SKILLS ══════════════════ */}}
+<section id="skills" class="z1 alt pad">
+  <div class="w">
+    <div class="label rv">Technical stack</div>
+    <h2 class="display rv">Skills &amp;<br><em>tools.</em></h2>
+    <div class="sk-wrap">
+      <div class="sk-group rv">
+        <div class="sk-g-title">Programming Languages</div>
+        <div class="sk-chips">
+          {{ range $p.skills.programming }}
+          <span class="sk-chip">{{ . }}</span>
+          {{ end }}
+        </div>
+      </div>
+      <div class="sk-group rv d1">
+        <div class="sk-g-title">Machine Learning &amp; AI</div>
+        <div class="sk-chips">
+          {{ range $p.skills.ml_ai }}
+          <span class="sk-chip">{{ . }}</span>
+          {{ end }}
+        </div>
+      </div>
+      <div class="sk-group rv d2">
+        <div class="sk-g-title">Computer Vision &amp; SLAM</div>
+        <div class="sk-chips">
+          {{ range $p.skills.cv_slam }}
+          <span class="sk-chip">{{ . }}</span>
+          {{ end }}
+        </div>
+      </div>
+      <div class="sk-group rv d3">
+        <div class="sk-g-title">Tools &amp; Platforms</div>
+        <div class="sk-chips">
+          {{ range $p.skills.tools }}
+          <span class="sk-chip">{{ . }}</span>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{/* ══════════════════ ACHIEVEMENTS ══════════════════ */}}
+<section id="achievements" class="z1 pad">
+  <div class="w">
+    <div class="label rv">Recognition</div>
+    <h2 class="display rv">Leadership &amp;<br><em>awards.</em></h2>
+    <div class="ach-list rv">
+      {{ range $p.achievements }}
+      <div class="ach-item">
+        <div class="ach-title">{{ .title }}</div>
+        <div class="ach-org">{{ .org }}</div>
+        <div class="ach-detail">{{ .detail }}</div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{/* ══════════════════ CONTACT ══════════════════ */}}
+<section id="contact" class="z1 alt pad">
+  <div class="w">
+    <div class="label rv">Contact</div>
+    <h2 class="display rv">Let's build<br><em>something real.</em></h2>
+    <div class="contact-solo rv">
+      <p class="contact-intro">I'm open to roles in Robotics, Machine Learning, Computer Vision, and AI. If you're working on autonomous systems, perception, or hard engineering problems — reach out directly.</p>
+      <div class="ct-links-grid">
+        <a href="mailto:{{ $p.email }}" class="clink-card">
+          <div class="clink-card-ic">✉</div>
+          <div class="clink-card-key">Email</div>
+          <div class="clink-card-val">{{ $p.email }}</div>
+        </a>
+        {{ with $p.linkedin }}
+        <a href="{{ . }}" target="_blank" rel="noopener" class="clink-card">
+          <div class="clink-card-ic">in</div>
+          <div class="clink-card-key">LinkedIn</div>
+          <div class="clink-card-val">linkedin.com/in/ruchita-vehale</div>
+        </a>
+        {{ end }}
+        <a href="tel:{{ $p.phone }}" class="clink-card">
+          <div class="clink-card-ic">☎</div>
+          <div class="clink-card-key">Phone (UK)</div>
+          <div class="clink-card-val">{{ $p.phone }}</div>
+        </a>
+        {{ with $p.resumeFile }}
+        <a href="{{ . }}" download class="clink-card">
+          <div class="clink-card-ic">↓</div>
+          <div class="clink-card-key">CV / Resume</div>
+          <div class="clink-card-val">Download PDF</div>
+        </a>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

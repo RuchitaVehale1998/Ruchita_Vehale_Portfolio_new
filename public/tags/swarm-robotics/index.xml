@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Swarm Robotics on Ruchita Vehale</title>
+    <link>http://localhost:1313/tags/swarm-robotics/</link>
+    <description>Recent content in Swarm Robotics on Ruchita Vehale</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <atom:link href="http://localhost:1313/tags/swarm-robotics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Leader-Follower Robot with QTR-RC Sensor Fusion</title>
+      <link>http://localhost:1313/projects/leader-follower/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/leader-follower/</guid>
+      <description>PID-controlled multi-robot coordination with dynamic speed adaptation: 97.93% reduction in tracking errors. Research paper submitted.</description>
+    </item>
+  </channel>
+</rss>

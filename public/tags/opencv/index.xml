@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OpenCV on Ruchita Vehale</title>
+    <link>http://localhost:1313/tags/opencv/</link>
+    <description>Recent content in OpenCV on Ruchita Vehale</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sun, 01 Jun 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/opencv/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jr. Drone System Engineer</title>
+      <link>http://localhost:1313/experience/hvn-engineer/</link>
+      <pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/experience/hvn-engineer/</guid>
+      <description>&lt;p&gt;Designed and implemented a &lt;strong&gt;reverse landing system&lt;/strong&gt; using GPS + Raspberry Pi camera fusion, enabling precise autonomous landings in dynamic conditions.&lt;/p&gt;&#xA;&lt;p&gt;Developed &lt;strong&gt;stereo camera-based depth estimation&lt;/strong&gt; to replace monocular approaches, providing sub-metre altitude control for low-altitude navigation.&lt;/p&gt;&#xA;&lt;p&gt;Built &lt;strong&gt;LiDAR + camera sensor fusion&lt;/strong&gt; pipeline for robust drone detection and accurate landing zone identification in cluttered environments.&lt;/p&gt;&#xA;&lt;p&gt;Integrated &lt;strong&gt;MAVLink protocol and Wi-Fi communication&lt;/strong&gt; for seamless ground-to-drone control and real-time telemetry transmission.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Autonomous Drone Landing via Multi-Sensor Fusion</title>
+      <link>http://localhost:1313/projects/drone-landing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/drone-landing/</guid>
+      <description>Precision landing system fusing GPS, Raspberry Pi camera, LiDAR and stereo depth, deployed at HVN Labs. Handles environments where GPS alone is insufficient.</description>
+    </item>
+    <item>
+      <title>Hybrid Apple Detection: YOLOv8 vs Traditional CV</title>
+      <link>http://localhost:1313/projects/apple-detection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/apple-detection/</guid>
+      <description>Deep learning benchmark study: YOLOv8 trained for 1,500 epochs against traditional CV methods. Published in SSRN Electronic Journal.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FDM on Ruchita Vehale</title>
+    <link>http://localhost:1313/tags/fdm/</link>
+    <description>Recent content in FDM on Ruchita Vehale</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Sat, 01 Apr 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/fdm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Research Fellow</title>
+      <link>http://localhost:1313/experience/cmet/</link>
+      <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/experience/cmet/</guid>
+      <description>&lt;p&gt;Optimised antenna designs using CST Microwave Studio, achieving &lt;strong&gt;20% size reduction&lt;/strong&gt; and &lt;strong&gt;70% accuracy improvement&lt;/strong&gt; for GPS, Wi-Fi, Bluetooth and 5G frequencies.&lt;/p&gt;&#xA;&lt;p&gt;Operated &lt;strong&gt;3D printers (FDM, Inkjet) and characterisation tools (XRD, VNA)&lt;/strong&gt; for antenna prototyping and dielectric material testing.&lt;/p&gt;&#xA;&lt;p&gt;Fabricated a &lt;strong&gt;biodegradable-ink strain sensor&lt;/strong&gt; via 3D inkjet printing - a novel approach to sustainable flexible electronics with defence and wearable applications.&lt;/p&gt;&#xA;&lt;p&gt;Research led to &lt;strong&gt;3 journal publications&lt;/strong&gt; in Wiley and RSC journals, including novel dielectric nanocomposite materials for microwave applications.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

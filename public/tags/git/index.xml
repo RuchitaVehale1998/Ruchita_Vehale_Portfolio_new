@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Ruchita Vehale</title>
+    <link>http://localhost:1313/tags/git/</link>
+    <description>Recent content in Git on Ruchita Vehale</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <lastBuildDate>Wed, 01 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Associate Software Engineer (R&amp;D)</title>
+      <link>http://localhost:1313/experience/degould/</link>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/experience/degould/</guid>
+      <description>&lt;p&gt;Designed and deployed &lt;strong&gt;image segmentation pipelines&lt;/strong&gt; to precisely isolate defect regions across complex vehicle surfaces, improving detection accuracy and repeatability in production.&lt;/p&gt;&#xA;&lt;p&gt;Built a &lt;strong&gt;Blender plugin&lt;/strong&gt; automating 3D model processing workflows. A 2-day manual task compressed to under 1 hour (16× improvement), deployed in live inspection pipelines.&lt;/p&gt;&#xA;&lt;p&gt;Implemented &lt;strong&gt;3D model + 2D image hybrid fusion&lt;/strong&gt; for pose estimation, significantly reducing reliance on expensive LiDAR hardware while maintaining accuracy across inspection stations.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

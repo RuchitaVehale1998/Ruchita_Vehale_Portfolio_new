@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Image Segmentation on Ruchita Vehale</title>
+    <link>http://localhost:1313/tags/image-segmentation/</link>
+    <description>Recent content in Image Segmentation on Ruchita Vehale</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <atom:link href="http://localhost:1313/tags/image-segmentation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hybrid Apple Detection: YOLOv8 vs Traditional CV</title>
+      <link>http://localhost:1313/projects/apple-detection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/apple-detection/</guid>
+      <description>Deep learning benchmark study: YOLOv8 trained for 1,500 epochs against traditional CV methods. Published in SSRN Electronic Journal.</description>
+    </item>
+  </channel>
+</rss>

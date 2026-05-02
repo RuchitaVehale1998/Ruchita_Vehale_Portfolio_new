@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ .Site.Params.role }} · {{ .Site.Params.heroDesc }}">
+  <meta property="og:title" content="{{ .Site.Params.shortname }} — {{ .Site.Params.role }}">
+  <meta property="og:description" content="{{ .Site.Params.heroDesc }}">
+  <title>{{ .Site.Params.shortname }} — {{ .Site.Params.role }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- Easter egg elements -->
+<div class="konami-flash"></div>
+<div class="konami-msg">↑↑↓↓←→←→BA — nice.</div>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="nav-mark" title="Triple-click me">{{ .Site.Params.initials }}</div>
+      {{ .Site.Params.shortname }}
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Work</a></li>
+      <li><a href="#publications">Research</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-end">
+      {{ with .Site.Params.linkedin }}
+      <a href="{{ . }}" target="_blank" rel="noopener" class="nav-li">in</a>
+      {{ end }}
+      {{ with .Site.Params.resumeFile }}
+      <a href="{{ . }}" download class="nav-cv nav-cv-gold">↓&thinsp;CV</a>
+      {{ end }}
+      <a href="#contact" class="nav-hire"
+         onclick="event.preventDefault();document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+        Get in touch
+      </a>
+    </div>
+  </div>
+</nav>
+
+{{ block "main" . }}{{ end }}
+
+<footer>
+  <div class="fl">{{ .Site.Params.shortname }} &nbsp;·&nbsp; <b>{{ .Site.Params.role }}</b> &nbsp;·&nbsp; Bristol, UK</div>
+  <div class="fr">
+    {{ with .Site.Params.linkedin }}<a href="{{ . }}" target="_blank" rel="noopener">LinkedIn</a>{{ end }}
+    <a href="mailto:{{ .Site.Params.email }}">Email</a>
+    {{ with .Site.Params.resumeFile }}<a href="{{ . }}" download>CV</a>{{ end }}
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Supervised Learning on Ruchita Vehale</title>
+    <link>http://localhost:1313/tags/supervised-learning/</link>
+    <description>Recent content in Supervised Learning on Ruchita Vehale</description>
+    <generator>Hugo</generator>
+    <language>en-gb</language>
+    <atom:link href="http://localhost:1313/tags/supervised-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI Dungeon Maze: Supervised &#43; Unsupervised &#43; RL</title>
+      <link>http://localhost:1313/projects/ai-maze/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/ai-maze/</guid>
+      <description>All three ML paradigms integrated on a single D&amp;amp;D maze dataset, deployed as a playable Pygame environment.</description>
+    </item>
+  </channel>
+</rss>

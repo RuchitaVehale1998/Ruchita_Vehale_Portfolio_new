@@ -7,7 +7,7 @@ enddate: "Aug 2024"
 weight: 4
 companySlug: "cmet"
 logourl: "/images/logo-cmet.jpg"
-problem: "Designing compact, high-accuracy microwave antennas for 5G requires novel substrate materials and precise simulation. Existing designs were too large and imprecise for next-generation communication standards."
+problem: "Designing compact, high-accuracy microwave antennas for 5G requires new substrate materials and precise simulation. Existing designs were too large and imprecise for next-generation communication standards."
 tags: ["CST Studio", "3D Printing", "XRD/VNA", "5G", "RF Engineering", "FDM", "Inkjet"]
 impact:
   - value: "20%"
@@ -24,6 +24,6 @@ Optimised antenna designs using CST Microwave Studio, achieving **20% size reduc
 
 Operated **3D printers (FDM, Inkjet) and characterisation tools (XRD, VNA)** for antenna prototyping and dielectric material testing.
 
-Fabricated a **biodegradable-ink strain sensor** via 3D inkjet printing - a novel approach to sustainable flexible electronics with defence and wearable applications.
+Fabricated a **biodegradable-ink strain sensor** via 3D inkjet printing, contributing to sustainable flexible electronics with defence and wearable applications.
 
 Research led to **3 journal publications** in Wiley and RSC journals, including novel dielectric nanocomposite materials for microwave applications.

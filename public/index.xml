@@ -27,14 +27,14 @@
       <link>http://localhost:1313/projects/dynamic-slam/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/dynamic-slam/</guid>
-      <description>Real-time SLAM that filters dynamic objects to prevent map corruption, enabling reliable localisation in real-world environments with people and vehicles.</description>
+      <description>Real-time SLAM that filters dynamic objects to prevent map corruption, enabling reliable localisation in environments with people and vehicles.</description>
     </item>
     <item>
       <title>Jr. Drone System Engineer</title>
       <link>http://localhost:1313/experience/hvn-engineer/</link>
       <pubDate>Sun, 01 Jun 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/experience/hvn-engineer/</guid>
-      <description>&lt;p&gt;Designed and implemented a &lt;strong&gt;reverse landing system&lt;/strong&gt; using GPS + Raspberry Pi camera fusion, enabling precise autonomous landings in dynamic conditions.&lt;/p&gt;&#xA;&lt;p&gt;Developed &lt;strong&gt;stereo camera-based depth estimation&lt;/strong&gt; to replace monocular approaches, providing sub-metre altitude control for low-altitude navigation.&lt;/p&gt;&#xA;&lt;p&gt;Built &lt;strong&gt;LiDAR + camera sensor fusion&lt;/strong&gt; pipeline for robust drone detection and accurate landing zone identification in cluttered environments.&lt;/p&gt;&#xA;&lt;p&gt;Integrated &lt;strong&gt;MAVLink protocol and Wi-Fi communication&lt;/strong&gt; for seamless ground-to-drone control and real-time telemetry transmission.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Designed and implemented a &lt;strong&gt;reverse landing system&lt;/strong&gt; using GPS + Raspberry Pi camera fusion, enabling precise autonomous landings in dynamic conditions.&lt;/p&gt;&#xA;&lt;p&gt;Developed &lt;strong&gt;stereo camera-based depth estimation&lt;/strong&gt; to replace monocular approaches, providing sub-metre altitude control for low-altitude navigation.&lt;/p&gt;&#xA;&lt;p&gt;Built &lt;strong&gt;LiDAR + camera sensor fusion&lt;/strong&gt; pipeline for reliable drone detection and accurate landing zone identification in cluttered environments.&lt;/p&gt;&#xA;&lt;p&gt;Integrated &lt;strong&gt;MAVLink protocol and Wi-Fi communication&lt;/strong&gt; for seamless ground-to-drone control and real-time telemetry transmission.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Autonomous Drone Landing via Multi-Sensor Fusion</title>
@@ -76,7 +76,7 @@
       <link>http://localhost:1313/experience/cmet/</link>
       <pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/experience/cmet/</guid>
-      <description>&lt;p&gt;Optimised antenna designs using CST Microwave Studio, achieving &lt;strong&gt;20% size reduction&lt;/strong&gt; and &lt;strong&gt;70% accuracy improvement&lt;/strong&gt; for GPS, Wi-Fi, Bluetooth and 5G frequencies.&lt;/p&gt;&#xA;&lt;p&gt;Operated &lt;strong&gt;3D printers (FDM, Inkjet) and characterisation tools (XRD, VNA)&lt;/strong&gt; for antenna prototyping and dielectric material testing.&lt;/p&gt;&#xA;&lt;p&gt;Fabricated a &lt;strong&gt;biodegradable-ink strain sensor&lt;/strong&gt; via 3D inkjet printing - a novel approach to sustainable flexible electronics with defence and wearable applications.&lt;/p&gt;&#xA;&lt;p&gt;Research led to &lt;strong&gt;3 journal publications&lt;/strong&gt; in Wiley and RSC journals, including novel dielectric nanocomposite materials for microwave applications.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Optimised antenna designs using CST Microwave Studio, achieving &lt;strong&gt;20% size reduction&lt;/strong&gt; and &lt;strong&gt;70% accuracy improvement&lt;/strong&gt; for GPS, Wi-Fi, Bluetooth and 5G frequencies.&lt;/p&gt;&#xA;&lt;p&gt;Operated &lt;strong&gt;3D printers (FDM, Inkjet) and characterisation tools (XRD, VNA)&lt;/strong&gt; for antenna prototyping and dielectric material testing.&lt;/p&gt;&#xA;&lt;p&gt;Fabricated a &lt;strong&gt;biodegradable-ink strain sensor&lt;/strong&gt; via 3D inkjet printing, contributing to sustainable flexible electronics with defence and wearable applications.&lt;/p&gt;&#xA;&lt;p&gt;Research led to &lt;strong&gt;3 journal publications&lt;/strong&gt; in Wiley and RSC journals, including novel dielectric nanocomposite materials for microwave applications.&lt;/p&gt;</description>
     </item>
     <item>
       <title>AI Dungeon Maze: Supervised &#43; Unsupervised &#43; RL</title>
@@ -97,7 +97,7 @@
       <link>http://localhost:1313/experience/drdo/</link>
       <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/experience/drdo/</guid>
-      <description>&lt;p&gt;Designed and deployed a &lt;strong&gt;MATLAB-based video tracking system&lt;/strong&gt; using Gaussian Mixture Model and point tracking for moving object recognition in defence research contexts.&lt;/p&gt;&#xA;&lt;p&gt;Achieved robust accuracy under &lt;strong&gt;variable lighting conditions&lt;/strong&gt; through adaptive background subtraction and GMM model tuning.&lt;/p&gt;&#xA;&lt;p&gt;Executed &lt;strong&gt;feature extraction and depth estimation&lt;/strong&gt; using projective geometry across multiple camera planes for accurate 3D reconstruction.&lt;/p&gt;&#xA;&lt;p&gt;Validated &lt;strong&gt;precise velocity measurement&lt;/strong&gt; across 20 independent video datasets, with reliable real-world performance.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Designed and deployed a &lt;strong&gt;MATLAB-based video tracking system&lt;/strong&gt; using Gaussian Mixture Model and point tracking for moving object recognition in defence research contexts.&lt;/p&gt;&#xA;&lt;p&gt;Achieved consistent accuracy under &lt;strong&gt;variable lighting conditions&lt;/strong&gt; through adaptive background subtraction and GMM model tuning.&lt;/p&gt;&#xA;&lt;p&gt;Executed &lt;strong&gt;feature extraction and depth estimation&lt;/strong&gt; using projective geometry across multiple camera planes for accurate 3D reconstruction.&lt;/p&gt;&#xA;&lt;p&gt;Validated &lt;strong&gt;precise velocity measurement&lt;/strong&gt; across 20 independent video datasets, with validated field performance.&lt;/p&gt;</description>
     </item>
     <item>
       <title>ABS-ZnO Dielectric Nanocomposite Filament and 3D Printed Microstrip Patch Antenna GPS Module</title>

@@ -12,7 +12,7 @@ params:
   email: "ruchita.uob.2024@gmail.com"
   phone: "+44 7818 970209"
   linkedin: "https://www.linkedin.com/in/ruchita-vehale"
-  github: ""
+  github: "https://github.com/RuchitaVehale1998"
   resumeFile: "/files/Ruchita_Vehale_Resume.pdf"
   openToWork: true
   openToWorkLabel: "Available · Bristol, UK"
@@ -34,8 +34,8 @@ params:
       label: "Defence Research"
 
   # About
-  aboutP1: "I'm a robotics engineer working at the intersection of machine learning, computer vision, and autonomous systems - across the full stack, from sensor calibration and SLAM pipelines to training and deploying ML models in real environments."
-  aboutP2: "My MSc dissertation at Bristol built a dynamic visual SLAM system integrating YOLOv8, DeepSORT, and MiDaS with ORB-SLAM, achieving robust localisation and 3D mapping in environments with moving objects. I also hold six peer-reviewed publications (Wiley, RSC, SSRN) across antenna design, deep learning, and federated AI governance."
+  aboutP1: "I'm a robotics engineer working across machine learning, computer vision, and autonomous systems: from sensor calibration and SLAM pipelines to training and deploying ML models in production."
+  aboutP2: "My MSc dissertation at Bristol built a dynamic visual SLAM system integrating YOLOv8, DeepSORT, and MiDaS with ORB-SLAM, achieving accurate localisation and 3D mapping in environments with moving objects. I also hold six peer-reviewed publications (Wiley, RSC, SSRN) across antenna design, deep learning, and federated AI governance."
   aboutP3: "Previously Associate Software Engineer at DeGould, Jr. Drone Systems Engineer at HVN Labs, Research Fellow at CMET, and Research Intern at HEMRL, DRDO - India's defence research organisation."
 
   # Impact — 6 metrics, 3-column grid
@@ -78,7 +78,7 @@ params:
       desc: "GPS + LiDAR + camera fusion, MAVLink integration, coaxial drone R&D, autonomous landing."
     - glyph: "SF"
       title: "Sensor Fusion"
-      desc: "Multi-modal perception: LiDAR, RGB-D, GPS, IMU, stereo cameras for robust real-world operation."
+      desc: "Multi-modal perception: LiDAR, RGB-D, GPS, IMU, stereo cameras for reliable operation across varied conditions."
 
   education:
     - degree: "MSc Robotics"

@@ -13,7 +13,7 @@
       <link>http://localhost:1313/experience/drdo/</link>
       <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/experience/drdo/</guid>
-      <description>&lt;p&gt;Designed and deployed a &lt;strong&gt;MATLAB-based video tracking system&lt;/strong&gt; using Gaussian Mixture Model and point tracking for moving object recognition in defence research contexts.&lt;/p&gt;&#xA;&lt;p&gt;Achieved robust accuracy under &lt;strong&gt;variable lighting conditions&lt;/strong&gt; through adaptive background subtraction and GMM model tuning.&lt;/p&gt;&#xA;&lt;p&gt;Executed &lt;strong&gt;feature extraction and depth estimation&lt;/strong&gt; using projective geometry across multiple camera planes for accurate 3D reconstruction.&lt;/p&gt;&#xA;&lt;p&gt;Validated &lt;strong&gt;precise velocity measurement&lt;/strong&gt; across 20 independent video datasets, with reliable real-world performance.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Designed and deployed a &lt;strong&gt;MATLAB-based video tracking system&lt;/strong&gt; using Gaussian Mixture Model and point tracking for moving object recognition in defence research contexts.&lt;/p&gt;&#xA;&lt;p&gt;Achieved consistent accuracy under &lt;strong&gt;variable lighting conditions&lt;/strong&gt; through adaptive background subtraction and GMM model tuning.&lt;/p&gt;&#xA;&lt;p&gt;Executed &lt;strong&gt;feature extraction and depth estimation&lt;/strong&gt; using projective geometry across multiple camera planes for accurate 3D reconstruction.&lt;/p&gt;&#xA;&lt;p&gt;Validated &lt;strong&gt;precise velocity measurement&lt;/strong&gt; across 20 independent video datasets, with validated field performance.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -658,8 +658,17 @@ h2.display em { font-style: normal; color: var(--a); }
   border: 1px solid rgba(90,154,110,0.2);
   background: rgba(90,154,110,0.04); margin-bottom: 22px;
 }
-.mo-tags { display: flex; flex-wrap: wrap; gap: 7px; }
+.mo-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 24px; }
 .mo-tag { font-family: var(--mono); font-size: 9px; padding: 4px 10px; border: 1px solid var(--b0); color: var(--t3); }
+.mo-gh-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 9px 20px;
+  background: var(--a); color: var(--bg);
+  font-weight: 500; transition: background 0.2s;
+  text-decoration: none;
+}
+.mo-gh-btn:hover { background: var(--a2); }
 
 /* ── PUBLICATIONS ─────────────────────────────── */
 .pub-list { display: flex; flex-direction: column; gap: 0; }
@@ -729,7 +738,7 @@ h2.display em { font-style: normal; color: var(--a); }
 
 .ct-links-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 1px; background: var(--b0);
 }
 
@@ -806,7 +815,6 @@ footer {
   .proj-card.feat { grid-column: span 1; }
   .exp-role-grid { grid-template-columns: 1fr; gap: 24px; }
   .about-grid { grid-template-columns: 1fr; gap: 48px; }
-  .ct-links-grid { grid-template-columns: 1fr; }
   .sk-wrap { grid-template-columns: 1fr; gap: 32px; }
   .ach-item { grid-template-columns: 1fr 1fr; }
   .ach-detail { display: none; }
@@ -820,9 +828,15 @@ footer {
   .proj-grid { grid-template-columns: 1fr; }
   .mo-cols, .mo-imp { grid-template-columns: 1fr 1fr; }
   .cf-row { grid-template-columns: 1fr; }
-  .hero-h { font-size: 42px; }
+  .hero-h { font-size: 38px; }
   .mo-body { padding: 24px; }
   .exp-co-header { padding: 16px 18px; }
   .exp-role { padding: 20px 18px; }
   .hero-stats { gap: 20px; }
+  .pad { padding: 60px 0; }
+  .nav-cv { display: none; }
+  .nav-li { display: none; }
+  .clink-card { padding: 20px 22px; }
+  .edu-header { gap: 12px; }
+  .edu-logo { width: 38px; height: 38px; }
 }

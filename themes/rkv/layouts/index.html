@@ -261,6 +261,7 @@
            data-result="{{ $proj.Params.result }}"
            data-impact='{{ $impJson }}'
            data-tags="{{ $tagsStr }}"
+           data-github="{{ $proj.Params.github }}"
            onclick="openModal(this)">
 
         <div class="proj-idx">
@@ -306,6 +307,7 @@
       <div class="mo-res" id="mo-res"></div>
       <div class="mo-lbl">Tech stack</div>
       <div class="mo-tags" id="mo-tags"></div>
+      <a id="mo-gh" class="mo-gh-btn" target="_blank" rel="noopener" style="display:none">View on GitHub ↗</a>
     </div>
   </div>
 </div>
@@ -401,7 +403,7 @@
     <div class="label rv">Contact</div>
     <h2 class="display rv">Let's build<br><em>something real.</em></h2>
     <div class="contact-solo rv">
-      <p class="contact-intro">I'm open to roles in Robotics, Machine Learning, Computer Vision, and AI. If you're working on autonomous systems, perception, or hard engineering problems — reach out directly.</p>
+      <p class="contact-intro">I'm open to roles in Robotics, Machine Learning, Computer Vision, and AI. If you're working on autonomous systems, perception, or hard engineering problems, reach out directly.</p>
       <div class="ct-links-grid">
         <a href="mailto:{{ $p.email }}" class="clink-card">
           <div class="clink-card-ic">✉</div>
@@ -413,6 +415,13 @@
           <div class="clink-card-ic">in</div>
           <div class="clink-card-key">LinkedIn</div>
           <div class="clink-card-val">linkedin.com/in/ruchita-vehale</div>
+        </a>
+        {{ end }}
+        {{ with $p.github }}
+        <a href="{{ . }}" target="_blank" rel="noopener" class="clink-card">
+          <div class="clink-card-ic">gh</div>
+          <div class="clink-card-key">GitHub</div>
+          <div class="clink-card-val">RuchitaVehale1998</div>
         </a>
         {{ end }}
         <a href="tel:{{ $p.phone }}" class="clink-card">

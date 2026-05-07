@@ -7,6 +7,7 @@ weight: 4
 result: "Full AI-driven game, all three ML paradigms working in concert"
 problem: "Most ML projects use a single paradigm. This integrates Supervised, Unsupervised, and Reinforcement Learning on a unified dataset to demonstrate how all three approaches complement each other."
 approach: "Trained decision tree and SVM classifiers (Supervised) for maze state classification. Applied K-Means clustering (Unsupervised) to identify maze regions. Trained Q-learning agent (RL) for optimal navigation. All three models drive a playable Pygame environment."
+github: "https://github.com/RuchitaVehale1998/AI_Dungeon_Maze"
 tags: ["Reinforcement Learning", "Q-Learning", "Supervised Learning", "Scikit-learn", "Pygame", "Python"]
 impact:
   - value: "3"

@@ -18,8 +18,8 @@ impact:
 
 Designed and deployed a **MATLAB-based video tracking system** using Gaussian Mixture Model and point tracking for moving object recognition in defence research contexts.
 
-Achieved robust accuracy under **variable lighting conditions** through adaptive background subtraction and GMM model tuning.
+Achieved consistent accuracy under **variable lighting conditions** through adaptive background subtraction and GMM model tuning.
 
 Executed **feature extraction and depth estimation** using projective geometry across multiple camera planes for accurate 3D reconstruction.
 
-Validated **precise velocity measurement** across 20 independent video datasets, with reliable real-world performance.
+Validated **precise velocity measurement** across 20 independent video datasets, with validated field performance.

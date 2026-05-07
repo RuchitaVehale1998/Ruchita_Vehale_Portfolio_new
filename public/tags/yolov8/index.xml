@@ -12,7 +12,7 @@
       <link>http://localhost:1313/projects/dynamic-slam/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/dynamic-slam/</guid>
-      <description>Real-time SLAM that filters dynamic objects to prevent map corruption, enabling reliable localisation in real-world environments with people and vehicles.</description>
+      <description>Real-time SLAM that filters dynamic objects to prevent map corruption, enabling reliable localisation in environments with people and vehicles.</description>
     </item>
     <item>
       <title>Hybrid Apple Detection: YOLOv8 vs Traditional CV</title>

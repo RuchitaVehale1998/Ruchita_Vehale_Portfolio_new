@@ -85,6 +85,13 @@
       `<span class="mo-tag">${t}</span>`
     ).join('');
 
+    const ghBtn = document.getElementById('mo-gh');
+    if (ghBtn) {
+      const gh = card.dataset.github || '';
+      ghBtn.href = gh;
+      ghBtn.style.display = gh ? 'inline-flex' : 'none';
+    }
+
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
   };

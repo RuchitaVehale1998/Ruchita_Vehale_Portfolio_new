@@ -24,6 +24,6 @@ Designed and implemented a **reverse landing system** using GPS + Raspberry Pi c
 
 Developed **stereo camera-based depth estimation** to replace monocular approaches, providing sub-metre altitude control for low-altitude navigation.
 
-Built **LiDAR + camera sensor fusion** pipeline for robust drone detection and accurate landing zone identification in cluttered environments.
+Built **LiDAR + camera sensor fusion** pipeline for reliable drone detection and accurate landing zone identification in cluttered environments.
 
 Integrated **MAVLink protocol and Wi-Fi communication** for seamless ground-to-drone control and real-time telemetry transmission.

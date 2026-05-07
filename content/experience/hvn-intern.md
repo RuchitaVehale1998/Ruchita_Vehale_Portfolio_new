@@ -8,14 +8,14 @@ weight: 3
 companySlug: "hvn"
 logourl: "/images/logo-hvn.svg"
 problem: "Building a coaxial drone system for synchronised lighting displays requires tight control system integration and reliable autonomous landing in GPS-noisy environments."
-tags: ["Drone Assembly", "Control Systems", "GPS", "Camera Fusion"]
+tags: ["Drone Assembly", "Control Systems", "GPS", "Camera Fusion", "ArduPilot"]
 impact:
+  - value: "Coaxial"
+    label: "Drone Platform"
   - value: "R&D"
-    label: "Drone Build"
-  - value: "Auto"
-    label: "Landing"
+    label: "Build & Test"
 ---
 
-Contributed to **coaxial drone R&D**: assembly, control system tuning, and performance testing across varied flight conditions for synchronised display applications.
+Contributed to **R&D and assembly of a coaxial drone platform** for synchronised lighting displays, covering mechanical integration, ESC calibration, flight controller configuration, and structured performance testing to validate flight stability and payload capacity.
 
-Developed a **precision autonomous landing system** using GPS and camera data fusion for reliable operation in dynamic, GPS-noisy environments.
+Prototyped a **precision autonomous landing system** fusing GPS position data with camera-based visual detection to improve landing accuracy and repeatability in dynamic outdoor environments.

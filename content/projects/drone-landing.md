@@ -1,22 +1,22 @@
 ---
-title: "Autonomous Drone Landing via Multi-Sensor Fusion"
-summary: "Precision landing system fusing GPS, Raspberry Pi camera, LiDAR and stereo depth, deployed at HVN Labs. Handles environments where GPS alone is insufficient."
+title: "Autonomous Drone Precision Landing"
+summary: "Ground-based vision system that detects an approaching drone using YOLOv8 and a custom DeepSORT tracker, computes its angular offset in real time, and closes the control loop via MAVLink LANDING_TARGET messages to an ArduCopter flight controller."
 category: "Drone"
 filter: ["drone", "cv"]
 featured: true
 weight: 2
-result: "Precise autonomous landings across varied real-world conditions, deployed at HVN Labs, Bristol"
-problem: "Autonomous drones need to land precisely in GPS-degraded, dynamic, visually challenging environments. Single-sensor approaches (GPS-only or camera-only) fail in practice. The system must fuse heterogeneous sensor data in real-time on embedded hardware."
-approach: "Fused GPS position, Raspberry Pi camera visual odometry, and LiDAR range measurements using a sensor fusion architecture. Implemented reverse landing logic via MAVLink protocol. Extended with stereo camera-based depth estimation for sub-metre altitude control. All processing on Raspberry Pi in real-time."
+result: "Closed-loop autonomous landing without GPS, running at 10 Hz on a Raspberry Pi with a pluggable 4-mode detection pipeline"
+problem: "Autonomous drones need to land precisely in GPS-degraded or GPS-denied environments. A single upward-facing camera on the landing pad must detect the drone, calculate its position relative to the pad centre, and send corrections to the autopilot fast enough to guide the final descent."
+approach: "Camera on the landing pad looks upward and detects the drone using one of four interchangeable modes: frame-differencing motion detection, brightness thresholding, fine-tuned YOLOv8, or YOLOv8 + custom DeepSORT tracking. Pixel coordinates are converted to angular offsets via camera intrinsics, then to NED metre offsets using autopilot altitude. MAVLink LANDING_TARGET messages are streamed at 10 Hz to a Cube Orange (ArduCopter) over Wi-Fi UDP. A stereo camera variant computes metric depth from disparity maps, removing reliance on barometric altitude."
 github: "https://github.com/RuchitaVehale1998/drone-precision-landing"
-tags: ["GPS Fusion", "LiDAR", "Raspberry Pi", "Stereo Vision", "MAVLink", "OpenCV", "Python"]
+tags: ["YOLOv8", "DeepSORT", "MAVLink", "Stereo Vision", "ArduPilot", "Raspberry Pi", "OpenCV", "Python"]
 impact:
-  - value: "GPS+V+L"
-    label: "3-Sensor Fusion"
-  - value: "MAVLink"
-    label: "Protocol"
-  - value: "Real-time"
-    label: "RPi"
-  - value: "HVN Labs"
-    label: "Deployed"
+  - value: "10 Hz"
+    label: "MAVLink Rate"
+  - value: "4 Modes"
+    label: "Detection Pipeline"
+  - value: "Custom"
+    label: "DeepSORT Tracker"
+  - value: "No GPS"
+    label: "Landing Mode"
 ---

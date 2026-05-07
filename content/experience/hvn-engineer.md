@@ -7,23 +7,21 @@ enddate: "Aug 2025"
 weight: 2
 companySlug: "hvn"
 logourl: "/images/logo-hvn.svg"
-problem: "Autonomous drones need to land precisely in GPS-degraded, dynamic environments. Single-sensor approaches fail in practice. The system must fuse heterogeneous sensors in real-time on embedded hardware."
-tags: ["MAVLink", "LiDAR", "Raspberry Pi", "Stereo Vision", "GPS Fusion", "OpenCV", "Python"]
+problem: "Autonomous drones need to land precisely without GPS in dynamic environments. A ground-based vision system must detect the drone in real time, compute its position, and close the control loop via the autopilot — all on embedded hardware."
+tags: ["YOLOv8", "DeepSORT", "MAVLink", "Stereo Vision", "ArduPilot", "Lua", "ESP32", "OpenCV", "Python", "Raspberry Pi"]
 impact:
-  - value: "GPS+V+L"
-    label: "3-Sensor Fusion"
-  - value: "MAVLink"
-    label: "Control Protocol"
+  - value: "10 Hz"
+    label: "MAVLink Rate"
+  - value: "4 Modes"
+    label: "Detection Pipeline"
+  - value: "Custom"
+    label: "DeepSORT Tracker"
   - value: "Real-time"
     label: "RPi Processing"
-  - value: "Deployed"
-    label: "HVN Labs"
 ---
 
-Designed and implemented a **reverse landing system** using GPS + Raspberry Pi camera fusion, enabling precise autonomous landings in dynamic conditions.
+Engineered a **ground-based autonomous precision landing system** using an upward-facing Raspberry Pi Camera on the landing pad; ran YOLOv8 inference to detect incoming drones and streamed corrective MAVLink `LANDING_TARGET` messages at **10 Hz** to a Cube Orange flight controller over Wi-Fi UDP, enabling closed-loop autonomous landing without GPS.
 
-Developed **stereo camera-based depth estimation** to replace monocular approaches, providing sub-metre altitude control for low-altitude navigation.
+Implemented a **custom DeepSORT multi-object tracker** from scratch — Kalman filter state prediction, Hungarian algorithm for detection-to-track assignment, and CNN appearance embeddings for re-identification — integrated with a **stereo vision depth pipeline** (stereo rectification + block matching) to compute metric 3D drone position from disparity maps.
 
-Built **LiDAR + camera sensor fusion** pipeline for reliable drone detection and accurate landing zone identification in cluttered environments.
-
-Integrated **MAVLink protocol and Wi-Fi communication** for seamless ground-to-drone control and real-time telemetry transmission.
+Built a **pluggable detection architecture** (motion, brightness, YOLOv8, YOLOv8+DeepSORT) with an **ESP32 Bluetooth** communication module for real-time telemetry transfer, **Feetech STS3032 smart servo** integration via 10 ArduPilot Lua scripts for servo control and health monitoring, and a Flask web interface with live MJPEG stream and browser-based camera calibration.

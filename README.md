@@ -35,6 +35,8 @@ python3 -m http.server 8137   # from the repo root
 # open http://localhost:8137/site/
 ```
 
+Small screens are handled in `css/styles.css` (width breakpoints at 1060, 846, 760, 400 and 360 px, plus a `(pointer: coarse)` block for touch) and in each scene's own narrow-width branch in `js/plates/` and `js/projects/`. Desktop rules are untouched by those blocks. Checked at 320, 360, 375, 390, 414, 430, 540, 667, 768, 844 and 1024 px with no horizontal overflow.
+
 Flags: `?debug` shows an fps counter · `?motion=0` pauses animation (same as `prefers-reduced-motion`); plates redraw when you interact with them.
 
 ## Edit

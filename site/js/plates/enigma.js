@@ -1,7 +1,7 @@
 /* PLATE XIII — Enigma I (rotors I-II-III, reflector B, rings AAA, start AAA).
    Logic is in lib/enigma.js (tested: AAAAA → BDZGO). The red line is the real current path. */
 import { Enigma } from '../lib/enigma.js';
-import { C, MONO, TAU, clamp, rgba, label, ink, line, roundRect, corners, out } from '../core.js';
+import { C, MONO, TAU, clamp, rgba, label, ink, line, roundRect, corners, out, TAP } from '../core.js';
 
 const ROWS = ['QWERTZUIO', 'ASDFGHJK', 'PYXCVBNML'];
 const L = (i) => String.fromCharCode(65 + i);
@@ -121,7 +121,7 @@ export default function enigma(env) {
       });
     });
     label(ctx, narrow ? 'ENIGMA I · TAP A KEY' : 'ENIGMA I · UKW-B · I–II–III · RINGS AAA', 14, h - 14, { size: 9.5, color: C.g3 });
-    if (!narrow) label(ctx, 'CLICK A KEY', w - 14, h - 14, { size: 9.5, color: C.g3, align: 'right' });
+    if (!narrow) label(ctx, `${TAP} A KEY`, w - 14, h - 14, { size: 9.5, color: C.g3, align: 'right' });
     corners(ctx, w, h, 8, 12, 0.35);
   }
   return { draw, api };

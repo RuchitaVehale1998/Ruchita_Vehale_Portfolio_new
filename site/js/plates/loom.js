@@ -1,6 +1,6 @@
 /* PLATE III — a Jacquard loom: a chain of punched cards, twelve hooks, and the cloth they weave.
    A hole lifts a warp thread; the cloth is the card chain made visible. Click holes to reprogram it. */
-import { C, rgba, clamp, lerp, rng, label, ink, line, corners, out } from '../core.js';
+import { C, rgba, clamp, lerp, rng, label, ink, line, corners, out, TAP } from '../core.js';
 
 const COLS = 12, ROWS = 18;
 const ART = {
@@ -68,7 +68,7 @@ export default function loom(env) {
 
     /* hooks + warp */
     const { clothX, clothW, cw, shedY } = L, active = cards[cur];
-    label(ctx, 'HOOKS · WARP', clothX, 24, { size: 10, color: C.g3, spacing: 2 });
+    label(ctx, 'HOOKS · WARP', clothX, 24, { size: 10, color: C.g3, spacing: L.narrow ? 1 : 2 });
     ink(ctx, 0.6, 1, C.g4); line(ctx, clothX - 4, 44, clothX + clothW + 4, 44);
     for (let c = 0; c < COLS; c++) {
       const x = clothX + (c + 0.5) * cw, lifted = active[c] === 1, lift = lifted ? 16 : 0;
@@ -91,8 +91,11 @@ export default function loom(env) {
         ctx.fillStyle = row[c] ? rgba(C.w, 0.92) : '#161616'; ctx.fillRect(x + 1, y + 1, cw - 2, cs - 2);
       }
     }
-    label(ctx, 'CLOTH', clothX, h - 6, { size: 9.5, color: C.g3, spacing: 2 });
-    label(ctx, 'CLICK A HOLE TO REPROGRAM', w - 14, h - 6, { size: 9.5, color: C.g3, align: 'right' });
+    if (L.narrow) label(ctx, `${TAP} A HOLE TO EDIT`, w - 14, h - 6, { size: 9.5, color: C.g3, align: 'right' });      // phone: one short hint, no "CLOTH" label (they collided)
+    else {
+      label(ctx, 'CLOTH', clothX, h - 6, { size: 9.5, color: C.g3, spacing: 2 });
+      label(ctx, `${TAP} A HOLE TO REPROGRAM`, w - 14, h - 6, { size: 9.5, color: C.g3, align: 'right' });
+    }
     corners(ctx, w, h, 8, 12, 0.35);
   }
   return { draw, api };

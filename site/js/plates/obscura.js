@@ -12,7 +12,7 @@ export default function obscura(env) {
     const { w, h, ptr } = env;
     const narrow = w < 640;
     const top = h * 0.14, bot = h * 0.86, cy = h * 0.5;
-    const wallX = w * (narrow ? 0.5 : 0.55), screenX = w * 0.9, f = screenX - wallX, maxD = wallX - 56;
+    const wallX = w * (narrow ? 0.5 : 0.55), screenX = w * (narrow ? 0.84 : 0.9), f = screenX - wallX, maxD = wallX - 56;
     if (ptr.down && ptr.x < wallX - 8) {
       Z = clamp((wallX - ptr.x) / maxD, 0.3, 1); Y = clamp(-(ptr.y - cy) / (h * 0.28), -1, 1);
       slider('z', Z.toFixed(2)); slider('y', Y.toFixed(2));
@@ -66,7 +66,8 @@ export default function obscura(env) {
     dim(ctx, ox, bot + 38, wallX, bot + 38, 'Z', { off: 0 });
     if (stereo) dim(ctx, wallX + 14, holes[0], wallX + 14, holes[1], 'B', { off: 0, size: 9 });
     label(ctx, 'inverted image', screenX - 8, top - 8, { size: 10, align: 'right', color: C.g4 });
-    label(ctx, 'screen', screenX + 12, bot + 4, { size: 9.5, color: C.g3 });
+    if (screenX + 12 + 36 > w) label(ctx, 'screen', w - 4, bot + 17, { size: 9.5, color: C.g3, align: 'right' });   // keep it on the canvas on small phones
+    else label(ctx, 'screen', screenX + 12, bot + 4, { size: 9.5, color: C.g3 });
 
     // readout
     const imgH = Math.abs(imgs[0].b - imgs[0].a);

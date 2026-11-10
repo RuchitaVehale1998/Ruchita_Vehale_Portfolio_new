@@ -1,7 +1,16 @@
 /* PLATE IX — a telephone switchboard. Projects are plugs on the left; skills are jacks in five panels.
    Patch cords (red) connect a project to every skill it used — or, pick a skill to see who used it.
    Data is taken from the résumé's projects, roles and skills. */
-import { C, clamp, rgba, label, ink, line, corners, out, TAU } from '../core.js';
+import { C, MONO, clamp, rgba, label, ink, line, corners, out, TAU } from '../core.js';
+
+/** shorten text with an ellipsis so it fits maxW at the given size (used on phones, where the columns are narrow) */
+const fit = (ctx, text, maxW, size, spacing = 0) => {
+  ctx.save(); ctx.font = `${size}px ${MONO}`;
+  const wd = (s) => ctx.measureText(s).width + spacing * s.length;
+  let t = text;
+  if (wd(t) > maxW) { while (t.length > 1 && wd(t + '…') > maxW) t = t.slice(0, -1); t += '…'; }
+  ctx.restore(); return t;
+};
 
 const GROUPS = [
   ['PROGRAMMING', [['python', 'Python'], ['cpp', 'C / C++'], ['embc', 'Embedded C'], ['matlab', 'MATLAB'], ['lua', 'Lua']]],
@@ -47,7 +56,7 @@ export default function switchboard(env) {
     } else {
       const sx = (w - 24) / PROJECTS.length;
       PROJECTS.forEach((p, i) => L.plugs.push({ i, id: p.id, x: 12 + (i + 0.5) * sx, y: 58, lx: 12 + (i + 0.5) * sx, rowH: sx, align: 'center' }));
-      const cols = [[1, 4], [2, 0, 3]], cwid = (w - 36) / 2, rh = Math.min(15, (h - 140) / 25);
+      const cols = [[1, 4], [2, 0, 3]], cwid = (w - 36) / 2, rh = Math.min(15, (h - 214) / 23);   // the right-hand column holds 23 rows and three panel headers
       cols.forEach((gs, ci) => {
         let y = 112;
         gs.forEach((gi) => {
@@ -95,14 +104,14 @@ export default function switchboard(env) {
     for (const pn of L.panels) {
       ink(ctx, 0.5, 1); ctx.strokeRect(pn.x, pn.y, pn.w, pn.h);
       ctx.fillStyle = '#050505'; ctx.fillRect(pn.x + 1, pn.y + 1, pn.w - 2, narrow ? 15 : 18);
-      label(ctx, pn.title, pn.x + 8, pn.y + (narrow ? 12 : 14), { size: narrow ? 8 : 9, color: C.g3, spacing: 1 });
+      label(ctx, narrow ? fit(ctx, pn.title, pn.w - 14, 8, 1) : pn.title, pn.x + 8, pn.y + (narrow ? 12 : 14), { size: narrow ? 8 : 9, color: C.g3, spacing: 1 });
     }
     /* jacks */
     for (const [id, j] of Object.entries(L.jacks)) {
       const on = lit.has(id), dim = cur && !on;
       ctx.beginPath(); ctx.arc(j.x, j.y, narrow ? 3.4 : 4.6, 0, TAU);
       ctx.fillStyle = on ? C.w : '#000'; ctx.fill(); ink(ctx, dim ? 0.3 : 0.9, 1.2, on ? C.w : C.w); ctx.stroke();
-      label(ctx, NAME[id], j.labelX, j.y + 3.5, { size: narrow ? 8.5 : 10.5, color: on ? C.w : C.g4, alpha: dim ? 0.35 : 1 });
+      label(ctx, narrow ? fit(ctx, NAME[id], j.w - 12, 8.5) : NAME[id], j.labelX, j.y + 3.5, { size: narrow ? 8.5 : 10.5, color: on ? C.w : C.g4, alpha: dim ? 0.35 : 1 });
     }
     /* plugs */
     for (const p of L.plugs) {

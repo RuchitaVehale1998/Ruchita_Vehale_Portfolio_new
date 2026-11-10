@@ -75,11 +75,11 @@ export default function engine(env) {
       }
     }
     // the rule of the machine
-    label(ctx, 'EACH TURN:  f += Δ¹   Δ¹ += Δ²   Δ² += Δ³   (ADDITION ONLY)', x0, y0 + ch + 44, { size: 10, color: C.g4 });
+    label(ctx, narrow ? 'EACH TURN: f+=Δ¹  Δ¹+=Δ²  Δ²+=Δ³' : 'EACH TURN:  f += Δ¹   Δ¹ += Δ²   Δ² += Δ³   (ADDITION ONLY)', x0, y0 + ch + 44, { size: 10, color: C.g4 });
     label(ctx, `n = ${n}`, x0, y0 + ch + 66, { size: 14, color: C.w });
 
     /* printed table */
-    const ty = narrow ? y0 + ch + 92 : y0 + ch + 100, rh = narrow ? 15 : 17, tx = x0, tw = narrow ? w - 28 : area;
+    const ty = narrow ? y0 + ch + 108 : y0 + ch + 100, rh = narrow ? 15 : 17, tx = x0, tw = narrow ? w - 28 : area;
     ink(ctx, 0.6, 1); line(ctx, tx, ty - 14, tx + tw, ty - 14);
     label(ctx, 'PRINTED TABLE', tx, ty - 22, { size: 9.5, color: C.g3, spacing: 2 });
     const maxRows = Math.floor((h - ty - 16) / rh);
@@ -96,8 +96,13 @@ export default function engine(env) {
     ink(ctx, 1, 3, C.w); line(ctx, kx, ky, kx + Math.cos(ang) * kr, ky + Math.sin(ang) * kr);
     ctx.fillStyle = C.red; ctx.beginPath(); ctx.arc(kx + Math.cos(ang) * kr, ky + Math.sin(ang) * kr, 7, 0, TAU); ctx.fill();
     ctx.fillStyle = '#000'; ctx.beginPath(); ctx.arc(kx, ky, 6, 0, TAU); ctx.fill(); ink(ctx, 1, 1.5); ctx.stroke();
-    label(ctx, 'CRANK', kx, ky + kr + 22, { size: 10, align: 'center', color: C.g4 });
-    label(ctx, 'DRAG ↔', kx, ky + kr + 36, { size: 9, align: 'center', color: C.g3 });
+    if (narrow) {                                                                    // phone: labels sit beside the crank, clear of the Δ³ wheel under it
+      label(ctx, 'CRANK', kx - kr - 10, ky - 1, { size: 10, align: 'right', color: C.g4 });
+      label(ctx, 'DRAG ↔', kx - kr - 10, ky + 13, { size: 9, align: 'right', color: C.g3 });
+    } else {
+      label(ctx, 'CRANK', kx, ky + kr + 22, { size: 10, align: 'center', color: C.g4 });
+      label(ctx, 'DRAG ↔', kx, ky + kr + 36, { size: 9, align: 'center', color: C.g3 });
+    }
     corners(ctx, w, h, 8, 12, 0.35);
   }
   return { draw, api };

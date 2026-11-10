@@ -79,15 +79,21 @@ export default function landing(env) {
     for (const p of packets) { const k = (t - p.t0) / 0.45, x = lerp(px, d.x, k), y = lerp(g - 36, d.y, k); ctx.save(); ctx.translate(x, y); ctx.rotate(Math.PI / 4); ctx.fillStyle = C.w; ctx.fillRect(-3, -3, 6, 6); ctx.restore(); }
 
     /* HUD */
-    const hx = w - 16, hy = narrow ? 56 : 26;
-    label(ctx, 'LANDING_TARGET · 10 Hz', hx, hy, { size: 10.5, align: 'right', color: C.w });
-    label(ctx, `angle_x ${lastMsg.ax >= 0 ? '+' : ''}${lastMsg.ax.toFixed(3)} rad (model)`, hx, hy + 16, { size: 9.5, align: 'right', color: C.g4 });
+    const tiny = w < 340, hx = w - 16, hy = narrow ? 56 : 26;
+    const ang = `angle_x ${lastMsg.ax >= 0 ? '+' : ''}${lastMsg.ax.toFixed(3)} rad (model)`;
+    if (tiny) {                                                          // small phones: the HUD would collide with the GPS badge, so it moves to the bottom
+      label(ctx, 'LANDING_TARGET · 10 Hz', 14, h - 26, { size: 9.5, color: C.w });
+      label(ctx, ang, 14, h - 12, { size: 9, color: C.g4 });
+    } else {
+      label(ctx, 'LANDING_TARGET · 10 Hz', hx, hy, { size: 10.5, align: 'right', color: C.w });
+      label(ctx, ang, hx, hy + 16, { size: 9.5, align: 'right', color: C.g4 });
+    }
     if (!narrow) ['motion', 'brightness', 'YOLOv8', 'YOLOv8 + DeepSORT'].forEach((m, i) => label(ctx, (i === 3 ? '● ' : '○ ') + m, hx, hy + 40 + i * 15, { size: 9.5, align: 'right', color: i === 3 ? C.w : C.g3 }));
     const gx = 22, gy = narrow ? 56 : 40;
     ink(ctx, 0.8, 1.4); ctx.beginPath(); ctx.arc(gx, gy, 6, 0, TAU); ctx.stroke(); line(ctx, gx - 12, gy + 5, gx + 12, gy - 5);
     ink(ctx, 1, 2, C.red); line(ctx, gx - 13, gy - 11, gx + 13, gy + 11);
     label(ctx, 'GPS denied', gx + 20, gy + 3, { size: 10, color: C.w });
-    label(ctx, d.landed ? 'LANDED' : 'detect · track · correct · descend', narrow ? 14 : gx - 8, narrow ? h - 14 : gy + 24, { size: 9.5, color: C.g3 });
+    if (!tiny) label(ctx, d.landed ? 'LANDED' : 'detect · track · correct · descend', narrow ? 14 : gx - 8, narrow ? h - 14 : gy + 24, { size: 9.5, color: C.g3 });
     corners(ctx, w, h, 8, 12, 0.35);
   }
   return { draw, resize() { if (d) { d.landed = false; reset(); } } };

@@ -47,7 +47,8 @@ export default function cloud(env) {
       return zc < 0.4 ? null : [ccx + (f * xr) / zc, ccy - (f * yc) / zc, zc];
     };
     for (const b of buckets) b.length = 0;
-    for (let i = 0; i < n; i++) {
+    const stride = env.small ? 2 : 1;                   // phones: draw every other point (the canvas is small, and it saves battery)
+    for (let i = 0; i < n; i += stride) {
       const x = P[3 * i], y = P[3 * i + 1], z = P[3 * i + 2], az = Math.atan2(x, z);
       if (az < -SPAN || az > SPAN) continue;
       const p = proj(x, y, z); if (!p) continue;

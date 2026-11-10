@@ -67,7 +67,8 @@ export default function gyro(env) {
     label(ctx, 'rotor axis', ay[0] + 10, ay[1] - 4, { size: 9.5, color: C.w });
 
     /* attitude indicator (artificial horizon) */
-    const ar = narrow ? Math.min(w * 0.22, h * 0.15) : Math.min(w * 0.15, h * 0.3), ax0 = narrow ? w * 0.5 : w * 0.8, ay0 = narrow ? h * 0.8 : h * 0.5;
+    const ar = narrow ? Math.min(w * 0.22, h * 0.15) * (w < 330 ? 0.85 : 1) : Math.min(w * 0.15, h * 0.3), ax0 = narrow ? w * 0.5 : w * 0.8;
+    const ay0 = narrow ? Math.min(h * 0.8, h - ar - 46) : h * 0.5;       // narrow: leave room under the dial for its label and the hint
     ctx.save(); ctx.beginPath(); ctx.arc(ax0, ay0, ar, 0, TAU); ctx.clip();
     ctx.translate(ax0, ay0); ctx.rotate(-cur.roll * D2R);
     const py = cur.pitch * (ar / 38);
@@ -82,7 +83,7 @@ export default function gyro(env) {
     ink(ctx, 1, 2.4, C.w); line(ctx, ax0 - ar * 0.55, ay0, ax0 - ar * 0.2, ay0); line(ctx, ax0 + ar * 0.2, ay0, ax0 + ar * 0.55, ay0); line(ctx, ax0 - ar * 0.2, ay0, ax0, ay0 + 6); line(ctx, ax0 + ar * 0.2, ay0, ax0, ay0 + 6);
     for (let a = -60; a <= 60; a += 15) { const an = (a - 90) * D2R; ink(ctx, 0.7, 1); line(ctx, ax0 + Math.cos(an) * ar, ay0 + Math.sin(an) * ar, ax0 + Math.cos(an) * (ar + (a % 30 ? 4 : 8)), ay0 + Math.sin(an) * (ar + (a % 30 ? 4 : 8))); }
     ctx.fillStyle = C.w; { const an = (-cur.roll - 90) * D2R, rr = ar - 2; ctx.beginPath(); ctx.moveTo(ax0 + Math.cos(an) * rr, ay0 + Math.sin(an) * rr); ctx.lineTo(ax0 + Math.cos(an - 0.07) * (rr - 11), ay0 + Math.sin(an - 0.07) * (rr - 11)); ctx.lineTo(ax0 + Math.cos(an + 0.07) * (rr - 11), ay0 + Math.sin(an + 0.07) * (rr - 11)); ctx.fill(); }
-    label(ctx, 'ATTITUDE', ax0, ay0 + ar + 22, { size: 9.5, color: C.g3, align: 'center', spacing: 2 });
+    label(ctx, 'ATTITUDE', ax0, ay0 + ar + (narrow ? 18 : 22), { size: 9.5, color: C.g3, align: 'center', spacing: 2 });
     label(ctx, `HDG ${String(Math.round(((cur.yaw % 360) + 360) % 360)).padStart(3, '0')}`, ax0, ay0 - ar - 14, { size: 10, color: C.w, align: 'center' });
 
     out(env, 'gyro-read', `<b>roll</b> ${cur.roll.toFixed(0)}° &nbsp; <b>pitch</b> ${cur.pitch.toFixed(0)}° &nbsp; <b>yaw</b> ${cur.yaw.toFixed(0)}°<br><span style="color:#6b6b6b">gimbal angles solved to hold the axis: ${(alpha / D2R).toFixed(0)}° / ${(beta / D2R).toFixed(0)}°</span>`);

@@ -1,5 +1,11 @@
 # Ruchita Vehale — Catalogue of Machines
 
+**Live site: [www.ruchita.uk](https://www.ruchita.uk)**
+
+[![Walkthrough of the site: the LiDAR hero, then the plates and their working machines](docs/preview.gif)](docs/walkthrough.mp4)
+
+▶ **[Watch the full walkthrough](docs/walkthrough.mp4)** (MP4, about 2½ minutes): all thirteen plates on desktop, then a short pass on a phone.
+
 A hand-built static site: plain HTML, CSS and ES modules. **No framework, no build step, no runtime network
 dependencies except Google Fonts.** Everything is in [`site/`](site/).
 
@@ -44,6 +50,9 @@ Flags: `?debug` shows an fps counter · `?motion=0` pauses animation (same as `p
 * **Text, numbers, descendants** — edit `site/index.html` (each plate has a `.desc` block).
 * **Skill graph / timeline data** — `site/js/plates/switch.js` (projects and skills) and `site/js/plates/gears.js` (roles).
 * **Résumé** — overwrite `site/files/Ruchita_Vehale_Resume.pdf`.
+* **Walkthrough video** — `docs/walkthrough.mp4` and `docs/preview.gif` are recorded from the live site by
+  `node tools/record-walkthrough.mjs <outDir>` (needs Node 22+, Chrome and ffmpeg; set `SITE_URL` to record another
+  address). Copy the two files from `<outDir>` into `docs/` after re-recording.
 * **Paper links** — each card in `#drawer` has a `.pub` link to its `https://doi.org/…` permalink, which redirects to the publisher's page (authors, volume and pages were checked against Crossref).
 
 ## Verified machine logic

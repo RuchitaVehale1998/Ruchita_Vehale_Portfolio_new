@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* Records the website walkthrough video (docs/walkthrough.mp4) and its preview GIF (docs/preview.gif).
+/* Records the website walkthrough video (site/walkthrough.mp4) and its preview GIF (docs/preview.gif).
 
    It drives headless Chrome over the DevTools protocol, scrolls through the plates, uses a few of the controls
    (a fake cursor and a caption bar are injected into the page for the recording only), grabs the frames with

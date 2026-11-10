@@ -10,7 +10,7 @@ export const isSmall = () => innerWidth < 760;
 export const C = {
   k: '#000000', k1: '#0a0a0a', k2: '#121212', k3: '#1c1c1c',
   g1: '#2b2b2b', g2: '#444444', g3: '#6d6d6d', g4: '#9a9a9a',
-  w: '#f1f1f1', red: '#ff2d20', red2: '#9c1a12',
+  w: '#f1f1f1', red: '#c4382d', red2: '#8a2a22',   // red is a rare accent: tiny details only
 };
 export const MONO = '"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace';
 export const SERIF = '"Bodoni Moda", "Didot", Georgia, serif';
@@ -62,6 +62,26 @@ export function label(ctx, text, x, y, { size = 10.5, color = C.g4, align = 'lef
   ctx.globalAlpha = alpha; ctx.font = `${size}px ${font}`; ctx.fillStyle = color; ctx.textAlign = align; ctx.textBaseline = base;
   if (spacing && 'letterSpacing' in ctx) ctx.letterSpacing = `${spacing}px`;
   ctx.fillText(text, x, y); ctx.restore();
+}
+/** small outlined pill label, anchored at (x, y) — y is the vertical centre */
+export function tag(ctx, text, x, y, color = C.w, { size = 10, align = 'left' } = {}) {
+  ctx.save();
+  ctx.font = `${size}px ${MONO}`;
+  const w = ctx.measureText(text).width + 14, h = size + 9;
+  const x0 = align === 'right' ? x - w : align === 'center' ? x - w / 2 : x;
+  roundRect(ctx, x0, y - h / 2, w, h, h / 2);
+  ctx.fillStyle = 'rgba(0,0,0,0.85)'; ctx.fill();
+  ctx.strokeStyle = rgba(color, 0.6); ctx.lineWidth = 1; ctx.stroke();
+  ctx.fillStyle = color; ctx.textBaseline = 'middle'; ctx.textAlign = 'left';
+  ctx.fillText(text, x0 + 7, y + 0.5);
+  ctx.restore();
+  return w;
+}
+export function grid(ctx, w, h, step, a = 0.05) {
+  ctx.save(); ctx.strokeStyle = rgba(C.w, a); ctx.lineWidth = 1; ctx.beginPath();
+  for (let x = 0.5; x < w; x += step) { ctx.moveTo(x, 0); ctx.lineTo(x, h); }
+  for (let y = 0.5; y < h; y += step) { ctx.moveTo(0, y); ctx.lineTo(w, y); }
+  ctx.stroke(); ctx.restore();
 }
 export function arrow(ctx, x1, y1, x2, y2, head = 6) {
   const a = Math.atan2(y2 - y1, x2 - x1);

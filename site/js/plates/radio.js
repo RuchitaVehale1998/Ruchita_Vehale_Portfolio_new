@@ -49,17 +49,17 @@ export default function radio(env) {
     ink(ctx, 0.9, 1.4); line(ctx, sx + 4, sy + 2, txX - 10, sy + 2);
     ctx.fillStyle = '#000'; ctx.fillRect(txX - 10, sy - 8, 20, 20); ctx.strokeStyle = rgba(C.w, 0.9); ctx.strokeRect(txX - 10, sy - 8, 20, 20);
     ctx.fillStyle = C.w; ctx.fillRect(txX - 3, sy - 3, 6, 3); ctx.fillRect(txX - 3, sy + 3, 6, 3);
-    if (on) { ctx.save(); ink(ctx, 1, 1.6, C.red); ctx.shadowColor = C.red; ctx.shadowBlur = 10; ctx.beginPath(); ctx.moveTo(txX - 3, sy); for (let k = 1; k <= 4; k++) ctx.lineTo(txX + (k % 2 ? 3 : -3), sy - 0.5 + k * 1.5 + (r() - 0.5) * 2); ctx.stroke(); ctx.restore(); }
+    if (on) { ctx.save(); ink(ctx, 1, 1.6, C.w); ctx.beginPath(); ctx.moveTo(txX - 3, sy); for (let k = 1; k <= 4; k++) ctx.lineTo(txX + (k % 2 ? 3 : -3), sy - 0.5 + k * 1.5 + (r() - 0.5) * 2); ctx.stroke(); ctx.restore(); }
     label(ctx, 'SPARK GAP', txX, gy + 24, { size: 9.5, align: 'center', color: C.g3 });
     // telegraph key
-    ink(ctx, 0.9, 2); line(ctx, txX - 70, gy + 40, txX - 20, gy + 40 - (on ? 0 : 7)); ctx.fillStyle = on ? C.red : C.w; ctx.beginPath(); ctx.arc(txX - 70, gy + 40, 4.5, 0, TAU); ctx.fill();
+    ink(ctx, 0.9, 2); line(ctx, txX - 70, gy + 40, txX - 20, gy + 40 - (on ? 0 : 7)); ctx.fillStyle = on ? C.w : C.w; ctx.beginPath(); ctx.arc(txX - 70, gy + 40, 4.5, 0, TAU); ctx.fill();
     label(ctx, 'KEY', txX - 70, gy + 60, { size: 9.5, align: 'center', color: C.g3 });
 
     // radiating arcs
     for (let k = 0; k < 7; k++) {
       const p = ((t * 0.45 + k / 7) % 1), rr = 12 + p * (rxX - txX) * 0.95;
       const a = on ? (1 - p) * 0.8 : (1 - p) * 0.1;
-      ctx.strokeStyle = rgba(C.red, a); ctx.lineWidth = 1.4;
+      ctx.strokeStyle = rgba(C.w, a); ctx.lineWidth = 1.4;
       ctx.beginPath(); ctx.arc(txX, gy - mast, rr, -0.55, 0.0); ctx.stroke();
     }
     // receiver: coherer + lamp
@@ -68,8 +68,8 @@ export default function radio(env) {
     for (let k = 0; k < 7; k++) { ctx.fillStyle = rgba(C.w, 0.3 + (sig > 0.5 && (k + Math.floor(t * 20)) % 3 === 0 ? 0.6 : 0)); ctx.fillRect(cx + k * 4.5, cy + 1, 2, 2); }
     line(ctx, cx - 4, cy + 1, rxX, cy + 1);
     const lx = rxX + 22, ly = gy - 62, lr = 11;
-    if (sig > 0.05) { const g = ctx.createRadialGradient(lx, ly, 0, lx, ly, lr * 3.2); g.addColorStop(0, `rgba(255,45,32,${0.6 * sig})`); g.addColorStop(1, 'rgba(255,45,32,0)'); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(lx, ly, lr * 3.2, 0, TAU); ctx.fill(); }
-    ctx.beginPath(); ctx.arc(lx, ly, lr, 0, TAU); ctx.fillStyle = rgba(C.red, 0.12 + 0.88 * sig); ctx.fill(); ink(ctx, 0.9, 1.4); ctx.stroke();
+    if (sig > 0.05) { const g = ctx.createRadialGradient(lx, ly, 0, lx, ly, lr * 3.2); g.addColorStop(0, `rgba(241,241,241,${0.6 * sig})`); g.addColorStop(1, 'rgba(241,241,241,0)'); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(lx, ly, lr * 3.2, 0, TAU); ctx.fill(); }
+    ctx.beginPath(); ctx.arc(lx, ly, lr, 0, TAU); ctx.fillStyle = rgba(C.w, 0.12 + 0.88 * sig); ctx.fill(); ink(ctx, 0.9, 1.4); ctx.stroke();
     label(ctx, 'COHERER + LAMP', rxX, gy + 24, { size: 9.5, align: 'center', color: C.g3 });
     label(ctx, 'TRANSMITTER', txX, 22, { size: 10, align: 'center', color: C.g3, spacing: 2 });
     label(ctx, 'RECEIVER', rxX, 22, { size: 10, align: 'center', color: C.g3, spacing: 2 });
@@ -97,7 +97,7 @@ export default function radio(env) {
     ink(ctx, 0.25, 1, C.g4); line(ctx, sx0, sy1, sx1, sy1);
     ctx.beginPath();
     hist.forEach((v, i) => { const x = sx0 + (i / 240) * (sx1 - sx0), y = sy1 - (v + (0.04 * (r() - 0.5) + 0.03)) * (sy1 - sy0 - 6); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
-    ink(ctx, 1, 1.5, C.red); ctx.stroke();
+    ink(ctx, 1, 1.5, C.w); ctx.stroke();
 
     const letters = [...msg].filter((c) => c !== ' ').map((c) => `${c} ${MORSE[c] || ''}`).join(' · ');
     out(env, 'radio-read', `<b>TX</b> ${msg} <span style="color:#6b6b6b">(${letters})</span><br><b>RX</b> tuned ${frx.toFixed(2)} GHz vs transmitter ${ftx.toFixed(3)} GHz → <b>${Math.round(A * 100)}%</b> ${A > 0.5 ? '· message received' : '· mostly noise'}`);

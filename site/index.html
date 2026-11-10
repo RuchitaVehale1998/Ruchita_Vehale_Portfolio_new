@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ruchita Vehale — Catalogue of Machines</title>
-  <meta name="description" content="Ruchita Vehale, R&D engineer in computer vision, robotics, embedded systems, RF and machine learning — a catalogue of twelve historic machines, each beside the modern work that descends from it.">
+  <meta name="description" content="Ruchita Vehale, R&D engineer in computer vision, robotics, embedded systems, RF and machine learning — her projects, each set beside the historic machine it descends from.">
   <meta name="theme-color" content="#000000">
   <meta property="og:title" content="Ruchita Vehale — Catalogue of Machines">
-  <meta property="og:description" content="R&D engineer. Computer vision, robotics, embedded, RF and ML — as twelve working historic machines.">
+  <meta property="og:description" content="R&D engineer. Computer vision, robotics, embedded, RF and ML — each project beside the historic machine behind it.">
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,16 +32,16 @@
         <p class="eyebrow">Catalogue of Machines <i>·</i> Vol. I <i>·</i> 1936 – 2026</p>
         <h1 class="name"><span>Ruchita</span><em>Vehale</em></h1>
         <p class="tag">R&amp;D engineer — computer vision, robotics, embedded systems, RF and machine learning.</p>
-        <p class="lede">Every field I work in descends from an older machine. This catalogue sets twelve of them beside what I build today. Each plate is a working model: touch it.</p>
+        <p class="lede">Every system I build descends from an older machine. Each plate pairs one of my projects with the historic machine behind it, and the machine is a working model you can touch.</p>
         <div class="cta">
-          <a class="btn red" href="#p1">Open the catalogue&nbsp;↓</a>
+          <a class="btn solid" href="#p2">See the projects&nbsp;↓</a>
           <a class="btn" href="#p11">Résumé, as a punch card</a>
         </div>
         <p class="meta"><span lang="mr">यंत्र</span> · <span lang="ja">機械</span> · machine <i>/</i> Bristol, UK <i>/</i> open to roles</p>
       </div>
       <div class="hero-art">
         <canvas data-scene="hero" data-key="hero" aria-hidden="true"></canvas>
-        <span class="figlab">FIG. 0 — a Turing tape wrapped round a sphere, watched by an eye</span>
+        <span class="figlab">FIG. 0 — a LiDAR scan above a Turing tape</span>
       </div>
       <dl class="flaps" id="flaps">
         <div class="fm" data-val="5+"><dt class="fl" aria-hidden="true"></dt><dd><b>5+</b> years in R&amp;D: vision, robotics, embedded</dd></div>
@@ -52,7 +52,7 @@
     </section>
 
     <!-- ═════════════ I · TURING MACHINE ═════════════ -->
-    <section class="plate" id="p1" data-n="1" data-title="Turing machine">
+    <section class="plate" id="p1" data-n="1" data-title="Turing machine" data-year="1936">
       <header class="ph"><span class="pn" aria-hidden="true">I</span><div><p class="eyebrow">Plate I <i>·</i> 1936</p><h2>A tape, a head, and <em>a table of rules</em>.</h2></div></header>
       <div class="pbody">
         <figure class="fig" style="--ar:16/9;--arm:4/5">
@@ -67,7 +67,7 @@
             <tr><th>Sheet</th><td>1 / 13</td></tr>
           </table>
           <p class="note">An abstract machine reads one symbol, writes one, moves one cell and changes state. Turing showed that this is enough to compute anything that can be computed.</p>
-          <p class="try">Try: choose a program, edit the tape, then Step or Run. The red row in the table is the rule just applied.</p>
+          <p class="try">Try: choose a program, edit the tape, then Step or Run. The highlighted row in the table is the rule just applied.</p>
           <div class="rules" data-out="rules"></div>
         </aside>
       </div>
@@ -86,7 +86,7 @@
       </div>
       <div class="desc">
         <div class="dl">
-          <p class="k">Descendant <i>·</i> the engineer</p>
+          <p class="k">The engineer</p>
           <h3>Ruchita Vehale</h3>
           <p>R&amp;D engineer with 5+ years in computer vision, robotics, autonomous systems and embedded engineering. Visual SLAM, drone systems, 3D localisation and deep learning for real industrial and robotic applications, with a published background in RF and antenna engineering. MSc Robotics, University of Bristol; Associate Software Engineer (R&amp;D) at DeGould Ltd since October 2025.</p>
           <p class="open">Seeking roles in computer vision, robotics software and applied AI / ML engineering.</p>
@@ -98,13 +98,26 @@
       </div>
     </section>
 
-    <!-- ═════════════ II · CAMERA OBSCURA ═════════════ -->
-    <section class="plate" id="p2" data-n="2" data-title="Camera obscura">
-      <header class="ph"><span class="pn" aria-hidden="true">II</span><div><p class="eyebrow">Plate II <i>·</i> c. 1011–1021</p><h2>The dark room that <em>taught light to draw</em>.</h2></div></header>
+    <!-- ═════════════ II · DEGOULD · CAMERA OBSCURA ═════════════ -->
+    <section class="plate" id="p2" data-n="2" data-title="Camera obscura" data-year="c. 1011–1021" data-proj="3D localisation, DeGould">
+      <header class="ph"><span class="pn" aria-hidden="true">II</span><div><p class="eyebrow">Plate II <i>·</i> DeGould Ltd <i>·</i> after the camera obscura</p><h2>3D localisation <em>for defect inspection</em>.</h2></div></header>
+      <div class="proj">
+        <figure class="fig" style="--ar:16/9;--arm:4/5.3">
+          <canvas data-scene="dego" data-key="dego" aria-hidden="true"></canvas>
+          <figcaption><b>FIG. 2a</b> Illustrative model: a car mesh is scanned, and each defect is projected into a camera frame.</figcaption>
+        </figure>
+        <div class="dl">
+          <p class="k">DeGould Ltd, Bristol <i>·</i> Associate Software Engineer (R&amp;D), Oct 2025 – present</p>
+          <p>End-to-end localisation for automotive defect detection across multiple vehicle inspection pipelines. I designed a Blender-based 3D localisation plugin that replaced 2D colour-based approaches, and built the computer vision and ML underneath it: pose estimation, calibration, defect localisation and 3D–2D mesh projection, with synthetic data for segmentation.</p>
+          <dl class="m"><div><dt>Set-up time</dt><dd>2 days → &lt; 1 h</dd></div><div><dt>Faster</dt><dd>~96%</dd></div><div><dt>Pipelines</dt><dd>2–3</dd></div></dl>
+          <p class="stack">Python / Blender API / pose estimation / camera calibration / mesh projection / synthetic data</p>
+        </div>
+      </div>
+      <p class="mhead"><b>The machine behind it</b> Camera obscura, c. 1011–1021, Ibn al-Haytham</p>
       <div class="pbody">
         <figure class="fig" style="--ar:16/10;--arm:1/1.15">
           <canvas data-scene="obscura" data-key="obscura" aria-hidden="true"></canvas>
-          <figcaption><b>FIG. 2</b> Pinhole projection, with a second pinhole for stereo.</figcaption>
+          <figcaption><b>FIG. 2b</b> Pinhole projection, with a second pinhole for stereo.</figcaption>
         </figure>
         <aside class="tb">
           <table>
@@ -114,7 +127,7 @@
             <tr><th>Sheet</th><td>2 / 13</td></tr>
           </table>
           <p class="note">Light entering a small hole projects an inverted image of the world: the pinhole model every camera still uses. Add a second hole and the shift between the two images is depth.</p>
-          <p class="try">Try: move the red object with the sliders (or drag it), then switch the second pinhole on and read the depth from the disparity.</p>
+          <p class="try">Try: move the object with the sliders (or drag it), then switch the second pinhole on and read the depth from the disparity.</p>
           <p class="read" data-out="obscura-read"></p>
         </aside>
       </div>
@@ -123,26 +136,33 @@
         <label class="fld">Distance <input data-for="obscura" data-call="z" type="range" min="0.3" max="1" step="0.01" value="0.6" aria-label="Object distance"></label>
         <label class="fld chk"><input data-for="obscura" data-call="stereo" type="checkbox" aria-label="Second pinhole"> Second pinhole</label>
       </div>
-      <div class="desc">
-        <div class="dl">
-          <p class="k">Descendant <i>·</i> DeGould Ltd, Bristol <i>·</i> Associate Software Engineer (R&amp;D), Oct 2025 – present</p>
-          <h3>3D ↔ 2D localisation for defect inspection</h3>
-          <p>End-to-end localisation for automotive defect detection across multiple vehicle inspection pipelines. I designed a Blender-based 3D localisation plugin that replaced 2D colour-based approaches, and built the computer-vision and ML underneath it: pose estimation, calibration, defect localisation and 3D–2D mesh projection, with synthetic data for segmentation.</p>
-        </div>
-        <div class="dr">
-          <dl class="m"><div><dt>Set-up time</dt><dd>2 days → &lt; 1 h</dd></div><div><dt>Faster</dt><dd>~96%</dd></div><div><dt>Pipelines</dt><dd>2–3</dd></div></dl>
-          <p class="stack">Python / Blender API / pose estimation / camera calibration / mesh projection / synthetic data</p>
-        </div>
-      </div>
     </section>
 
-    <!-- ═════════════ III · JACQUARD LOOM ═════════════ -->
-    <section class="plate" id="p3" data-n="3" data-title="Jacquard loom">
-      <header class="ph"><span class="pn" aria-hidden="true">III</span><div><p class="eyebrow">Plate III <i>·</i> 1804</p><h2>A loom that <em>read holes</em>.</h2></div></header>
+    <!-- ═════════════ III · DRIVESENSE · JACQUARD LOOM ═════════════ -->
+    <section class="plate" id="p3" data-n="3" data-title="Jacquard loom" data-year="1804" data-proj="DriveSense">
+      <header class="ph"><span class="pn" aria-hidden="true">III</span><div><p class="eyebrow">Plate III <i>·</i> in progress <i>·</i> after the Jacquard loom</p><h2>DriveSense: <em>seeing what doesn’t belong</em>.</h2></div></header>
+      <div class="proj">
+        <figure class="fig" style="--ar:16/9;--arm:2/3">
+          <canvas data-scene="drive" data-key="drive" aria-hidden="true"></canvas>
+          <figcaption><b>FIG. 3a</b> Illustrative model: patch features, a kNN anomaly map, score distributions and a hazard report.</figcaption>
+        </figure>
+        <div class="dl">
+          <p class="k">Out-of-distribution detection &amp; hazard reasoning for autonomous driving</p>
+          <p>A real-time OOD pipeline for driving safety: SegFormer-B2 and DINOv2 on Cityscapes and Fishyscapes, scored with MSP, entropy and feature-bank kNN (FAISS) plus synthetic anomaly augmentation, evaluated on AUROC, AUPRC and FPR@95TPR. A vision-language layer (Claude / Qwen-VL) turns anomalies into structured hazard reports for the planner. Deployment stack: ONNX Runtime, FastAPI, Docker, Streamlit, CI/CD and GCP Vertex AI.</p>
+          <dl class="m"><div><dt>Evaluated on</dt><dd>AUROC · AUPRC</dd></div><div><dt>Feature bank</dt><dd>kNN · FAISS</dd></div></dl>
+          <p class="stack">SegFormer-B2 / DINOv2 / FAISS / ONNX Runtime / FastAPI / Docker / GCP Vertex AI / PyTorch</p>
+          <p class="more"><b>Also: apple detection.</b> YOLOv8 trained for 1,500 epochs reached 98.87% mAP in a benchmark against conventional CV, published in the <a href="https://doi.org/10.2139/ssrn.5402141" target="_blank" rel="noopener noreferrer">SSRN Electronic Journal</a> (Elsevier, Sep 2025).</p>
+          <figure class="fig mini" style="--ar:16/10;--arm:1/1.1">
+            <canvas data-scene="apple" data-key="apple" aria-hidden="true"></canvas>
+            <figcaption><b>FIG. 3b</b> Illustrative model: colour thresholding vs a learned detector.</figcaption>
+          </figure>
+        </div>
+      </div>
+      <p class="mhead"><b>The machine behind it</b> Jacquard loom, 1804, Joseph Marie Jacquard</p>
       <div class="pbody">
         <figure class="fig" style="--ar:16/10;--arm:4/5">
           <canvas data-scene="loom" data-key="loom" aria-hidden="true"></canvas>
-          <figcaption><b>FIG. 3</b> A card chain, twelve hooks, and the cloth they weave.</figcaption>
+          <figcaption><b>FIG. 3c</b> A card chain, twelve hooks, and the cloth they weave.</figcaption>
         </figure>
         <aside class="tb">
           <table>
@@ -163,27 +183,29 @@
           <button data-for="loom" data-call="preset" data-arg="clear">Blank</button>
         </div>
       </div>
-      <div class="desc">
-        <div class="dl">
-          <p class="k">Descendant <i>·</i> machine learning <i>·</i> in progress</p>
-          <h3>DriveSense: out-of-distribution detection and hazard reasoning</h3>
-          <p>A real-time OOD pipeline for autonomous-driving safety: SegFormer-B2 and DINOv2 on Cityscapes and Fishyscapes, scored with MSP, entropy and feature-bank kNN (FAISS) plus synthetic anomaly augmentation, evaluated on AUROC, AUPRC and FPR@95TPR. A vision-language layer (Claude / Qwen-VL) turns anomalies into structured hazard reports for the planner. Deployment stack: ONNX Runtime, FastAPI, Docker, Streamlit, CI/CD and GCP Vertex AI.</p>
-          <p class="more"><b>Also:</b> apple detection. YOLOv8 trained for 1,500 epochs reached 98.87% mAP in a benchmark against conventional CV, published in the SSRN Electronic Journal (Elsevier, Sep 2025).</p>
-        </div>
-        <div class="dr">
-          <dl class="m"><div><dt>Evaluated on</dt><dd>AUROC · AUPRC</dd></div><div><dt>Feature bank</dt><dd>kNN · FAISS</dd></div><div><dt>Apple detection</dt><dd>98.87% mAP</dd></div></dl>
-          <p class="stack">SegFormer-B2 / DINOv2 / FAISS / ONNX Runtime / FastAPI / Docker / GCP Vertex AI / YOLOv8 / PyTorch</p>
-        </div>
-      </div>
     </section>
 
-    <!-- ═════════════ IV · NAVIGATOR'S CHART ═════════════ -->
-    <section class="plate" id="p4" data-n="4" data-title="Navigator's chart">
-      <header class="ph"><span class="pn" aria-hidden="true">IV</span><div><p class="eyebrow">Plate IV <i>·</i> 18th century</p><h2>Lost at sea, <em>drawing the coast</em>.</h2></div></header>
+    <!-- ═════════════ IV · DYNAMIC SLAM · SEA CHART ═════════════ -->
+    <section class="plate" id="p4" data-n="4" data-title="Sea chart" data-year="18th century" data-proj="Dynamic SLAM">
+      <header class="ph"><span class="pn" aria-hidden="true">IV</span><div><p class="eyebrow">Plate IV <i>·</i> MSc dissertation, Bristol <i>·</i> after the navigator’s chart</p><h2>Dynamic object-aware <em>visual SLAM</em>.</h2></div></header>
+      <div class="proj">
+        <figure class="fig" style="--ar:16/9;--arm:1/0.8">
+          <canvas data-scene="slam" data-key="slam" aria-hidden="true"></canvas>
+          <figcaption><b>FIG. 4a</b> Illustrative model: an RGB-D camera maps a room while people move through it; their pixels are masked and the pose drifts, then closes the loop.</figcaption>
+        </figure>
+        <div class="dl">
+          <p class="k">MSc dissertation, University of Bristol</p>
+          <p>RGB-D and monocular SLAM on Intel RealSense D455, Jetson Orin Nano and iPhone RGB cameras. YOLOv8, DeepSORT and MiDaS find people and estimate depth; RGB-D and estimated-depth dynamic filtering with inpainting removes them before ORB feature matching and pose-graph optimisation handle loop closure and drift. RANSAC pose estimation and SE(3) optimisation produce 2D occupancy grids, 3D point clouds (PLY) and stable trajectories.</p>
+          <p class="links"><a href="https://github.com/RuchitaVehale1998/D455-Dynamic-Object-Aware-Visual-SLAM-Framework" target="_blank" rel="noopener">Source on GitHub ↗</a></p>
+          <dl class="m"><div><dt>Human pixels removed</dt><dd>94.8%</dd></div><div><dt>Throughput</dt><dd>3.5+ FPS</dd></div><div><dt>Backend</dt><dd>ORB · SE(3)</dd></div></dl>
+          <p class="stack">YOLOv8 / DeepSORT / MiDaS / ORB features / RANSAC / pose-graph optimisation / RealSense D455 / Jetson Orin Nano</p>
+        </div>
+      </div>
+      <p class="mhead"><b>The machine behind it</b> Sextant &amp; sea chart, 18th century</p>
       <div class="pbody">
         <figure class="fig" style="--ar:16/10;--arm:4/5">
           <canvas data-scene="chart" data-key="chart" aria-hidden="true"></canvas>
-          <figcaption><b>FIG. 4</b> Dead reckoning with fixes, on a chart that draws itself.</figcaption>
+          <figcaption><b>FIG. 4b</b> Dead reckoning with fixes, on a chart that draws itself.</figcaption>
         </figure>
         <aside class="tb">
           <table>
@@ -193,30 +215,32 @@
             <tr><th>Sheet</th><td>4 / 13</td></tr>
           </table>
           <p class="note">Speed, heading and elapsed time give a position that drifts a little more every hour. A bearing to a known landmark pulls it back. Charting the coast while you steer along it is simultaneous localisation and mapping by another name.</p>
-          <p class="try">Try: click the water to drop a beacon. The red error ellipse grows between fixes and collapses at each one. Other ships are seen but never charted.</p>
+          <p class="try">Try: click the water to drop a beacon. The uncertainty ellipse grows between fixes and collapses at each one. Other ships are seen but never charted.</p>
         </aside>
-      </div>
-      <div class="desc">
-        <div class="dl">
-          <p class="k">Descendant <i>·</i> MSc dissertation, University of Bristol</p>
-          <h3>Dynamic object-aware visual SLAM</h3>
-          <p>RGB-D and monocular SLAM on Intel RealSense D455, Jetson Orin Nano and iPhone RGB cameras. YOLOv8, DeepSORT and MiDaS find people and estimate depth; RGB-D and estimated-depth dynamic filtering with inpainting removes them before ORB feature matching and pose-graph optimisation handle loop closure and drift. RANSAC pose estimation and SE(3) optimisation produce 2D occupancy grids, 3D point clouds (PLY) and stable trajectories.</p>
-          <p class="links"><a href="https://github.com/RuchitaVehale1998/D455-Dynamic-Object-Aware-Visual-SLAM-Framework" target="_blank" rel="noopener">Source on GitHub ↗</a></p>
-        </div>
-        <div class="dr">
-          <dl class="m"><div><dt>Human pixels removed</dt><dd>94.8%</dd></div><div><dt>Throughput</dt><dd>3.5+ FPS</dd></div><div><dt>Backend</dt><dd>ORB · SE(3)</dd></div></dl>
-          <p class="stack">YOLOv8 / DeepSORT / MiDaS / ORB features / RANSAC / pose-graph optimisation / RealSense D455 / Jetson Orin Nano</p>
-        </div>
       </div>
     </section>
 
-    <!-- ═════════════ V · GYROSCOPE ═════════════ -->
-    <section class="plate" id="p5" data-n="5" data-title="Gyroscope">
-      <header class="ph"><span class="pn" aria-hidden="true">V</span><div><p class="eyebrow">Plate V <i>·</i> 1852 – 1910s</p><h2>A spinning wheel that <em>refuses to fall</em>.</h2></div></header>
+    <!-- ═════════════ V · PRECISION LANDING · GYROSCOPE ═════════════ -->
+    <section class="plate" id="p5" data-n="5" data-title="Gyroscope" data-year="1852 – 1910s" data-proj="Precision landing">
+      <header class="ph"><span class="pn" aria-hidden="true">V</span><div><p class="eyebrow">Plate V <i>·</i> HVN Labs, Bristol <i>·</i> after the gyroscope</p><h2>Autonomous <em>precision landing</em>, no GPS.</h2></div></header>
+      <div class="proj">
+        <figure class="fig" style="--ar:16/9;--arm:4/5">
+          <canvas data-scene="landing" data-key="landing" aria-hidden="true"></canvas>
+          <figcaption><b>FIG. 5a</b> Illustrative model: a pad camera detects the drone, a Kalman filter tracks it, corrections stream back.</figcaption>
+        </figure>
+        <div class="dl">
+          <p class="k">HVN Labs, Future Space, BRL <i>·</i> Jr. Drone System Engineer, Jun – Aug 2025</p>
+          <p>An upward-facing Raspberry Pi camera on the landing pad detects the incoming drone with YOLOv8 and tracks it with a custom DeepSORT: Kalman filter, Hungarian assignment and CNN appearance embeddings, plus stereo-vision depth to recover metric 3D position. Corrective MAVLink LANDING_TARGET messages stream at 10 Hz to a Cube Orange (ArduCopter) for closed-loop landing. The detector is pluggable across four modes (motion, brightness, YOLOv8, YOLOv8 + DeepSORT). Earlier in 2025, as Technology Intern: a coaxial drone for synchronised lighting displays, from ESC calibration to flight testing.</p>
+          <p class="links"><a href="https://github.com/RuchitaVehale1998/drone-precision-landing" target="_blank" rel="noopener">Source on GitHub ↗</a></p>
+          <dl class="m"><div><dt>MAVLink loop</dt><dd>10 Hz</dd></div><div><dt>Landing mode</dt><dd>No GPS</dd></div><div><dt>Detection modes</dt><dd>4</dd></div></dl>
+          <p class="stack">YOLOv8 / DeepSORT / Kalman / stereo vision / MAVLink / ArduPilot / ESP32 / Raspberry Pi</p>
+        </div>
+      </div>
+      <p class="mhead"><b>The machine behind it</b> Gyroscope &amp; gyro-stabiliser, 1852 · Sperry, 1910s</p>
       <div class="pbody">
         <figure class="fig" style="--ar:16/10;--arm:1/1.2">
           <canvas data-scene="gyro" data-key="gyro" aria-hidden="true"></canvas>
-          <figcaption><b>FIG. 5</b> A gimballed rotor, and the horizon it reports.</figcaption>
+          <figcaption><b>FIG. 5b</b> A gimballed rotor, and the horizon it reports.</figcaption>
         </figure>
         <aside class="tb">
           <table>
@@ -235,27 +259,28 @@
         <label class="fld">Pitch <input data-for="gyro" data-call="pitch" type="range" min="-45" max="45" value="-8" aria-label="Pitch"></label>
         <label class="fld">Yaw <input data-for="gyro" data-call="yaw" type="range" min="-90" max="90" value="20" aria-label="Yaw"></label>
       </div>
-      <div class="desc">
-        <div class="dl">
-          <p class="k">Descendant <i>·</i> HVN Labs, Future Space, BRL <i>·</i> Jr. Drone System Engineer, Jun – Aug 2025</p>
-          <h3>Autonomous precision landing, no GPS</h3>
-          <p>An upward-facing Raspberry Pi camera on the landing pad detects the incoming drone with YOLOv8 and tracks it with a custom DeepSORT: Kalman filter, Hungarian assignment and CNN appearance embeddings, plus stereo-vision depth to recover metric 3D position. Corrective MAVLink LANDING_TARGET messages stream at 10 Hz to a Cube Orange (ArduCopter) for closed-loop landing. The detector is pluggable across four modes (motion, brightness, YOLOv8, YOLOv8 + DeepSORT). Earlier in 2025, as Technology Intern: a coaxial drone for synchronised lighting displays, from ESC calibration to flight testing.</p>
-          <p class="links"><a href="https://github.com/RuchitaVehale1998/drone-precision-landing" target="_blank" rel="noopener">Source on GitHub ↗</a></p>
-        </div>
-        <div class="dr">
-          <dl class="m"><div><dt>MAVLink loop</dt><dd>10 Hz</dd></div><div><dt>Landing mode</dt><dd>No GPS</dd></div><div><dt>Detection modes</dt><dd>4</dd></div></dl>
-          <p class="stack">YOLOv8 / DeepSORT / Kalman / stereo vision / MAVLink / ArduPilot / ESP32 / Raspberry Pi</p>
-        </div>
-      </div>
     </section>
 
-    <!-- ═════════════ VI · TELEGRAPH / SPARK GAP ═════════════ -->
-    <section class="plate" id="p6" data-n="6" data-title="Spark-gap telegraph">
-      <header class="ph"><span class="pn" aria-hidden="true">VI</span><div><p class="eyebrow">Plate VI <i>·</i> 1887 – 1901</p><h2>Sparks across <em>empty air</em>.</h2></div></header>
+    <!-- ═════════════ VI · ANTENNAS · SPARK-GAP TELEGRAPH ═════════════ -->
+    <section class="plate" id="p6" data-n="6" data-title="Spark-gap telegraph" data-year="1887 – 1901" data-proj="Antenna design, CMET">
+      <header class="ph"><span class="pn" aria-hidden="true">VI</span><div><p class="eyebrow">Plate VI <i>·</i> CMET, Pune <i>·</i> after the spark-gap telegraph</p><h2>Multi-band <em>antennas</em>: designed, printed, measured.</h2></div></header>
+      <div class="proj">
+        <figure class="fig" style="--ar:16/9;--arm:3/4">
+          <canvas data-scene="antenna" data-key="antenna" aria-hidden="true"></canvas>
+          <figcaption><b>FIG. 6a</b> Illustrative model: a printed patch on its substrate, its radiation pattern, and a return-loss sweep.</figcaption>
+        </figure>
+        <div class="dl">
+          <p class="k">CMET, Pune <i>·</i> Research Fellow, Apr 2023 – Aug 2024</p>
+          <p>Optimised multi-band antenna designs in CST Microwave Studio for GPS, Wi-Fi, Bluetooth and 5G, then prototyped them with FDM and inkjet 3D printing and validated them with a Vector Network Analyzer and X-ray diffraction. The materials work behind them is published; see the catalogue drawer at <a href="#p12">Plate XII</a>.</p>
+          <dl class="m"><div><dt>Size reduction</dt><dd>~20%</dd></div><div><dt>Simulation accuracy</dt><dd>~70% better</dd></div><div><dt>Bands</dt><dd>GPS · Wi-Fi · BT · 5G</dd></div></dl>
+          <p class="stack">CST Microwave Studio / FDM + inkjet 3D printing / VNA / XRD / RF characterisation</p>
+        </div>
+      </div>
+      <p class="mhead"><b>The machine behind it</b> Spark-gap telegraph, 1887 – 1901, Hertz · Marconi</p>
       <div class="pbody">
         <figure class="fig" style="--ar:16/10;--arm:4/5">
           <canvas data-scene="radio" data-key="radio" aria-hidden="true"></canvas>
-          <figcaption><b>FIG. 6</b> A spark-gap transmitter, a tuned receiver, and the resonance between them.</figcaption>
+          <figcaption><b>FIG. 6b</b> A spark-gap transmitter, a tuned receiver, and the resonance between them.</figcaption>
         </figure>
         <aside class="tb">
           <table>
@@ -265,7 +290,7 @@
             <tr><th>Sheet</th><td>6 / 13</td></tr>
           </table>
           <p class="note">Hertz demonstrated radio waves in 1887; Marconi's signal crossed the Atlantic in 1901. A spark rings a resonant circuit and a tuned receiver rings back, with Morse carrying the message.</p>
-          <p class="try">Try: type a message to key the transmitter, then drag the tuning dial. The receiver only answers near resonance. The bands below are today's.</p>
+          <p class="try">Try: type a message to key the transmitter, then drag the tuning dial. The receiver only answers near resonance. The bands are today's.</p>
           <p class="read" data-out="radio-read"></p>
         </aside>
       </div>
@@ -278,26 +303,29 @@
           <button data-for="radio" data-call="band" data-arg="3.5">5G 3.5</button>
         </div>
       </div>
-      <div class="desc">
-        <div class="dl">
-          <p class="k">Descendant <i>·</i> CMET, Pune <i>·</i> Research Fellow, Apr 2023 – Aug 2024</p>
-          <h3>Multi-band antennas, designed, printed and measured</h3>
-          <p>Optimised multi-band antenna designs in CST Microwave Studio for GPS, Wi-Fi, Bluetooth and 5G, then prototyped them with FDM and inkjet 3D printing and validated them with a Vector Network Analyzer and X-ray diffraction. The materials work behind them is published; see the catalogue drawer at <a href="#p12">Plate XII</a>.</p>
-        </div>
-        <div class="dr">
-          <dl class="m"><div><dt>Size reduction</dt><dd>~20%</dd></div><div><dt>Simulation accuracy</dt><dd>~70% better</dd></div><div><dt>Bands</dt><dd>GPS · Wi-Fi · BT · 5G</dd></div></dl>
-          <p class="stack">CST Microwave Studio / FDM + inkjet 3D printing / VNA / XRD / RF characterisation</p>
-        </div>
-      </div>
     </section>
 
-    <!-- ═════════════ VII · DIFFERENCE ENGINE ═════════════ -->
-    <section class="plate" id="p7" data-n="7" data-title="Difference engine">
-      <header class="ph"><span class="pn" aria-hidden="true">VII</span><div><p class="eyebrow">Plate VII <i>·</i> 1822</p><h2>Tables by <em>addition alone</em>.</h2></div></header>
+    <!-- ═════════════ VII · LEADER–FOLLOWER · DIFFERENCE ENGINE ═════════════ -->
+    <section class="plate" id="p7" data-n="7" data-title="Difference engine" data-year="1822" data-proj="Leader–follower robots">
+      <header class="ph"><span class="pn" aria-hidden="true">VII</span><div><p class="eyebrow">Plate VII <i>·</i> embedded C, swarm robotics <i>·</i> after the difference engine</p><h2>Leader–follower <em>robots</em>, controlled and estimated.</h2></div></header>
+      <div class="proj">
+        <figure class="fig" style="--ar:16/9;--arm:3/4">
+          <canvas data-scene="follow" data-key="follow" aria-hidden="true"></canvas>
+          <figcaption><b>FIG. 7a</b> Illustrative toy model: line-following robots, and the gap error of a noisy P controller against a filtered PID.</figcaption>
+        </figure>
+        <div class="dl">
+          <p class="k">Embedded C · swarm robotics</p>
+          <p>PID-controlled multi-robot coordination with dynamic speed control and QTR-RC sensor fusion, cutting tracking error by 97.93% for autonomous and swarm-robotics use. Earlier, a Pololu 3Pi+ combined boundary detection, PID and BFS shortest-path planning to find magnets.</p>
+          <p><b>Also, HEMRL, DRDO (Technology Intern, Nov 2021 – Aug 2022):</b> a MATLAB vision system for multi-object detection, tracking and velocity estimation: GMM background subtraction, Kalman filtering and Hungarian assignment, CLAHE and Hough-transform enhancement for harsh lighting, and projective geometry to turn pixel motion into real-world velocity, validated across multiple video datasets.</p>
+          <dl class="m"><div><dt>Tracking error</dt><dd>−97.93%</dd></div><div><dt>Control</dt><dd>PID</dd></div><div><dt>Estimation</dt><dd>Kalman</dd></div></dl>
+          <p class="stack">PID / QTR-RC / Embedded C / C++ / Pololu 3Pi+ / MATLAB / Kalman filter / Hungarian algorithm / camera calibration</p>
+        </div>
+      </div>
+      <p class="mhead"><b>The machine behind it</b> Difference engine, 1822, Charles Babbage</p>
       <div class="pbody">
         <figure class="fig" style="--ar:16/10;--arm:4/5">
           <canvas data-scene="engine" data-key="engine" aria-hidden="true"></canvas>
-          <figcaption><b>FIG. 7</b> Four columns of number wheels, and the table they print.</figcaption>
+          <figcaption><b>FIG. 7b</b> Four columns of number wheels, and the table they print.</figcaption>
         </figure>
         <aside class="tb">
           <table>
@@ -315,27 +343,28 @@
         <button data-for="engine" data-call="auto" id="engine-auto">Auto ▸</button>
         <button data-for="engine" data-call="reset">Reset</button>
       </div>
-      <div class="desc">
-        <div class="dl">
-          <p class="k">Descendants <i>·</i> control &amp; estimation</p>
-          <h3>Leader–follower robots, and velocity from video</h3>
-          <p><b>Leader–follower robots (research paper submitted).</b> PID-controlled multi-robot coordination with dynamic speed control and QTR-RC sensor fusion, cutting tracking error by 97.93% for autonomous and swarm-robotics use. Earlier, a Pololu 3Pi+ combined boundary detection, PID and BFS shortest-path planning to find magnets.</p>
-          <p><b>HEMRL, DRDO (Technology Intern, Nov 2021 – Aug 2022).</b> A MATLAB vision system for multi-object detection, tracking and velocity estimation: GMM background subtraction, Kalman filtering and Hungarian assignment, CLAHE and Hough-transform enhancement for harsh lighting, and projective geometry to turn pixel motion into real-world velocity, validated across multiple video datasets.</p>
-        </div>
-        <div class="dr">
-          <dl class="m"><div><dt>Tracking error</dt><dd>−97.93%</dd></div><div><dt>Control</dt><dd>PID</dd></div><div><dt>Estimation</dt><dd>Kalman</dd></div></dl>
-          <p class="stack">PID / QTR-RC / Embedded C / C++ / Pololu 3Pi+ / MATLAB / Kalman filter / Hungarian algorithm / camera calibration</p>
-        </div>
-      </div>
     </section>
 
-    <!-- ═════════════ VIII · CORE MEMORY ═════════════ -->
-    <section class="plate" id="p8" data-n="8" data-title="Core memory">
-      <header class="ph"><span class="pn" aria-hidden="true">VIII</span><div><p class="eyebrow">Plate VIII <i>·</i> 1951 – 1953</p><h2>Bits as <em>magnets</em>, threaded on wire.</h2></div></header>
+    <!-- ═════════════ VIII · HVN FIRMWARE · CORE MEMORY ═════════════ -->
+    <section class="plate" id="p8" data-n="8" data-title="Core memory" data-year="1951 – 1953" data-proj="HVN firmware">
+      <header class="ph"><span class="pn" aria-hidden="true">VIII</span><div><p class="eyebrow">Plate VIII <i>·</i> HVN Labs, Bristol <i>·</i> after magnetic-core memory</p><h2>The <em>firmware</em> between autopilot and world.</h2></div></header>
+      <div class="proj">
+        <figure class="fig" style="--ar:16/9;--arm:3/4.3">
+          <canvas data-scene="firmware" data-key="firmware" aria-hidden="true"></canvas>
+          <figcaption><b>FIG. 8a</b> Illustrative model: ground station, ESP32 telemetry, ArduPilot with Lua, a smart servo, and the buses between them.</figcaption>
+        </figure>
+        <div class="dl">
+          <p class="k">HVN Labs, Future Space, BRL <i>·</i> firmware &amp; telemetry</p>
+          <p>An ESP32-based wireless telemetry module for real-time command and status exchange between ground systems and the drone. Smart servos integrated with an ArduPilot flight controller in Lua: control, monitoring and fault-recovery logic, with firmware extended for native CAN and UART support. Earlier, Embedded C on the leader–follower and Pololu robots.</p>
+          <dl class="m"><div><dt>Buses</dt><dd>CAN · UART</dd></div><div><dt>Scripting</dt><dd>Lua</dd></div><div><dt>Radio</dt><dd>ESP32</dd></div></dl>
+          <p class="stack">ESP32 / ArduPilot / Lua / CAN / UART / Embedded C / C·C++ / Raspberry Pi / Jetson Orin Nano</p>
+        </div>
+      </div>
+      <p class="mhead"><b>The machine behind it</b> Magnetic-core memory, 1951 – 1953, Jay Forrester</p>
       <div class="pbody">
         <figure class="fig" style="--ar:16/10;--arm:1/1.1">
           <canvas data-scene="core" data-key="core" aria-hidden="true"></canvas>
-          <figcaption><b>FIG. 8</b> A 16 × 16 core plane: 256 bits, two crossing wires each.</figcaption>
+          <figcaption><b>FIG. 8b</b> A 16 × 16 core plane: 256 bits, two crossing wires each.</figcaption>
         </figure>
         <aside class="tb">
           <table>
@@ -352,21 +381,10 @@
       <div class="ctrls">
         <label class="fld wide">Memory <input data-for="core" data-call="text" type="text" value="ESP32 CAN UART LUA C" maxlength="32" spellcheck="false" autocomplete="off" aria-label="Text stored in core memory"></label>
       </div>
-      <div class="desc">
-        <div class="dl">
-          <p class="k">Descendant <i>·</i> HVN Labs, Future Space, BRL <i>·</i> firmware &amp; telemetry</p>
-          <h3>The firmware between the autopilot and the world</h3>
-          <p>An ESP32-based wireless telemetry module for real-time command and status exchange between ground systems and the drone. Smart servos integrated with an ArduPilot flight controller in Lua: control, monitoring and fault-recovery logic, with firmware extended for native CAN and UART support. Earlier, Embedded C on the leader–follower and Pololu robots.</p>
-        </div>
-        <div class="dr">
-          <dl class="m"><div><dt>Buses</dt><dd>CAN · UART</dd></div><div><dt>Scripting</dt><dd>Lua</dd></div><div><dt>Radio</dt><dd>ESP32</dd></div></dl>
-          <p class="stack">ESP32 / ArduPilot / Lua / CAN / UART / Embedded C / C·C++ / Raspberry Pi / Jetson Orin Nano</p>
-        </div>
-      </div>
     </section>
 
     <!-- ═════════════ IX · SWITCHBOARD ═════════════ -->
-    <section class="plate" id="p9" data-n="9" data-title="Switchboard">
+    <section class="plate" id="p9" data-n="9" data-title="Switchboard" data-year="1878">
       <header class="ph"><span class="pn" aria-hidden="true">IX</span><div><p class="eyebrow">Plate IX <i>·</i> 1878</p><h2>Patch a project, <em>light the skills</em>.</h2></div></header>
       <div class="pbody">
         <figure class="fig wide" style="--ar:16/9;--arm:3/5">
@@ -387,7 +405,7 @@
       </div>
       <div class="desc">
         <div class="dl">
-          <p class="k">Descendant <i>·</i> the toolbox, as listed on the résumé</p>
+          <p class="k">The toolbox, as listed on the résumé</p>
           <h3>What I reach for</h3>
           <ul class="toolbox">
             <li><b>Programming</b> Python, C/C++, Embedded C, MATLAB</li>
@@ -405,7 +423,7 @@
     </section>
 
     <!-- ═════════════ X · ANTIKYTHERA ═════════════ -->
-    <section class="plate" id="p10" data-n="10" data-title="Antikythera mechanism">
+    <section class="plate" id="p10" data-n="10" data-title="Antikythera mechanism" data-year="2nd–1st c. BCE">
       <header class="ph"><span class="pn" aria-hidden="true">X</span><div><p class="eyebrow">Plate X <i>·</i> 2nd–1st century BCE</p><h2>A calendar made of <em>gears</em>.</h2></div></header>
       <div class="pbody">
         <figure class="fig" style="--ar:16/10;--arm:1/1.15">
@@ -429,7 +447,7 @@
       </div>
       <div class="desc">
         <div class="dl">
-          <p class="k">Descendant <i>·</i> Pune → Bristol</p>
+          <p class="k">Pune → Bristol</p>
           <h3>Ten years, in order</h3>
           <ol class="timeline">
             <li><time>Oct 2025 – now</time> Associate Software Engineer (R&amp;D), DeGould Ltd, Bristol</li>
@@ -448,7 +466,7 @@
     </section>
 
     <!-- ═════════════ XI · HOLLERITH CARD ═════════════ -->
-    <section class="plate" id="p11" data-n="11" data-title="Hollerith card">
+    <section class="plate" id="p11" data-n="11" data-title="Hollerith card" data-year="1890">
       <header class="ph"><span class="pn" aria-hidden="true">XI</span><div><p class="eyebrow">Plate XI <i>·</i> 1890</p><h2>Eighty columns, <em>one résumé</em>.</h2></div></header>
       <div class="pbody">
         <figure class="fig wide" style="--ar:2.35/1;--arm:1/1.1">
@@ -473,7 +491,7 @@
       </div>
       <div class="desc">
         <div class="dl">
-          <p class="k">Descendant <i>·</i> education &amp; credentials</p>
+          <p class="k">Education &amp; credentials</p>
           <h3>The record, as a listing</h3>
           <ul class="listing">
             <li><span>MSc Robotics, University of Bristol</span><i></i><time>2024 – 2025</time></li>
@@ -492,19 +510,19 @@
     </section>
 
     <!-- ═════════════ XII · CARD CATALOGUE ═════════════ -->
-    <section class="plate" id="p12" data-n="12" data-title="Card catalogue">
+    <section class="plate" id="p12" data-n="12" data-title="Card catalogue" data-year="the drawer">
       <header class="ph"><span class="pn" aria-hidden="true">XII</span><div><p class="eyebrow">Plate XII <i>·</i> the drawer</p><h2>Four cards in <em>the catalogue</em>.</h2></div></header>
       <p class="plate-intro">Published work, from ceramics for antennas to deep learning for apples.</p>
       <div class="drawer" id="drawer">
-        <article class="card" data-tag="RF"><p class="cn">Card 1 of 4</p><p class="au">VEHALE, Ruchita K., et al.</p><h3>Binder Jet 3D Printed Ceramic Substrates for 5G Patch Antenna.</h3><p class="src"><i>Advanced Materials Technologies</i> (Wiley).</p><span class="stamp">RF</span></article>
-        <article class="card" data-tag="RF"><p class="cn">Card 2 of 4</p><p class="au">VEHALE, Ruchita K., et al.</p><h3>Preparation of Phase-Pure MgTiO₃ Microwave Dielectric Ceramics for GPS Antenna Application.</h3><p class="src"><i>Journal of Materials Chemistry C</i> (RSC), January 2024.</p><span class="stamp">RF</span></article>
-        <article class="card" data-tag="RF"><p class="cn">Card 3 of 4</p><p class="au">VEHALE, Ruchita K., et al.</p><h3>Fabrication of 3D Printable Low-Loss, Dielectric-Enhanced ABS–ZnO Nanocomposite Filaments for Microstrip Patch Antenna in GPS Communication.</h3><p class="src"><i>Journal of Polymer Engg and Science</i> (Wiley), April 2026.</p><span class="stamp">RF</span></article>
-        <article class="card" data-tag="ML"><p class="cn">Card 4 of 4</p><p class="au">VEHALE, Ruchita K., et al.</p><h3>Comparative Analysis of Conventional and Deep Learning Algorithms for Apple Detection.</h3><p class="src"><i>SSRN Electronic Journal</i> (Elsevier), September 2025.</p><span class="stamp">ML</span></article>
+        <article class="card" data-tag="RF"><p class="cn">Card 1 of 4</p><p class="au">MALI, D. N.; SHINDE, M. D.; <b>VEHALE, R.</b>; UMARJI, G. G.; DEORE, N. R.; RANE, S. B.</p><h3>Binder Jet 3D Printed Ceramic Substrate for 5G Patch Antenna.</h3><p class="src"><i>Advanced Materials Technologies</i> (Wiley), vol. 11, no. 15, 2026.</p><a class="pub" href="https://doi.org/10.1002/admt.202502039" target="_blank" rel="noopener noreferrer" aria-label="Read “Binder Jet 3D Printed Ceramic Substrate for 5G Patch Antenna” on the Wiley website (opens in a new tab)">Read on Wiley <span aria-hidden="true">↗</span></a><span class="doi">doi:10.1002/admt.202502039</span><span class="stamp">RF</span></article>
+        <article class="card" data-tag="RF"><p class="cn">Card 2 of 4</p><p class="au">MALI, D.; RAJARAM, N.; <b>VEHALE, R.</b>; SHINDE, M.; UMARJI, G.; RANE, S.</p><h3>Preparation of Phase-Pure MgTiO₃ Microwave Dielectric Ceramics for GPS Antenna Application.</h3><p class="src"><i>Journal of Materials Chemistry C</i> (RSC), vol. 12, no. 37, pp. 15101–15111, 2024.</p><a class="pub" href="https://doi.org/10.1039/d4tc02724h" target="_blank" rel="noopener noreferrer" aria-label="Read “Preparation of Phase-Pure MgTiO3 Microwave Dielectric Ceramics for GPS Antenna Application” on the RSC website (opens in a new tab)">Read on RSC <span aria-hidden="true">↗</span></a><span class="doi">doi:10.1039/d4tc02724h</span><span class="stamp">RF</span></article>
+        <article class="card" data-tag="RF"><p class="cn">Card 3 of 4</p><p class="au">JASH, C.; <b>VEHALE, R.</b>; BIRLA, P.; SHINDE, M.; UMARJI, G.; WAGHULDE, K.; RANE, S.</p><h3>Fabrication of 3D Printable Low-Loss, Dielectric-Enhanced ABS–ZnO Nanocomposite Filaments for Microstrip Patch Antenna in GPS Communication.</h3><p class="src"><i>Polymer Engineering &amp; Science</i> (Wiley), vol. 66, no. 6, pp. 4670–4686; online April 2026.</p><a class="pub" href="https://doi.org/10.1002/pen.70532" target="_blank" rel="noopener noreferrer" aria-label="Read “Fabrication of 3D Printable Low-Loss, Dielectric-Enhanced ABS–ZnO Nanocomposite Filaments” on the Wiley website (opens in a new tab)">Read on Wiley <span aria-hidden="true">↗</span></a><span class="doi">doi:10.1002/pen.70532</span><span class="stamp">RF</span></article>
+        <article class="card" data-tag="ML"><p class="cn">Card 4 of 4</p><p class="au">DAS, H.; <b>VEHALE, R. K.</b>; SHIRGUR, P.</p><h3>Comparative Analysis of Conventional and Deep Learning Algorithms for Apple Detection.</h3><p class="src"><i>SSRN Electronic Journal</i> (Elsevier), September 2025.</p><a class="pub" href="https://doi.org/10.2139/ssrn.5402141" target="_blank" rel="noopener noreferrer" aria-label="Read “Comparative Analysis of Conventional and Deep Learning Algorithms for Apple Detection” on the SSRN website (opens in a new tab)">Read on SSRN <span aria-hidden="true">↗</span></a><span class="doi">doi:10.2139/ssrn.5402141</span><span class="stamp">ML</span></article>
       </div>
     </section>
 
     <!-- ═════════════ XIII · ENIGMA ═════════════ -->
-    <section class="plate" id="p13" data-n="13" data-title="Enigma">
+    <section class="plate" id="p13" data-n="13" data-title="Enigma" data-year="1918 – 1945">
       <header class="ph"><span class="pn" aria-hidden="true">XIII</span><div><p class="eyebrow">Plate XIII <i>·</i> 1918 – 1945</p><h2>Type a message. <em>Enigma</em> does the rest.</h2></div></header>
       <div class="pbody">
         <figure class="fig" style="--ar:16/10;--arm:4/5.4">
@@ -519,7 +537,7 @@
             <tr><th>Sheet</th><td>13 / 13</td></tr>
           </table>
           <p class="note">Three rotors step like an odometer, so every key press is enciphered differently, and enciphering twice returns the text. No letter ever maps to itself, the flaw Bletchley Park leaned on.</p>
-          <p class="try">Try: type letters into the field, or click the lamp keyboard. The red path is the current through the rotors.</p>
+          <p class="try">Try: type letters into the field, or click the lamp keyboard. The bright line is the current through the rotors.</p>
           <p class="read" data-out="enigma-read"></p>
         </aside>
       </div>
@@ -530,7 +548,7 @@
       </div>
       <div class="desc contact">
         <div class="dl">
-          <p class="k">Descendant <i>·</i> contact</p>
+          <p class="k">Contact</p>
           <h3>Let's build something that works in the real world.</h3>
           <p>Open to computer vision, robotics software and applied AI / ML roles, in Bristol, the UK and beyond. The email button above sends the plain text you typed; the cipher is for show.</p>
           <p class="links"><a id="mail-link" href="mailto:ruchita.uob.2024@gmail.com">ruchita.uob.2024@gmail.com</a> <i>/</i> <a href="https://www.linkedin.com/in/ruchita-vehale" target="_blank" rel="noopener">LinkedIn ↗</a> <i>/</i> <a href="https://github.com/RuchitaVehale1998" target="_blank" rel="noopener">GitHub ↗</a> <i>/</i> <a href="./files/Ruchita_Vehale_Resume.pdf" download>Résumé ↓</a></p>
@@ -546,7 +564,7 @@
     <a href="#top">Back to the first plate ↑</a>
   </footer>
 
-  <!-- Altair-style front panel: set an address in binary, press EXAMINE -->
+  <!-- Altair-style front panel: set a plate number in binary, press EXAMINE -->
   <aside class="panel" id="panel" aria-label="Front panel navigation">
     <div class="pcol" id="pcol"></div>
     <div class="pinfo"><span class="plbl">PLATE</span><b id="pnum">0</b></div>

@@ -34,13 +34,13 @@ export function initTape(canvas) {
     for (let r = r0; r <= r1; r++) {
       const y = r * ROW - off, row = rows[((r % L) + L) % L];
       const isHead = headY >= y && headY < y + ROW;
-      if (isHead) { headRow = row; ctx.fillStyle = 'rgba(255,45,32,0.16)'; ctx.fillRect(x0, y, tw, ROW); }
+      if (isHead) { headRow = row; ctx.fillStyle = 'rgba(241,241,241,0.16)'; ctx.fillRect(x0, y, tw, ROW); }
       // feed hole
-      ctx.fillStyle = isHead ? C.red : '#000';
+      ctx.fillStyle = isHead ? C.w : '#000';
       ctx.beginPath(); ctx.arc(x0 + tw * cols[2], y + ROW / 2, narrow ? 0.9 : 1.3, 0, Math.PI * 2); ctx.fill();
       [0, 1, 3, 4, 5].forEach((ci, bi) => {
         if (row.bits[bi] !== '1') return;
-        ctx.fillStyle = isHead ? C.red : '#000';
+        ctx.fillStyle = isHead ? C.w : '#000';
         ctx.beginPath(); ctx.arc(x0 + tw * cols[ci], y + ROW / 2, narrow ? 1.7 : 2.7, 0, Math.PI * 2); ctx.fill();
         if (!isHead) { ctx.strokeStyle = 'rgba(255,255,255,0.12)'; ctx.lineWidth = 0.6; ctx.stroke(); }
       });
@@ -49,7 +49,7 @@ export function initTape(canvas) {
     ctx.strokeStyle = C.red; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(0, headY + 0.5); ctx.lineTo(x0 + tw + 2, headY + 0.5); ctx.stroke();
     if (!narrow && headRow) {
-      ctx.fillStyle = C.red; ctx.fillRect(x0 + tw + 3, headY - 8, 14, 16);
+      ctx.fillStyle = C.w; ctx.fillRect(x0 + tw + 3, headY - 8, 14, 16);
       ctx.fillStyle = '#000'; ctx.font = `500 11px ${MONO}`; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
       ctx.fillText(headRow.ch === ' ' ? '·' : headRow.ch, x0 + tw + 10, headY + 1);
     }

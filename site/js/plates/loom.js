@@ -60,11 +60,11 @@ export default function loom(env) {
         if (!card[c]) { ctx.fillStyle = rgba('#000', 0.1); ctx.fillRect(L.chainX + 6 + c * hc + hc / 2 - 1, y + L.cardH / 2 - 1, 2, 2); continue; }
         ctx.fillStyle = '#000'; ctx.beginPath(); ctx.arc(L.chainX + 6 + c * hc + hc / 2, y + L.cardH / 2 - 0.5, Math.min(hc, L.cardH) * 0.3, 0, 6.3); ctx.fill();
       }
-      if (isCur) { ink(ctx, 1, 2, C.red); ctx.strokeRect(L.chainX + 3, y - 1, L.chainW - 6, L.cardH + 1); }
+      if (isCur) { ink(ctx, 1, 2, C.w); ctx.strokeRect(L.chainX + 3, y - 1, L.chainW - 6, L.cardH + 1); }
     }
     ctx.restore();
-    ctx.fillStyle = C.red; ctx.beginPath(); ctx.moveTo(L.chainX + L.chainW + 8, L.cy); ctx.lineTo(L.chainX + L.chainW + 20, L.cy - 6); ctx.lineTo(L.chainX + L.chainW + 20, L.cy + 6); ctx.fill();
-    label(ctx, `READING CARD ${cur + 1}/${ROWS}`, L.chainX, h - 12, { size: 9.5, color: C.red });
+    ctx.fillStyle = C.w; ctx.beginPath(); ctx.moveTo(L.chainX + L.chainW + 8, L.cy); ctx.lineTo(L.chainX + L.chainW + 20, L.cy - 6); ctx.lineTo(L.chainX + L.chainW + 20, L.cy + 6); ctx.fill();
+    label(ctx, `READING CARD ${cur + 1}/${ROWS}`, L.chainX, h - 12, { size: 9.5, color: C.w });
 
     /* hooks + warp */
     const { clothX, clothW, cw, shedY } = L, active = cards[cur];
@@ -72,9 +72,9 @@ export default function loom(env) {
     ink(ctx, 0.6, 1, C.g4); line(ctx, clothX - 4, 44, clothX + clothW + 4, 44);
     for (let c = 0; c < COLS; c++) {
       const x = clothX + (c + 0.5) * cw, lifted = active[c] === 1, lift = lifted ? 16 : 0;
-      ink(ctx, lifted ? 1 : 0.5, lifted ? 1.8 : 1, lifted ? C.red : C.w);
+      ink(ctx, lifted ? 1 : 0.5, lifted ? 1.8 : 1, lifted ? C.w : C.w);
       line(ctx, x, 44, x, shedY - lift);
-      ctx.beginPath(); ctx.arc(x, shedY - lift, 2.5, 0, 6.3); ctx.fillStyle = lifted ? C.red : C.w; ctx.fill();
+      ctx.beginPath(); ctx.arc(x, shedY - lift, 2.5, 0, 6.3); ctx.fillStyle = lifted ? C.w : C.w; ctx.fill();
       ink(ctx, 0.25, 1, C.g4); line(ctx, x, shedY - lift, x, h - 18);       // warp continues through the cloth
     }
     /* shuttle */

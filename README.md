@@ -3,10 +3,13 @@
 A hand-built static site: plain HTML, CSS and ES modules. **No framework, no build step, no runtime network
 dependencies except Google Fonts.** Everything is in [`site/`](site/).
 
-Concept: every field she works in is paired with the older machine it descends from — twelve working models
-(Turing machine, camera obscura, Jacquard loom, sea chart, gyroscope, spark-gap telegraph, difference engine,
-core memory, switchboard, Antikythera dial, Hollerith card, Enigma) plus a card catalogue of the papers.
-Palette: black, greys, white, and one red.
+Concept: each plate leads with one of her projects, drawn as a small animated model of what it actually does
+(defect-inspection mesh, DriveSense pipeline, dynamic SLAM, precision landing, antenna sweep, …), then pairs it with
+the older machine it descends from — twelve working models (Turing machine, camera obscura, Jacquard loom, sea
+chart, gyroscope, spark-gap telegraph, difference engine, core memory, switchboard, Antikythera dial, Hollerith
+card, Enigma) plus a card catalogue of the papers. Project illustrations are labelled "illustrative" and carry no
+invented figures.
+Palette: black, greys, white, and one small red accent per drawing (the switchboard's patch cords are the one place red is used freely).
 
 ```
 site/
@@ -17,8 +20,11 @@ site/
   js/tape.js          fixed ITA2 paper tape, fed by scroll
   js/flap.js          split-flap metrics board
   js/panel.js         Altair-style front panel + index overlay
-  js/lib/*.js         pure machine logic (Enigma, Turing, codes, eye) — no DOM
-  js/plates/*.js      one canvas per plate (hero + twelve machines)
+  js/lib/*.js         pure machine logic (Enigma, Turing, codes) — no DOM
+  js/plates/*.js      one canvas per plate (hero + twelve machines); the hero is a LiDAR scan (hero-lidar.js)
+                      above a Turing tape (hero.js)
+  js/projects/*.js    the project illustration beside each plate's description (dego, drive, apple, slam,
+                      landing, antenna, follow, firmware)
   files/              résumé PDF
 ```
 
@@ -36,7 +42,7 @@ Flags: `?debug` shows an fps counter · `?motion=0` pauses animation (same as `p
 * **Text, numbers, descendants** — edit `site/index.html` (each plate has a `.desc` block).
 * **Skill graph / timeline data** — `site/js/plates/switch.js` (projects and skills) and `site/js/plates/gears.js` (roles).
 * **Résumé** — overwrite `site/files/Ruchita_Vehale_Resume.pdf`.
-* **Paper links** — add an `<a href>` (DOI) to each card in `#drawer`.
+* **Paper links** — each card in `#drawer` has a `.pub` link to its `https://doi.org/…` permalink, which redirects to the publisher's page (authors, volume and pages were checked against Crossref).
 
 ## Verified machine logic
 

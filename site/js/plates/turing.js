@@ -79,12 +79,12 @@ export default function turing(env) {
       if (x < -cs || x > w + cs) continue;
       const s = m.read(i), isHead = i === m.head;
       const flashK = flashIdx === i ? clamp(1 - (t - flashAt) / 0.7) : 0;
-      ctx.fillStyle = isHead ? 'rgba(255,45,32,0.1)' : 'rgba(255,255,255,0.025)';
+      ctx.fillStyle = isHead ? 'rgba(241,241,241,0.1)' : 'rgba(255,255,255,0.025)';
       ctx.fillRect(x - cs / 2 + 1, ty - cs / 2, cs - 2, cs);
-      ctx.strokeStyle = flashK > 0 ? rgba(C.red, 0.4 + 0.6 * flashK) : isHead ? C.red : rgba(C.w, 0.32); ctx.lineWidth = isHead ? 1.6 : 1;
+      ctx.strokeStyle = flashK > 0 ? rgba(C.w, 0.4 + 0.6 * flashK) : isHead ? C.w : rgba(C.w, 0.32); ctx.lineWidth = isHead ? 1.6 : 1;
       ctx.strokeRect(x - cs / 2 + 1, ty - cs / 2, cs - 2, cs);
       const blank = s === prog().blank;
-      label(ctx, blank && prog().blank === ' ' ? '·' : s, x, ty + cs * 0.17, { size: cs * 0.5, align: 'center', color: flashK > 0.2 ? C.red : blank ? C.g3 : C.w, alpha: blank ? 0.6 : 1 });
+      label(ctx, blank && prog().blank === ' ' ? '·' : s, x, ty + cs * 0.17, { size: cs * 0.5, align: 'center', color: flashK > 0.2 ? C.w : blank ? C.g3 : C.w, alpha: blank ? 0.6 : 1 });
       const fade = clamp(1 - Math.abs(x - cx) / (w * 0.55));
       if (fade < 1) { ctx.fillStyle = `rgba(0,0,0,${(1 - fade) * 0.7})`; ctx.fillRect(x - cs / 2, ty - cs / 2 - 1, cs, cs + 2); }
     }
@@ -92,10 +92,10 @@ export default function turing(env) {
     const hy = ty - cs / 2 - 8;
     ctx.fillStyle = C.red;
     ctx.beginPath(); ctx.moveTo(cx - 14, hy); ctx.lineTo(cx + 14, hy); ctx.lineTo(cx + 5, hy + 12); ctx.lineTo(cx - 5, hy + 12); ctx.closePath(); ctx.fill();
-    ink(ctx, 1, 1.4, C.red); line(ctx, cx, hy, cx, hy - 14);
-    ctx.fillStyle = '#000'; ctx.fillRect(cx - 24, hy - 38, 48, 24); ink(ctx, 1, 1.4, C.red); ctx.strokeRect(cx - 24, hy - 38, 48, 24);
-    label(ctx, m.halted ? 'HALT' : m.stuck ? 'STUCK' : m.state, cx, hy - 21.5, { size: 12, color: C.red, align: 'center' });
-    if (lastMove && !m.halted) { ctx.fillStyle = rgba(C.red, 0.7); const d = lastMove > 0 ? 1 : -1; ctx.beginPath(); ctx.moveTo(cx + d * 40, hy - 26); ctx.lineTo(cx + d * 30, hy - 32); ctx.lineTo(cx + d * 30, hy - 20); ctx.fill(); }
+    ink(ctx, 1, 1.4, C.w); line(ctx, cx, hy, cx, hy - 14);
+    ctx.fillStyle = '#000'; ctx.fillRect(cx - 24, hy - 38, 48, 24); ink(ctx, 1, 1.4, C.w); ctx.strokeRect(cx - 24, hy - 38, 48, 24);
+    label(ctx, m.halted ? 'HALT' : m.stuck ? 'STUCK' : m.state, cx, hy - 21.5, { size: 12, color: C.w, align: 'center' });
+    if (lastMove && !m.halted) { ctx.fillStyle = rgba(C.w, 0.7); const d = lastMove > 0 ? 1 : -1; ctx.beginPath(); ctx.moveTo(cx + d * 40, hy - 26); ctx.lineTo(cx + d * 30, hy - 32); ctx.lineTo(cx + d * 30, hy - 20); ctx.fill(); }
 
     /* ── state diagram ── */
     const p = prog();
@@ -114,13 +114,13 @@ export default function turing(env) {
     for (const g of Object.values(groups)) {
       const a = pts[g.s], b = pts[g.n]; if (!a || !b) continue;
       const hot = hotKey && g.keys.includes(hotKey) && t - hotAt < 1.4;
-      const col = hot ? C.red : rgba(C.w, 0.4);
+      const col = hot ? C.w : rgba(C.w, 0.4);
       ctx.strokeStyle = col; ctx.fillStyle = col; ctx.lineWidth = hot ? 2 : 1;
       const lbl = g.items.join('  ');
       if (g.s === g.n) {
         const ang = Math.atan2(a[1] - dy, a[0] - dx) || -Math.PI / 2, lx = a[0] + Math.cos(ang) * 30, ly = a[1] + Math.sin(ang) * 30;
         ctx.beginPath(); ctx.arc(lx, ly, 13, 0, TAU); ctx.stroke();
-        label(ctx, lbl, a[0] + Math.cos(ang) * 58, a[1] + Math.sin(ang) * 46 + 3, { size: 9.5, color: hot ? C.red : C.g4, align: Math.cos(ang) > 0.3 ? 'left' : Math.cos(ang) < -0.3 ? 'right' : 'center' });
+        label(ctx, lbl, a[0] + Math.cos(ang) * 58, a[1] + Math.sin(ang) * 46 + 3, { size: 9.5, color: hot ? C.w : C.g4, align: Math.cos(ang) > 0.3 ? 'left' : Math.cos(ang) < -0.3 ? 'right' : 'center' });
       } else {
         const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2, nx = -(b[1] - a[1]), ny = b[0] - a[0], nl = Math.hypot(nx, ny) || 1;
         const bend = 26, qx = mx + (nx / nl) * bend, qy = my + (ny / nl) * bend;
@@ -128,16 +128,16 @@ export default function turing(env) {
         const sx = a[0] + Math.cos(ang0) * 17, sy = a[1] + Math.sin(ang0) * 17, ex = b[0] - Math.cos(ang1) * 18, ey = b[1] - Math.sin(ang1) * 18;
         ctx.beginPath(); ctx.moveTo(sx, sy); ctx.quadraticCurveTo(qx, qy, ex, ey); ctx.stroke();
         ctx.beginPath(); ctx.moveTo(ex, ey); ctx.lineTo(ex - 8 * Math.cos(ang1 - 0.4), ey - 8 * Math.sin(ang1 - 0.4)); ctx.lineTo(ex - 8 * Math.cos(ang1 + 0.4), ey - 8 * Math.sin(ang1 + 0.4)); ctx.fill();
-        label(ctx, lbl, (mx + qx) / 2 + (nx / nl) * 8, (my + qy) / 2 + (ny / nl) * 8 + 3, { size: 9.5, color: hot ? C.red : C.g4, align: 'center' });
+        label(ctx, lbl, (mx + qx) / 2 + (nx / nl) * 8, (my + qy) / 2 + (ny / nl) * 8 + 3, { size: 9.5, color: hot ? C.w : C.g4, align: 'center' });
       }
     }
     // nodes
     for (const s of states) {
       const [x, y] = pts[s], on = s === m.state || (m.halted && s === p.halt);
       ctx.beginPath(); ctx.arc(x, y, 17, 0, TAU);
-      ctx.fillStyle = on ? C.red : '#000'; ctx.fill();
-      ink(ctx, 1, on ? 2 : 1.2, on ? C.red : C.w); ctx.stroke();
-      if (s === p.halt) { ink(ctx, 0.8, 1, on ? C.red : C.w); circle(ctx, x, y, 21); }
+      ctx.fillStyle = on ? C.w : '#000'; ctx.fill();
+      ink(ctx, 1, on ? 2 : 1.2, on ? C.w : C.w); ctx.stroke();
+      if (s === p.halt) { ink(ctx, 0.8, 1, on ? C.w : C.w); circle(ctx, x, y, 21); }
       label(ctx, s, x, y + 4, { size: 12, align: 'center', color: on ? '#000' : C.w });
     }
     // start marker
@@ -147,11 +147,11 @@ export default function turing(env) {
     const rx = narrow ? 14 : w * 0.72, ry = narrow ? h - 74 : ty + cs / 2 + 62;
     const result = m.halted ? m.tape().trim() : '…';
     label(ctx, 'STEP', rx, ry, { size: 10, color: C.g3, spacing: 2 }); label(ctx, String(m.steps), rx + 70, ry, { size: 13 });
-    label(ctx, 'STATE', rx, ry + 22, { size: 10, color: C.g3, spacing: 2 }); label(ctx, m.halted ? 'halted' : m.stuck ? 'no rule' : m.state, rx + 70, ry + 22, { size: 13, color: m.halted ? C.red : C.w });
+    label(ctx, 'STATE', rx, ry + 22, { size: 10, color: C.g3, spacing: 2 }); label(ctx, m.halted ? 'halted' : m.stuck ? 'no rule' : m.state, rx + 70, ry + 22, { size: 13, color: m.halted ? C.w : C.w });
     label(ctx, 'TAPE', rx, ry + 44, { size: 10, color: C.g3, spacing: 2 });
     label(ctx, (m.tape().replace(/ /g, '·') || '(blank)').slice(0, 22), rx + 70, ry + 44, { size: 13 });
-    if (key === 'beaver') label(ctx, `ones: ${m.ones()}`, rx + 70 + (narrow ? 130 : 0), ry + (narrow ? 22 : 66), { size: 13, color: m.halted ? C.red : C.w });
-    if (m.halted && key !== 'beaver') label(ctx, `→ ${result}`, rx, ry + 70, { size: 15, color: C.red });
+    if (key === 'beaver') label(ctx, `ones: ${m.ones()}`, rx + 70 + (narrow ? 130 : 0), ry + (narrow ? 22 : 66), { size: 13, color: m.halted ? C.w : C.w });
+    if (m.halted && key !== 'beaver') label(ctx, `→ ${result}`, rx, ry + 70, { size: 15, color: C.w });
     corners(ctx, w, h, 8, 12, 0.35);
   }
   return { draw, api };

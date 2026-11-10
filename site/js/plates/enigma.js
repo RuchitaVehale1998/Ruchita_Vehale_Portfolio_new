@@ -92,18 +92,17 @@ export default function enigma(env) {
       const pts = path.map((r, i) => [xs[i], rowY(r)]);
       const segs = [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7]];
       const total = segs.length, upto = reveal * total;
-      ctx.save(); ctx.lineCap = 'round'; ctx.shadowColor = C.red; ctx.shadowBlur = 8;
-      segs.forEach(([a, b], k) => {
+      ctx.save(); ctx.lineCap = 'round';       segs.forEach(([a, b], k) => {
         const f = clamp(upto - k); if (f <= 0) return;
         const [x0, y0] = pts[a], [x1, y1] = pts[b];
-        ink(ctx, 1, k >= 4 ? 1.6 : 2.2, C.red);
+        ink(ctx, 1, k >= 4 ? 1.6 : 2.2, C.w);
         if (k === 3) { // through the reflector as a loop
           const r = Math.abs(y1 - y0) / 2;
           ctx.beginPath(); ctx.moveTo(x0, y0); ctx.bezierCurveTo(x0 - r * 0.9, y0, x0 - r * 0.9, y0 + (y1 - y0), x0, y0 + (y1 - y0) * f); ctx.stroke();
         } else line(ctx, x0, y0, x0 + (x1 - x0) * f, y0 + (y1 - y0) * f);
       });
       ctx.restore();
-      ctx.fillStyle = C.red; for (const [x, y] of [pts[0], pts[7]]) { ctx.beginPath(); ctx.arc(x, y, 3.2, 0, TAU); ctx.fill(); }
+      ctx.fillStyle = C.w; for (const [x, y] of [pts[0], pts[7]]) { ctx.beginPath(); ctx.arc(x, y, 3.2, 0, TAU); ctx.fill(); }
     }
 
     /* lamp board / keyboard */
@@ -114,8 +113,8 @@ export default function enigma(env) {
       [...row].forEach((ch, ci) => {
         const x = w / 2 - rw / 2 + ci * pitch, y = by + ri * (lr * 3.1), k = ch.charCodeAt(0) - 65;
         const lit = k === lastOut && age < 6, pressed = k === lastKey && age < 1.2;
-        if (lit) { const g = ctx.createRadialGradient(x, y, 0, x, y, lr * 2.6); g.addColorStop(0, 'rgba(255,45,32,0.55)'); g.addColorStop(1, 'rgba(255,45,32,0)'); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, lr * 2.6, 0, TAU); ctx.fill(); }
-        ctx.beginPath(); ctx.arc(x, y, lr, 0, TAU); ctx.fillStyle = lit ? C.red : '#000'; ctx.fill();
+        if (lit) { const g = ctx.createRadialGradient(x, y, 0, x, y, lr * 2.6); g.addColorStop(0, 'rgba(241,241,241,0.55)'); g.addColorStop(1, 'rgba(241,241,241,0)'); ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, lr * 2.6, 0, TAU); ctx.fill(); }
+        ctx.beginPath(); ctx.arc(x, y, lr, 0, TAU); ctx.fillStyle = lit ? C.w : '#000'; ctx.fill();
         ink(ctx, pressed ? 1 : 0.7, pressed ? 2 : 1.1, pressed ? C.w : C.w); ctx.stroke();
         label(ctx, ch, x, y + lr * 0.36, { size: lr * 0.95, align: 'center', color: lit ? '#000' : C.w });
         keyPos.push({ x, y, r: lr, ch });

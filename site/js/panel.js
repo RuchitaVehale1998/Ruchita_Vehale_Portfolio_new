@@ -45,8 +45,8 @@ export function initPanel() {
   const ov = document.getElementById('indexov'), list = document.getElementById('index-list');
   const plates = secs.filter((s) => +s.dataset.n > 0);
   list.innerHTML = plates.map((s) => {
-    const yr = (s.querySelector('.eyebrow')?.textContent.split('·')[1] || '').trim();
-    return `<li data-n="${s.dataset.n}"><span>${ROMAN[+s.dataset.n]}</span><b>${s.dataset.title}</b><i></i><time>${yr}</time></li>`;
+    const proj = s.dataset.proj ? `<em class="ip">${s.dataset.proj}</em>` : '';
+    return `<li data-n="${s.dataset.n}"><span>${ROMAN[+s.dataset.n]}</span><b>${s.dataset.title}</b>${proj}<i></i><time>${s.dataset.year || ''}</time></li>`;
   }).join('');
   const open = () => { ov.hidden = false; };
   const close = () => { ov.hidden = true; };

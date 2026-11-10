@@ -38,7 +38,7 @@ export default function obscura(env) {
     centerline(ctx, 16, cy, screenX + 20, cy, 0.35);
 
     // object (vertical arrow) + rays
-    const cols = [C.red, C.w];
+    const cols = [C.w, C.g4];
     const imgs = holes.map((hy, k) => {
       const fy = (py) => hy + (hy - py) * (f / dist);
       const a = fy(pTop), b = fy(pBot);
@@ -49,7 +49,7 @@ export default function obscura(env) {
       return { a, b, col: cols[k] };
     });
     // the object
-    ink(ctx, 1, 2, C.red); line(ctx, ox, pBot, ox, pTop);
+    ink(ctx, 1, 2, C.w); line(ctx, ox, pBot, ox, pTop);
     ctx.fillStyle = C.red; ctx.beginPath(); ctx.moveTo(ox, pTop - 8); ctx.lineTo(ox - 7, pTop + 5); ctx.lineTo(ox + 7, pTop + 5); ctx.fill();
     ink(ctx, 0.8, 1, C.w); line(ctx, ox - 9, pBot, ox + 9, pBot);
     label(ctx, 'object', ox, pBot + 18, { size: 10, align: 'center', color: C.g4 });

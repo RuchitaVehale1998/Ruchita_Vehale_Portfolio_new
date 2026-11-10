@@ -23,12 +23,12 @@ export default function card(env) {
     ctx.fillStyle = C.red; ctx.fillRect(x + 20, y + 3, cw - 24, 2);                           // the red edge stripe
     for (let k = 0; k < n; k++) {
       const col = from + k, cx = x + pad + k * pitch, ch0 = text[col];
-      if (col === sel) { ctx.fillStyle = 'rgba(255,45,32,0.22)'; ctx.fillRect(cx, y + 8, pitch, ch - 14); }
+      if (col === sel) { ctx.fillStyle = "rgba(0,0,0,0.13)"; ctx.fillRect(cx, y + 8, pitch, ch - 14); }
       label(ctx, ch0 === ' ' ? '' : ch0, cx + pitch / 2, y + top - 6, { size: Math.min(11, pitch * 0.95), color: '#111', align: 'center' });
       const pun = hollerith(ch0);
       for (let r = 0; r < 12; r++) {
         const hy = y + top + r * rp, hw = pitch * 0.58, hh = rp * 0.52;
-        if (pun.includes(r)) { ctx.fillStyle = col === sel ? C.red : '#000'; ctx.fillRect(cx + (pitch - hw) / 2, hy + (rp - hh) / 2, hw, hh); }
+        if (pun.includes(r)) { ctx.fillStyle = col === sel ? C.red : "#000"; ctx.fillRect(cx + (pitch - hw) / 2, hy + (rp - hh) / 2, hw, hh); }
         else if (r >= 2 && pitch > 5) label(ctx, HOLL_ROWS[r], cx + pitch / 2, hy + rp * 0.68, { size: Math.min(8, pitch * 0.7), color: 'rgba(0,0,0,0.28)', align: 'center' });
       }
     }

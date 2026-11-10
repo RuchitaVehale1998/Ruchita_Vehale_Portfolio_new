@@ -101,21 +101,21 @@ export default function switchboard(env) {
     for (const [id, j] of Object.entries(L.jacks)) {
       const on = lit.has(id), dim = cur && !on;
       ctx.beginPath(); ctx.arc(j.x, j.y, narrow ? 3.4 : 4.6, 0, TAU);
-      ctx.fillStyle = on ? C.red : '#000'; ctx.fill(); ink(ctx, dim ? 0.3 : 0.9, 1.2, on ? C.red : C.w); ctx.stroke();
+      ctx.fillStyle = on ? C.w : '#000'; ctx.fill(); ink(ctx, dim ? 0.3 : 0.9, 1.2, on ? C.w : C.w); ctx.stroke();
       label(ctx, NAME[id], j.labelX, j.y + 3.5, { size: narrow ? 8.5 : 10.5, color: on ? C.w : C.g4, alpha: dim ? 0.35 : 1 });
     }
     /* plugs */
     for (const p of L.plugs) {
       const on = srcPlugs.has(p.id), dim = cur && !on, pr = PROJECTS[p.i];
-      ctx.beginPath(); ctx.arc(p.x, p.y, narrow ? 7 : 8, 0, TAU); ctx.fillStyle = on ? C.red : '#000'; ctx.fill();
-      ink(ctx, dim ? 0.3 : 1, 1.6, on ? C.red : C.w); ctx.stroke();
+      ctx.beginPath(); ctx.arc(p.x, p.y, narrow ? 7 : 8, 0, TAU); ctx.fillStyle = on ? C.w : '#000'; ctx.fill();
+      ink(ctx, dim ? 0.3 : 1, 1.6, on ? C.w : C.w); ctx.stroke();
       ctx.beginPath(); ctx.arc(p.x, p.y, 2.2, 0, TAU); ctx.fillStyle = on ? '#000' : C.w; ctx.fill();
       if (!narrow) {
         label(ctx, `${String(p.i + 1).padStart(2, '0')}  ${pr.name}`, p.lx, p.y + 3.5, { size: 11.5, color: on ? C.w : C.g4, alpha: dim ? 0.4 : 1 });
         ink(ctx, dim ? 0.1 : 0.3, 1); line(ctx, 18, p.y + 13, p.x - 12, p.y + 13);
-      } else label(ctx, String(p.i + 1), p.x, p.y + 22, { size: 9.5, color: on ? C.red : C.g3, align: 'center' });
+      } else label(ctx, String(p.i + 1), p.x, p.y + 22, { size: 9.5, color: on ? C.w : C.g3, align: 'center' });
     }
-    if (narrow) label(ctx, cur?.kind === 'p' ? PROJECTS.find((x) => x.id === cur.id).name.toUpperCase() : cur?.kind === 's' ? NAME[cur.id].toUpperCase() : 'PROJECTS', 12, 30, { size: 10.5, color: cur ? C.red : C.g3, spacing: 1.5 });
+    if (narrow) label(ctx, cur?.kind === 'p' ? PROJECTS.find((x) => x.id === cur.id).name.toUpperCase() : cur?.kind === 's' ? NAME[cur.id].toUpperCase() : 'PROJECTS', 12, 30, { size: 10.5, color: cur ? C.w : C.g3, spacing: 1.5 });
 
     /* patch cords */
     pairs.forEach(([pid, sid], i) => {
@@ -125,7 +125,7 @@ export default function switchboard(env) {
       let sx, sy, ex, ey, c1, c2;
       if (!narrow) { sx = p.x + 10; sy = p.y; ex = j.x - 7; ey = j.y; const dx = ex - sx; c1 = [sx + dx * 0.45, sy + 34]; c2 = [ex - dx * 0.4, ey + 34]; }
       else { sx = p.x; sy = p.y + 9; ex = j.x; ey = j.y - 5; const dy = ey - sy; c1 = [sx, sy + dy * 0.5 + 26]; c2 = [ex, ey - dy * 0.3]; }
-      ctx.save(); ctx.lineCap = 'round'; ctx.shadowColor = C.red; ctx.shadowBlur = 6; ink(ctx, 0.95, 1.7, C.red);
+      ctx.save(); ctx.lineCap = 'round'; ink(ctx, 1, 1.7, C.red);
       ctx.beginPath(); ctx.moveTo(sx, sy);
       const N = 28, upto = Math.max(1, Math.floor(N * f));
       for (let s = 1; s <= upto; s++) { const u = s / N, a = (1 - u) ** 3, b = 3 * (1 - u) ** 2 * u, c = 3 * (1 - u) * u * u, d = u ** 3; ctx.lineTo(a * sx + b * c1[0] + c * c2[0] + d * ex, a * sy + b * c1[1] + c * c2[1] + d * ey); }

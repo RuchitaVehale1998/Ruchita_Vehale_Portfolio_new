@@ -59,12 +59,12 @@ export default function gyro(env) {
     poly(Ri, circ(0.62, 'yz'), C.g4, 0.9, 1.4);
     poly(Ri, [[0, 0, -0.62], [0, 0, 0.62]], C.g4, 0.9, 1.4);                              // rotor axle
     const disc = (z) => circ(0.45, 'xy').map((p) => [p[0], p[1], z]);
-    poly(Ri, disc(0.05), C.red, 1, 1.8); poly(Ri, disc(-0.05), C.red, 0.55, 1.2);
-    for (let k = 0; k < 8; k++) { const a = spin + (k / 8) * TAU; poly(Ri, [[0, 0, 0.05], [Math.cos(a) * 0.45, Math.sin(a) * 0.45, 0.05]], C.red, k === 0 ? 1 : 0.6, k === 0 ? 2.2 : 1); }
+    poly(Ri, disc(0.05), C.w, 1, 1.8); poly(Ri, disc(-0.05), C.w, 0.55, 1.2);
+    for (let k = 0; k < 8; k++) { const a = spin + (k / 8) * TAU; poly(Ri, [[0, 0, 0.05], [Math.cos(a) * 0.45, Math.sin(a) * 0.45, 0.05]], k === 0 ? C.red : C.w, k === 0 ? 1 : 0.6, k === 0 ? 2.2 : 1); }
     const q0 = P(Ri, [0, 0, 0]); ctx.fillStyle = C.w; ctx.beginPath(); ctx.arc(q0[0], q0[1], 2.6, 0, TAU); ctx.fill();
     // rotor axis, shown leaving the rotor along world-up
     const ax = app(Ri, [0, 0, 0.8]), ay = P(Ri, [0, 0, 0.8]);
-    label(ctx, 'rotor axis', ay[0] + 10, ay[1] - 4, { size: 9.5, color: C.red });
+    label(ctx, 'rotor axis', ay[0] + 10, ay[1] - 4, { size: 9.5, color: C.w });
 
     /* attitude indicator (artificial horizon) */
     const ar = narrow ? Math.min(w * 0.22, h * 0.15) : Math.min(w * 0.15, h * 0.3), ax0 = narrow ? w * 0.5 : w * 0.8, ay0 = narrow ? h * 0.8 : h * 0.5;
@@ -79,9 +79,9 @@ export default function gyro(env) {
     for (let p = -30; p <= 30; p += 10) { if (!p) continue; const yy = py - p * (ar / 38); ink(ctx, 0.6, 1); line(ctx, -ar * 0.28, yy, ar * 0.28, yy); label(ctx, String(Math.abs(p)), ar * 0.34, yy + 3, { size: 8, color: C.g4 }); }
     ctx.restore();
     ink(ctx, 0.9, 1.4); ctx.beginPath(); ctx.arc(ax0, ay0, ar, 0, TAU); ctx.stroke();
-    ink(ctx, 1, 2.4, C.red); line(ctx, ax0 - ar * 0.55, ay0, ax0 - ar * 0.2, ay0); line(ctx, ax0 + ar * 0.2, ay0, ax0 + ar * 0.55, ay0); line(ctx, ax0 - ar * 0.2, ay0, ax0, ay0 + 6); line(ctx, ax0 + ar * 0.2, ay0, ax0, ay0 + 6);
+    ink(ctx, 1, 2.4, C.w); line(ctx, ax0 - ar * 0.55, ay0, ax0 - ar * 0.2, ay0); line(ctx, ax0 + ar * 0.2, ay0, ax0 + ar * 0.55, ay0); line(ctx, ax0 - ar * 0.2, ay0, ax0, ay0 + 6); line(ctx, ax0 + ar * 0.2, ay0, ax0, ay0 + 6);
     for (let a = -60; a <= 60; a += 15) { const an = (a - 90) * D2R; ink(ctx, 0.7, 1); line(ctx, ax0 + Math.cos(an) * ar, ay0 + Math.sin(an) * ar, ax0 + Math.cos(an) * (ar + (a % 30 ? 4 : 8)), ay0 + Math.sin(an) * (ar + (a % 30 ? 4 : 8))); }
-    ctx.fillStyle = C.red; { const an = (-cur.roll - 90) * D2R, rr = ar - 2; ctx.beginPath(); ctx.moveTo(ax0 + Math.cos(an) * rr, ay0 + Math.sin(an) * rr); ctx.lineTo(ax0 + Math.cos(an - 0.07) * (rr - 11), ay0 + Math.sin(an - 0.07) * (rr - 11)); ctx.lineTo(ax0 + Math.cos(an + 0.07) * (rr - 11), ay0 + Math.sin(an + 0.07) * (rr - 11)); ctx.fill(); }
+    ctx.fillStyle = C.w; { const an = (-cur.roll - 90) * D2R, rr = ar - 2; ctx.beginPath(); ctx.moveTo(ax0 + Math.cos(an) * rr, ay0 + Math.sin(an) * rr); ctx.lineTo(ax0 + Math.cos(an - 0.07) * (rr - 11), ay0 + Math.sin(an - 0.07) * (rr - 11)); ctx.lineTo(ax0 + Math.cos(an + 0.07) * (rr - 11), ay0 + Math.sin(an + 0.07) * (rr - 11)); ctx.fill(); }
     label(ctx, 'ATTITUDE', ax0, ay0 + ar + 22, { size: 9.5, color: C.g3, align: 'center', spacing: 2 });
     label(ctx, `HDG ${String(Math.round(((cur.yaw % 360) + 360) % 360)).padStart(3, '0')}`, ax0, ay0 - ar - 14, { size: 10, color: C.w, align: 'center' });
 

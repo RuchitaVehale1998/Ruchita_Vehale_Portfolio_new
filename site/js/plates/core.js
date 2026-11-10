@@ -50,9 +50,9 @@ export default function core(env) {
       const v = bit(r, c), age = t - flipT[r * N + c], pulse = clamp(1 - age / 0.6), reading = r === sr && c === sc;
       ctx.save(); ctx.translate(X(c), Y(r)); ctx.rotate(-Math.PI / 4);
       ctx.beginPath(); ctx.ellipse(0, 0, rx, ry, 0, 0, TAU);
-      ctx.fillStyle = v ? rgba(C.red, 0.28 + 0.4 * pulse) : '#000'; ctx.fill();
-      ctx.strokeStyle = v ? C.red : rgba(C.w, reading ? 1 : 0.5); ctx.lineWidth = v ? 2 : 1.2; ctx.stroke();
-      if (v) { ctx.fillStyle = C.red; ctx.beginPath(); ctx.moveTo(rx * 0.1, -ry * 0.9); ctx.lineTo(-rx * 0.28, -ry * 1.45); ctx.lineTo(-rx * 0.28, -ry * 0.35); ctx.fill(); }
+      ctx.fillStyle = v ? rgba(C.w, 0.28 + 0.4 * pulse) : '#000'; ctx.fill();
+      ctx.strokeStyle = v ? C.w : rgba(C.w, reading ? 1 : 0.5); ctx.lineWidth = v ? 2 : 1.2; ctx.stroke();
+      if (v) { ctx.fillStyle = C.w; ctx.beginPath(); ctx.moveTo(rx * 0.1, -ry * 0.9); ctx.lineTo(-rx * 0.28, -ry * 1.45); ctx.lineTo(-rx * 0.28, -ry * 0.35); ctx.fill(); }
       ctx.restore();
       if (reading) { ctx.strokeStyle = C.w; ctx.lineWidth = 1.6; ctx.beginPath(); ctx.arc(X(c), Y(r), pitch * 0.5, 0, TAU); ctx.stroke(); }
     }
@@ -63,9 +63,9 @@ export default function core(env) {
       for (let r = 0; r < N; r++) {
         const b0 = mem[r * 2], b1 = mem[r * 2 + 1], ch = (b) => (b >= 32 && b < 127 ? String.fromCharCode(b) : '·');
         const act = r === sr;
-        label(ctx, r.toString(16).toUpperCase().padStart(2, '0'), hx, Y(r) + 3.5, { size: 10, color: act ? C.red : C.g3 });
-        label(ctx, `${b0.toString(16).padStart(2, '0')} ${b1.toString(16).padStart(2, '0')}`.toUpperCase(), hx + 34, Y(r) + 3.5, { size: 10, color: act ? C.red : C.w });
-        label(ctx, ch(b0) + ch(b1), hx + 92, Y(r) + 3.5, { size: 10.5, color: act ? C.red : C.g4 });
+        label(ctx, r.toString(16).toUpperCase().padStart(2, '0'), hx, Y(r) + 3.5, { size: 10, color: act ? C.w : C.g3 });
+        label(ctx, `${b0.toString(16).padStart(2, '0')} ${b1.toString(16).padStart(2, '0')}`.toUpperCase(), hx + 34, Y(r) + 3.5, { size: 10, color: act ? C.w : C.w });
+        label(ctx, ch(b0) + ch(b1), hx + 92, Y(r) + 3.5, { size: 10.5, color: act ? C.w : C.g4 });
       }
     }
     out(env, 'core-read', `<b>256 bits</b> · reading core (${sr.toString(16).toUpperCase()},${sc.toString(16).toUpperCase()}) = ${bit(sr, sc)}<br>stored: <b>“${decode().replace(/</g, '&lt;')}”</b>`);

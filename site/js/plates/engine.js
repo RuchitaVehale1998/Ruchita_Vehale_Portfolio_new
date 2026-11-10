@@ -26,7 +26,7 @@ export default function engine(env) {
   function wheel(ctx, x, y, cw, ch, v, hot) {
     // DIG digit drums, drawn as a window with curved shading; rolling only while the lower digit carries
     const dw = cw / DIG;
-    ctx.fillStyle = '#000'; ctx.fillRect(x, y, cw, ch); ink(ctx, hot ? 1 : 0.7, hot ? 1.6 : 1.1, hot ? C.red : C.w); ctx.strokeRect(x, y, cw, ch);
+    ctx.fillStyle = '#000'; ctx.fillRect(x, y, cw, ch); ink(ctx, hot ? 1 : 0.7, hot ? 1.6 : 1.1, hot ? C.w : C.w); ctx.strokeRect(x, y, cw, ch);
     for (let k = 0; k < DIG; k++) {
       const p = DIG - 1 - k, dx = x + k * dw;
       const digit = Math.floor(v / 10 ** p) % 10;
@@ -35,7 +35,7 @@ export default function engine(env) {
       for (const o of [-1, 0, 1, 2]) {
         const yy = y + ch / 2 + (o - roll) * ch * 0.62, d = (digit + o + 100) % 10, near = 1 - Math.min(1, Math.abs(o - roll) * 0.75);
         const lead = p > 0 && v < 10 ** p;                       // leading zero: dim, like an unlit wheel
-        label(ctx, String(d), dx + dw / 2, yy + ch * 0.17, { size: ch * 0.52, align: 'center', color: o === 0 && roll < 0.5 || (o === 1 && roll >= 0.5) ? (hot ? C.red : lead ? C.g3 : C.w) : C.g3, alpha: (0.25 + 0.75 * near) * (lead ? 0.55 : 1) });
+        label(ctx, String(d), dx + dw / 2, yy + ch * 0.17, { size: ch * 0.52, align: 'center', color: o === 0 && roll < 0.5 || (o === 1 && roll >= 0.5) ? (hot ? C.w : lead ? C.g3 : C.w) : C.g3, alpha: (0.25 + 0.75 * near) * (lead ? 0.55 : 1) });
       }
       ctx.restore();
       if (k) { ink(ctx, 0.25, 1); line(ctx, dx, y, dx, y + ch); }
@@ -64,14 +64,14 @@ export default function engine(env) {
     for (let i = 0; i < 4; i++) {
       const x = x0 + i * (cw + 30), hot = t - flash < 0.45;
       wheel(ctx, x, y0, cw, ch, Math.max(0, shown[i]), hot && i < 3);
-      label(ctx, names[i], x + cw / 2, y0 - 12, { size: 11, align: 'center', color: i === 0 ? C.red : C.g4 });
+      label(ctx, names[i], x + cw / 2, y0 - 12, { size: 11, align: 'center', color: i === 0 ? C.w : C.g4 });
       // ruled column below the wheel
       ink(ctx, 0.25, 1); line(ctx, x + cw / 2, y0 + ch, x + cw / 2, y0 + ch + 20);
       if (i < 3) {
         const ax = x + cw + 30, ay = y0 + ch / 2, a = clamp(addT / 0.6);
-        ctx.strokeStyle = a > 0 ? C.red : rgba(C.w, 0.5); ctx.fillStyle = ctx.strokeStyle; ctx.lineWidth = a > 0 ? 2 : 1;
+        ctx.strokeStyle = a > 0 ? C.w : rgba(C.w, 0.5); ctx.fillStyle = ctx.strokeStyle; ctx.lineWidth = a > 0 ? 2 : 1;
         arrow(ctx, ax - 4, ay, x + cw + 5, ay, 6);
-        label(ctx, '+', x + cw + 15, ay - 8, { size: 11, align: 'center', color: a > 0 ? C.red : C.g3 });
+        label(ctx, '+', x + cw + 15, ay - 8, { size: 11, align: 'center', color: a > 0 ? C.w : C.g3 });
       }
     }
     // the rule of the machine
@@ -85,9 +85,9 @@ export default function engine(env) {
     const maxRows = Math.floor((h - ty - 16) / rh);
     rows.slice(-maxRows).forEach(([nn, ff], i, arr) => {
       const y = ty + i * rh + 8, last = i === arr.length - 1;
-      label(ctx, String(nn).padStart(3, ' '), tx + 4, y, { size: 11, color: last ? C.red : C.g3 });
-      label(ctx, String(ff).padStart(7, ' '), tx + 56, y, { size: 11, color: last ? C.red : C.w });
-      ctx.fillStyle = last ? rgba(C.red, 0.6) : rgba(C.w, 0.16); ctx.fillRect(tx + 130, y - 7, clamp(ff / 90000) * (tw - 140), 4);
+      label(ctx, String(nn).padStart(3, ' '), tx + 4, y, { size: 11, color: last ? C.w : C.g3 });
+      label(ctx, String(ff).padStart(7, ' '), tx + 56, y, { size: 11, color: last ? C.w : C.w });
+      ctx.fillStyle = last ? rgba(C.w, 0.6) : rgba(C.w, 0.16); ctx.fillRect(tx + 130, y - 7, clamp(ff / 90000) * (tw - 140), 4);
     });
 
     /* crank */

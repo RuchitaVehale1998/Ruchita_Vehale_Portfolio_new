@@ -24,6 +24,15 @@ const loaders = {
   gears: () => import('./plates/gears.js'),
   card: () => import('./plates/card.js'),
   enigma: () => import('./plates/enigma.js'),
+  // project illustrations
+  dego: () => import('./projects/dego.js'),
+  drive: () => import('./projects/drive.js'),
+  apple: () => import('./projects/apple.js'),
+  slam: () => import('./projects/slam.js'),
+  landing: () => import('./projects/landing.js'),
+  antenna: () => import('./projects/antenna.js'),
+  follow: () => import('./projects/follow.js'),
+  firmware: () => import('./projects/firmware.js'),
 };
 const handles = {};
 
@@ -86,7 +95,7 @@ try {
 if (new URLSearchParams(location.search).has('debug')) {
   window.__handles = handles;
   const d = Object.assign(document.createElement('div'), { id: 'dbg' });
-  d.style.cssText = 'position:fixed;left:80px;bottom:10px;z-index:999;font:11px monospace;background:#000c;color:#ff2d20;padding:6px 10px;border:1px solid #ff2d20';
+  d.style.cssText = 'position:fixed;left:80px;bottom:10px;z-index:999;font:11px monospace;background:#000c;color:#c4382d;padding:6px 10px;border:1px solid #c4382d';
   document.body.append(d);
   setInterval(() => (d.textContent = `${stats.fps} fps · ${stats.active} scenes`), 500);
 }

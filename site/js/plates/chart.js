@@ -56,8 +56,8 @@ export default function chart(env) {
     for (let x = 0; x <= 10; x++) line(ctx, (x / 10) * w, 0, (x / 10) * w, h); for (let y = 0; y <= 6; y++) line(ctx, 0, (y / 6) * h, w, (y / 6) * h);
     const cr = Math.min(40, K * 0.07), cx0 = w - cr - 20, cy0 = cr + 26;
     ink(ctx, 0.6, 1); ctx.beginPath(); ctx.arc(cx0, cy0, cr, 0, TAU); ctx.stroke();
-    for (let a = 0; a < 16; a++) { const an = (a / 16) * TAU - Math.PI / 2, l = a % 4 === 0 ? cr * 1.25 : cr * 0.85; ink(ctx, a % 4 ? 0.35 : 0.9, 1, a === 0 ? C.red : C.w); line(ctx, cx0 + Math.cos(an) * cr * 0.5, cy0 + Math.sin(an) * cr * 0.5, cx0 + Math.cos(an) * l, cy0 + Math.sin(an) * l); }
-    label(ctx, 'N', cx0, cy0 - cr * 1.25 - 5, { size: 10, align: 'center', color: C.red });
+    for (let a = 0; a < 16; a++) { const an = (a / 16) * TAU - Math.PI / 2, l = a % 4 === 0 ? cr * 1.25 : cr * 0.85; ink(ctx, a % 4 ? 0.35 : 0.9, 1, a === 0 ? C.w : C.w); line(ctx, cx0 + Math.cos(an) * cr * 0.5, cy0 + Math.sin(an) * cr * 0.5, cx0 + Math.cos(an) * l, cy0 + Math.sin(an) * l); }
+    label(ctx, 'N', cx0, cy0 - cr * 1.25 - 5, { size: 10, align: 'center', color: C.w });
 
     /* charted coast (engraved line + landward ticks) */
     ctx.lineCap = 'round';
@@ -84,24 +84,24 @@ export default function chart(env) {
     /* beacons (lighthouses) */
     for (const b of beacons) {
       const [bx, by] = U(b.x, b.y), on = b.at && t - b.at < 1.5;
-      ink(ctx, 1, 1.4, on ? C.red : C.w); ctx.beginPath(); ctx.moveTo(bx - 4, by + 7); ctx.lineTo(bx + 4, by + 7); ctx.lineTo(bx + 2.5, by - 5); ctx.lineTo(bx - 2.5, by - 5); ctx.closePath(); ctx.stroke();
-      ctx.fillStyle = on ? C.red : C.w; ctx.beginPath(); ctx.arc(bx, by - 8, 2.2, 0, TAU); ctx.fill();
+      ink(ctx, 1, 1.4, on ? C.w : C.w); ctx.beginPath(); ctx.moveTo(bx - 4, by + 7); ctx.lineTo(bx + 4, by + 7); ctx.lineTo(bx + 2.5, by - 5); ctx.lineTo(bx - 2.5, by - 5); ctx.closePath(); ctx.stroke();
+      ctx.fillStyle = on ? C.w : C.w; ctx.beginPath(); ctx.arc(bx, by - 8, 2.2, 0, TAU); ctx.fill();
       const a = t * 2 + b.x * 9; ink(ctx, 0.35, 1, C.w); line(ctx, bx, by - 8, bx + Math.cos(a) * 16, by - 8 + Math.sin(a) * 16);
-      if (on) { ink(ctx, 0.9, 1, C.red); ctx.save(); ctx.setLineDash([3, 3]); line(ctx, bx, by, ex * w, ey * h); ctx.restore(); }
+      if (on) { ink(ctx, 0.9, 1, C.w); ctx.save(); ctx.setLineDash([3, 3]); line(ctx, bx, by, ex * w, ey * h); ctx.restore(); }
     }
 
     /* other vessels: seen, never charted */
     for (const o of others) {
       const [ox, oy] = U(o.x, o.y); ink(ctx, 0.9, 1.2, C.g4);
       ctx.beginPath(); ctx.moveTo(ox - 8, oy); ctx.lineTo(ox + 8, oy); ctx.lineTo(ox + 5, oy + 5); ctx.lineTo(ox - 5, oy + 5); ctx.closePath(); ctx.stroke(); line(ctx, ox, oy, ox, oy - 11);
-      if (Math.hypot((o.x - px) * w, (o.y - py) * h) < range * K * 1.4) { ink(ctx, 1, 1.2, C.red); line(ctx, ox - 9, oy - 9, ox + 9, oy + 9); line(ctx, ox - 9, oy + 9, ox + 9, oy - 9); label(ctx, 'seen · not charted', ox, oy + 22, { size: 9, align: 'center', color: C.red }); }
+      if (Math.hypot((o.x - px) * w, (o.y - py) * h) < range * K * 1.4) { ink(ctx, 1, 1.2, C.w); line(ctx, ox - 9, oy - 9, ox + 9, oy + 9); line(ctx, ox - 9, oy + 9, ox + 9, oy - 9); label(ctx, 'seen · not charted', ox, oy + 22, { size: 9, align: 'center', color: C.w }); }
     }
 
     /* estimated track, ship, error ellipse */
     ctx.save(); ctx.setLineDash([2, 5]); ink(ctx, 0.55, 1); ctx.beginPath(); trail.forEach(([x, y], i) => (i ? ctx.lineTo(x * w, y * h) : ctx.moveTo(x * w, y * h))); ctx.stroke(); ctx.restore();
     const sigma = (0.012 + clamp(sinceFix / 12) * 0.075) * K;
     ctx.save(); ctx.translate(ex * w, ey * h); ctx.rotate(0.4);
-    ctx.beginPath(); ctx.ellipse(0, 0, sigma * 1.3, sigma * 0.8, 0, 0, TAU); ctx.fillStyle = rgba(C.red, 0.12); ctx.fill(); ink(ctx, 0.9, 1.3, C.red); ctx.stroke(); ctx.restore();
+    ctx.beginPath(); ctx.ellipse(0, 0, sigma * 1.3, sigma * 0.8, 0, 0, TAU); ink(ctx, 0.95, 1.3, C.red); ctx.stroke(); ctx.restore();
     // true position ghost + tie when lost
     ink(ctx, 0.35, 1); ctx.beginPath(); ctx.arc(px * w, py * h, 7, 0, TAU); ctx.stroke(); ctx.save(); ctx.setLineDash([2, 3]); line(ctx, px * w, py * h, ex * w, ey * h); ctx.restore();
     const hd = Math.atan2(Math.cos(phi) * 0.18, -Math.sin(phi) * 0.34) ;
@@ -111,7 +111,7 @@ export default function chart(env) {
     /* HUD */
     label(ctx, 'DEAD RECKONING', 14, 22, { size: 10, color: C.g3, spacing: 2 });
     label(ctx, 'UNCERTAINTY', 14, 40, { size: 9.5, color: C.g3 });
-    ctx.fillStyle = rgba(C.w, 0.15); ctx.fillRect(100, 33, 90, 6); ctx.fillStyle = C.red; ctx.fillRect(100, 33, 90 * clamp(sinceFix / 12 * 0.9 + 0.08), 6);
+    ctx.fillStyle = rgba(C.w, 0.15); ctx.fillRect(100, 33, 90, 6); ctx.fillStyle = C.w; ctx.fillRect(100, 33, 90 * clamp(sinceFix / 12 * 0.9 + 0.08), 6);
     label(ctx, `FIXES ${fixes}   BEACONS ${beacons.length}`, 14, 58, { size: 9.5, color: C.g4 });
     label(ctx, 'CLICK THE WATER TO DROP A BEACON', w - 14, h - 12, { size: 9.5, color: C.g3, align: 'right' });
     corners(ctx, w, h, 8, 12, 0.35);

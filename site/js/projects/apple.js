@@ -56,7 +56,8 @@ export default function apple(env) {
       ctx.restore();
       ink(ctx, 0.3, 1); roundRect(ctx, x0, top, half, bh, 10); ctx.stroke();
       label(ctx, name, x0 + 4, top - 12, { size: narrow ? 8.5 : 9.5, color: C.g4, spacing: 1 });
-      label(ctx, `found ${found} / ${apples.length}${!det ? ` · ${spots.filter((s) => s.nx <= scan).length} false` : ''}`, x0 + 4, top + bh + 18, { size: 9.5, color: C.w });
+      const fl = half < 126 ? '' : 'found ', fsp = half < 126 ? '/' : ' / ';        // short form on small phones so the two captions do not collide
+      label(ctx, `${fl}${found}${fsp}${apples.length}${!det ? ` · ${spots.filter((s) => s.nx <= scan).length} false` : ''}`, x0 + 4, top + bh + 18, { size: 9.5, color: C.w });
     });
     corners(ctx, w, h, 4, 10, 0.25);
   }

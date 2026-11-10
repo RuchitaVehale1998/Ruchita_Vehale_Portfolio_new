@@ -10,7 +10,7 @@ const RINGS = [
   { name: 'Research Fellow', org: 'CMET, Pune', a: 2023.25, b: 2024.65 },
   { name: 'MSc Robotics', org: 'University of Bristol', a: 2024.6, b: 2025.7 },
   { name: 'Drone systems engineer', org: 'HVN Labs, Bristol', a: 2025.25, b: 2025.65 },
-  { name: 'Software Engineer (R&D)', org: 'DeGould Ltd, Bristol', a: 2025.75, b: 2026.86 },
+  { name: 'Software Engineer (R&D)', org: 'DeGould Ltd, Bristol', a: 2025.75, b: 2026.41 },
 ];
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const ang = (y) => (A0 + ((y - Y0) / (Y1 - Y0)) * SWEEP) * D2R;
@@ -35,7 +35,8 @@ export default function gears(env) {
   function draw(ctx, t, dt) {
     const { w, h, ptr } = env;
     const narrow = w < 640;
-    const cx = narrow ? w / 2 : w * 0.38, cy = narrow ? h * 0.4 : h * 0.5, R = narrow ? Math.min(w * 0.44, h * 0.36) : Math.min(h * 0.45, w * 0.32);
+    const R = narrow ? Math.min((w / 2 - 22) / 1.17, h * 0.33) : Math.min(h * 0.45, w * 0.32);   // narrow: the year labels sit at 1.17 R and must stay on the canvas
+    const cx = narrow ? w / 2 : w * 0.38, cy = narrow ? Math.max(h * 0.4, R * 1.17 + 14) : h * 0.5;
 
     /* interaction: drag the pointer round the dial; otherwise run by itself */
     if (ptr.down) {
@@ -90,15 +91,16 @@ export default function gears(env) {
 
     /* readout */
     const mon = MONTHS[Math.floor((year % 1) * 12)], ys = `${mon} ${Math.floor(year)}`;
-    label(ctx, ys.toUpperCase(), narrow ? cx : w * 0.745, narrow ? h * 0.8 + 0 : h * 0.2, { size: 22, color: C.w, align: narrow ? 'center' : 'left', font: '"Bodoni Moda", serif' });
-    const tx = narrow ? 16 : w * 0.745, ty0 = narrow ? h * 0.8 + 22 : h * 0.2 + 28;
+    const yy = narrow ? cy + R * 1.17 + 30 : h * 0.2;                // narrow: the readout hangs below the dial instead of at a fixed fraction of the height
+    label(ctx, ys.toUpperCase(), narrow ? cx : w * 0.745, yy, { size: 22, color: C.w, align: narrow ? 'center' : 'left', font: '"Bodoni Moda", serif' });
+    const tx = narrow ? 16 : w * 0.745, ty0 = narrow ? yy + 22 : h * 0.2 + 28, pitch = narrow ? 28 : 34;
     if (!active.length) label(ctx, 'between roles', tx, ty0, { size: 10.5, color: C.g3, align: narrow ? 'left' : 'left' });
     active.slice(-4).forEach((rg, i) => {
-      label(ctx, rg.name, tx, ty0 + i * 34, { size: 10.5, color: C.red });
-      label(ctx, rg.org, tx, ty0 + i * 34 + 14, { size: 10, color: C.g4 });
+      label(ctx, rg.name, tx, ty0 + i * pitch, { size: 10.5, color: C.red });
+      label(ctx, rg.org, tx, ty0 + i * pitch + (narrow ? 12 : 14), { size: 10, color: C.g4 });
     });
     out(env, 'gears-read', `<b>${ys}</b> · ${active.length ? active.map((r) => r.org).join(' · ') : 'between roles'}`);
-    label(ctx, 'DRAG THE POINTER ROUND THE DIAL', 14, h - 12, { size: 9.5, color: C.g3 });
+    if (!narrow) label(ctx, 'DRAG THE POINTER ROUND THE DIAL', 14, h - 12, { size: 9.5, color: C.g3 });   // phone: the line under the figure says it, and there is no room here
     corners(ctx, w, h, 8, 12, 0.35);
   }
   return { draw, api };

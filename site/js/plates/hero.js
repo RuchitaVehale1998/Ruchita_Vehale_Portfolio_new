@@ -72,7 +72,8 @@ export default function hero(env) {
       label(ctx, s === ' ' ? '·' : s, x, tapeY + cs * 0.66, { size: cs * 0.5, align: 'center', color: isHead ? C.w : s === ' ' ? C.g3 : C.g4, alpha: 0.25 + 0.75 * fade });
     }
     const bits = cells.slice(0, 8).map((c) => (c === ' ' ? '·' : c)).join('');
-    label(ctx, `TAPE  ·  BINARY COUNTER  ${bits}  =  ${halted && state === 'H' ? '…' : value}`, 18, h - 14, { size: 9.5, color: C.g3 });
+    const count = `${bits}  =  ${halted && state === 'H' ? '…' : value}`;
+    label(ctx, w < 400 ? `COUNTER  ${count}` : `TAPE  ·  BINARY COUNTER  ${count}`, 18, h - 14, { size: 9.5, color: C.g3 });   // short form: the long one runs into "STEP n" on phones
     label(ctx, `STEP ${steps}`, w - 18, h - 14, { size: 9.5, color: C.g3, align: 'right' });
   }
 

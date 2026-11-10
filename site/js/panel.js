@@ -51,6 +51,7 @@ export function initPanel() {
   const open = () => { ov.hidden = false; };
   const close = () => { ov.hidden = true; };
   document.getElementById('index-open').addEventListener('click', open);
+  document.getElementById('index-close').addEventListener('click', close);          // touch screens have no Esc key
   ov.addEventListener('pointerdown', (e) => { if (e.target === ov) close(); });
   list.addEventListener('click', (e) => { const li = e.target.closest('li'); if (li) { close(); go(+li.dataset.n); } });
   addEventListener('keydown', (e) => {

@@ -1,6 +1,6 @@
 /* PLATE VIII — a 16 × 16 magnetic-core plane. Each bit is a ferrite ring at a wire crossing.
    A scanning read selects one X wire and one Y wire; reading a 1 flips it to 0, so it is written straight back. */
-import { C, TAU, clamp, lerp, rgba, label, ink, line, corners, out } from '../core.js';
+import { C, TAU, clamp, lerp, rgba, label, ink, line, corners, out, TAP } from '../core.js';
 
 const N = 16;
 
@@ -69,7 +69,7 @@ export default function core(env) {
       }
     }
     out(env, 'core-read', `<b>256 bits</b> · reading core (${sr.toString(16).toUpperCase()},${sc.toString(16).toUpperCase()}) = ${bit(sr, sc)}<br>stored: <b>“${decode().replace(/</g, '&lt;')}”</b>`);
-    label(ctx, 'CLICK A CORE TO FLIP IT', 14, h - 12, { size: 9.5, color: C.g3 });
+    label(ctx, `${TAP} A CORE TO FLIP IT`, 14, h - 12, { size: 9.5, color: C.g3 });
     corners(ctx, w, h, 8, 12, 0.35);
   }
   return { draw, api };

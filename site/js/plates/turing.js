@@ -144,7 +144,7 @@ export default function turing(env) {
     const st = pts[p.start]; ctx.strokeStyle = C.g4; ctx.fillStyle = C.g4; ctx.lineWidth = 1; arrow(ctx, st[0] - 52, st[1] - 14, st[0] - 20, st[1] - 5, 6);
 
     /* ── readout ── */
-    const rx = narrow ? 14 : w * 0.72, ry = narrow ? h - 74 : ty + cs / 2 + 62;
+    const rx = narrow ? 14 : w * 0.72, ry = narrow ? Math.max(h - 74, dy + Rr + 44) : ty + cs / 2 + 62;   // narrow: never print over the diagram
     const result = m.halted ? m.tape().trim() : '…';
     label(ctx, 'STEP', rx, ry, { size: 10, color: C.g3, spacing: 2 }); label(ctx, String(m.steps), rx + 70, ry, { size: 13 });
     label(ctx, 'STATE', rx, ry + 22, { size: 10, color: C.g3, spacing: 2 }); label(ctx, m.halted ? 'halted' : m.stuck ? 'no rule' : m.state, rx + 70, ry + 22, { size: 13, color: m.halted ? C.w : C.w });

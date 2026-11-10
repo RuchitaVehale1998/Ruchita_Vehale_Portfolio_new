@@ -24,8 +24,9 @@ export default function firmware(env) {
     blocks.forEach(([a, b], i) => {
       const x = 16 + i * (bw + gap);
       roundRect(ctx, x, by, bw, bh, 6); ctx.fillStyle = i === 2 ? 'rgba(255,255,255,0.07)' : '#000'; ctx.fill(); ink(ctx, i === 2 ? 1 : 0.7, i === 2 ? 1.6 : 1.1); ctx.stroke();
-      label(ctx, a, x + bw / 2, by + bh / 2 - 3, { size: narrow ? 8.5 : 10.5, align: 'center', color: C.w });
-      label(ctx, b, x + bw / 2, by + bh / 2 + 11, { size: narrow ? 8 : 9.5, align: 'center', color: C.g4 });
+      const fit = (s, base) => Math.min(base, (bw - 4) / (s.length * 0.6));        // shrink the text to the block on small phones
+      label(ctx, a, x + bw / 2, by + bh / 2 - 3, { size: fit(a, narrow ? 8.5 : 10.5), align: 'center', color: C.w });
+      label(ctx, b, x + bw / 2, by + bh / 2 + 11, { size: fit(b, narrow ? 8 : 9.5), align: 'center', color: C.g4 });
       if (i < 3) {
         const ax = x + bw, bx = x + bw + gap, y = by + bh / 2;
         ink(ctx, 0.6, 1.2); ctx.fillStyle = ctx.strokeStyle; arrow(ctx, ax + 2, y - 5, bx - 2, y - 5, 5); arrow(ctx, bx - 2, y + 5, ax + 2, y + 5, 5);
@@ -39,7 +40,8 @@ export default function firmware(env) {
     // Lua fault-recovery loop above ArduPilot
     const lx = 16 + 2 * (bw + gap) + bw / 2;
     ctx.save(); ctx.setLineDash([2, 3]); ink(ctx, 0.5, 1); ctx.beginPath(); ctx.arc(lx, by - 6, 9, Math.PI * 0.1, Math.PI * 2.9); ctx.stroke(); ctx.restore();
-    label(ctx, 'monitor · recover', lx + 16, by - 4, { size: 8.5, color: C.g3 });
+    if (lx + 16 + 98 > w) label(ctx, 'monitor · recover', lx - 16, by - 4, { size: 8.5, color: C.g3, align: 'right' });   // would run off the right edge: put it on the left of the loop
+    else label(ctx, 'monitor · recover', lx + 16, by - 4, { size: 8.5, color: C.g3 });
 
     /* logic analyser traces */
     const x0 = 66, ppb = Math.max(9, Math.min(14, (w - x0) / 28)), off = t * ppb * 3.4;

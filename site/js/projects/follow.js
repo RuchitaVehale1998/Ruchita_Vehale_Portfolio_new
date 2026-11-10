@@ -49,7 +49,7 @@ export default function follow(env) {
     const { w, h } = env; ensure(); acc += dt; while (acc > 1 / 60) { step(1 / 60); acc -= 1 / 60; }
     const { cx, cy, px0, px1, py0, py1, narrow } = geo;
     grid(ctx, w, h, 28, 0.03);
-    label(ctx, 'LINE-FOLLOWING ROBOTS · QTR-RC SENSOR BARS', 16, 24, { size: 9.5, color: C.g3, spacing: 1.2 });
+    label(ctx, w < 400 ? 'LINE-FOLLOWING ROBOTS' : 'LINE-FOLLOWING ROBOTS · QTR-RC SENSOR BARS', 16, 24, { size: 9.5, color: C.g3, spacing: 1.2 });
     lanes.forEach((ln, li) => {
       const tr = track[li], hot = ln.fused;
       ctx.beginPath(); tr.pts.forEach(([x, y], i) => (i ? ctx.lineTo(cx + x, cy + y) : ctx.moveTo(cx + x, cy + y)));
@@ -75,7 +75,7 @@ export default function follow(env) {
       ink(ctx, ln.fused ? 1 : 0.45, 1.5); ctx.stroke();
     });
     [['outer · noisy sensing + P only', 0.45], ['inner · filtered + feed-forward + PID', 1]].forEach(([s, a], i) => { ink(ctx, a, 2); line(ctx, px0, py1 + 20 + i * 18, px0 + 10, py1 + 20 + i * 18); label(ctx, s, px0 + 16, py1 + 24 + i * 18, { size: 9.5, color: a === 1 ? C.w : C.g4 }); });
-    label(ctx, 'illustrative · the published result is 97.93%', px0, py1 + 62, { size: 9, color: C.g3 });
+    label(ctx, w < 340 ? 'illustrative · published: 97.93%' : 'illustrative · the published result is 97.93%', px0, py1 + 62, { size: 9, color: C.g3 });
     corners(ctx, w, h, 8, 12, 0.35);
   }
   return { draw, resize() { geo = null; } };

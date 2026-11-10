@@ -1,7 +1,7 @@
 /* PLATE IV — a sea chart that draws itself. The ship navigates by dead reckoning (drift grows, the red ellipse swells);
    a fix on a beacon collapses the error and snaps the already-charted coast back into place — loop closure.
    Other vessels are seen but never charted: the dynamic-object problem, in ink. */
-import { C, TAU, D2R, clamp, lerp, rgba, rng, gauss, label, ink, line, corners, hatch, centerline } from '../core.js';
+import { C, TAU, D2R, clamp, lerp, rgba, rng, gauss, label, ink, line, corners, hatch, centerline, TAP } from '../core.js';
 
 function resample(pts, step) {
   const out = [];
@@ -113,7 +113,7 @@ export default function chart(env) {
     label(ctx, 'UNCERTAINTY', 14, 40, { size: 9.5, color: C.g3 });
     ctx.fillStyle = rgba(C.w, 0.15); ctx.fillRect(100, 33, 90, 6); ctx.fillStyle = C.w; ctx.fillRect(100, 33, 90 * clamp(sinceFix / 12 * 0.9 + 0.08), 6);
     label(ctx, `FIXES ${fixes}   BEACONS ${beacons.length}`, 14, 58, { size: 9.5, color: C.g4 });
-    label(ctx, 'CLICK THE WATER TO DROP A BEACON', w - 14, h - 12, { size: 9.5, color: C.g3, align: 'right' });
+    label(ctx, `${TAP} THE WATER TO DROP A BEACON`, w - 14, h - 12, { size: 9.5, color: C.g3, align: 'right' });
     corners(ctx, w, h, 8, 12, 0.35);
   }
   return { draw };

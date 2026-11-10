@@ -29,7 +29,7 @@ export default function antenna(env) {
   }
   function polar(ctx, R, t) {
     const { x, y, w, h } = R, cx = x + w / 2, cy = y + h / 2 + 4, pr = Math.min(w, h) * 0.4;
-    label(ctx, 'RADIATION PATTERN', x, y - 10, { size: 9.5, color: C.g3, spacing: 1.5 });
+    label(ctx, w < 125 ? 'PATTERN' : 'RADIATION PATTERN', x, y - 10, { size: 9.5, color: C.g3, spacing: 1.5 });   // short on small phones: the long form is clipped
     ink(ctx, 0.14, 1); for (let k = 1; k <= 3; k++) { ctx.beginPath(); ctx.arc(cx, cy, (pr * k) / 3, 0, TAU); ctx.stroke(); }
     for (let a = 0; a < 360; a += 30) line(ctx, cx, cy, cx + Math.sin(a * D2R) * pr, cy - Math.cos(a * D2R) * pr);
     const steer = Math.sin(t * 0.55) * 26 * D2R;

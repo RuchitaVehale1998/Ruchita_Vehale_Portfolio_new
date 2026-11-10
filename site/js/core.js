@@ -5,6 +5,8 @@
 export const params = new URLSearchParams(location.search);
 export const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches || params.get('motion') === '0';
 export const isSmall = () => innerWidth < 760;
+/* hint wording: "TAP" on touch screens, "CLICK" everywhere else (desktop text is unchanged) */
+export const TAP = matchMedia('(pointer: coarse)').matches ? 'TAP' : 'CLICK';
 
 /* palette: black, greys, white — and one red */
 export const C = {

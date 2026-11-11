@@ -72,4 +72,6 @@ columns equal direct polynomial evaluation.
 (Settings → Pages → Source → GitHub Actions). `netlify.toml` publishes `site` with no build command.
 All paths are relative, so it also works under a `/<repo>/` subpath.
 
-The earlier Hugo version (`content/`, `themes/`, `hugo.yaml`, `public/`, `archetypes/`) is still in the repo, unused.
+The earlier Hugo version of the site (`content/`, `themes/`, `hugo.yaml`, `public/`, `archetypes/`) is kept as it was on the
+[`archive/hugo-site`](https://github.com/RuchitaVehale1998/Ruchita_Vehale_Portfolio_new/tree/archive/hugo-site) branch and has been
+removed from `main`.

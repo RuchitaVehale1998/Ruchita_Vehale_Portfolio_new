@@ -50,6 +50,9 @@ Flags: `?debug` shows an fps counter · `?motion=0` pauses animation (same as `p
 * **Text, numbers, descendants** — edit `site/index.html` (each plate has a `.desc` block).
 * **Skill graph / timeline data** — `site/js/plates/switch.js` (projects and skills) and `site/js/plates/gears.js` (roles).
 * **Résumé** — overwrite `site/files/Ruchita_Vehale_Resume.pdf`.
+* **Link preview** — the image shown when the site is shared is `site/og-image.jpg` (1200 x 630), made from the hero by
+  `node tools/make-og-image.mjs site/og-image.jpg`. The matching tags, the structured data and `robots.txt` /
+  `sitemap.xml` are in `site/`; update the sitemap's `lastmod` when the content changes.
 * **Walkthrough video** — `site/walkthrough.mp4` (served at www.ruchita.uk/walkthrough.mp4, because GitHub's file page
   will not play a video this size) and `docs/preview.gif` are recorded from the live site by
   `node tools/record-walkthrough.mjs <outDir>` (needs Node 22+, Chrome and ffmpeg; set `SITE_URL` to record another
